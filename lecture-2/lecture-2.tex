@@ -1,0 +1,197 @@
+\documentclass{beamer}
+\usetheme{Frankfurt}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{thegreen}{rgb}{0,.5,0}
+\definecolor{theblue}{rgb}{0,0,.8}
+\lstset{% use our version of highlighting
+  language=python,      % using python
+  keywordstyle={\color{theblue}\bfseries},          % keywords
+  commentstyle=\color{thegreen},         % comments
+}
+\lstset{%
+  basicstyle={\ttfamily\normalsize},  % use font and smaller size
+  basewidth={0.5em,0.5em},
+  showstringspaces=false,                   % do not emphasize spaces in strings
+  tabsize=2,                                % number of spaces of a TAB
+  aboveskip={0\baselineskip},               % a bit of space above
+  columns=fixed,                            % nice spacing
+}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{\thesection}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\title{Introduction to Scientific Python \\
+Lecture 2: Introduction to Python (Part I)}
+\author{Austin Benson \\
+\vspace{0.1in}
+Dan Frank \\
+\vspace{0.1in}
+Institue for Computational and Mathematical Engineering (ICME)}
+\begin{document}
+\maketitle
+
+\begin{frame}
+\frametitle{Data types}
+
+After knowing a few basic types, you can write powerful Python code.
+
+\vspace{0.1in}
+
+Data types covered today:
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{Lists and tuples}
+\item{Strings}
+\item{Dictionaries}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists}
+
+Lists (arrays) store a sequence of data which supports indexing.
+
+\vspace{0.1in}
+
+We saw lists in the polynomial evaluation example from last lecture.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists}
+
+%\begin{center}
+\begin{tabular}{l}
+\lstinputlisting{code/lists1.py}
+\end{tabular}
+%\end{center}
+
+\vspace{0.1in}
+
+Negative indexing!
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists}
+We can also manipulate slices of an array:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/lists2.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists}
+Python provides many helpful built-in functions:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/lists3.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists}
+
+Lists do not have to be homogeneous and they can be nested:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/lists4.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Lists}
+
+The \texttt{for} and \texttt{in} operators can be used to iterate over and find elements in a list:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/lists5.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Lists}
+
+List comprehensions form new lists by manipulating old ones
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/lists6.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Tuples}
+
+Tuples are similar to lists but they are immutable (cannot be modified)
+
+\vspace{0.1in}
+
+You can use tuples to enforce structure in your code
+\end{frame}
+
+\begin{frame}
+\frametitle{Tuples}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/tuples1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Strings}
+Properties of strings are similar to those of lists (indexing, slicing)
+
+\vspace{0.1in}
+
+There are many built-in string commands that make string manipulations easy (we are already saw arithmetic on strings)
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Strings}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Dictionaries}
+
+
+\end{frame}
+
+\end{document}

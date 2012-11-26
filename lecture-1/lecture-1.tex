@@ -1,0 +1,443 @@
+\documentclass{beamer}
+\usetheme{Frankfurt}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{thegreen}{rgb}{0,.5,0}
+\definecolor{theblue}{rgb}{0,0,.8}
+\lstset{% use our version of highlighting
+  language=python,      % using python
+  keywordstyle={\color{theblue}\bfseries},          % keywords
+  commentstyle=\color{thegreen},         % comments
+}
+\lstset{%
+  basicstyle={\ttfamily\normalsize},  % use font and smaller size
+  basewidth={0.5em,0.5em},
+  showstringspaces=false,                   % do not emphasize spaces in strings
+  tabsize=2,                                % number of spaces of a TAB
+  aboveskip={0\baselineskip},               % a bit of space above
+  columns=fixed,                            % nice spacing
+}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{\thesection}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\title{Introduction to Scientific Python \\
+Lecture 1: Introduction to computing}
+\author{Austin Benson \\
+\vspace{0.1in}
+Dan Frank \\
+\vspace{0.1in}
+Institue for Computational and Mathematical Engineering (ICME)}
+\begin{document}
+\maketitle
+
+%\section{Matrix storage}
+
+\begin{frame}
+\frametitle{Course structure}
+
+\begin{itemize}
+\setlength{\itemsep}{0.2in}
+\item{
+Five 2-hour lectures, all in first three weeks
+}
+
+\item{
+% this may change, leaving here as a filler
+Homework due at the beginning of each lecture
+}
+
+\item{
+Lectures:
+\begin{itemize}
+\setlength{\itemsep}{0.05in}
+\item{1 hour of instruction and demos}
+\item{1 hour of interactive exercises}
+\end{itemize}
+}
+
+\item{
+Please bring a laptop to class!
+}
+\end{itemize}
+
+\vspace{0.2in}
+
+All course materials on the course web site: \url{http://math.stanford.edu/~arbenson/cme192.html}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Course outline}
+
+\begin{enumerate}
+\setlength{\itemsep}{0.2in}
+
+\item{Introduction to Computing}
+\item{Introduction to Python (Part I)}
+\item{Introduction to Python (Part II)}
+\item{Learning scientific tools}
+\item{Using scientific tools}
+
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{About the instructions}
+
+\begin{figure}
+        \centering
+	\begin{subfigure}[b]{0.45\textwidth}
+	\centering
+	\includegraphics[height=1in]{"images/austin"}
+	\caption{Austin}
+	\label{fig:hw2_15a}
+	\end{subfigure}
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.45\textwidth}
+	\centering
+	\includegraphics[height=1in]{"images/dan"}
+	\caption{Dan}
+	\label{fig:hw2_15b}
+	\end{subfigure}
+	% \caption{}\label{fig:hw2_34}
+\end{figure}
+
+% office hours??
+ICME PhD students
+
+Offices: ICME (Huang basement)
+
+\end{frame}
+
+\section{What is a variable?}
+\begin{frame}
+\frametitle{Basic variables}
+
+A variable holds information (1.343, 'hi', [1, 1, 2, 3, 5, 8])
+
+\vspace{0.2in}
+
+In Python this is simple:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/basic_vars1.py}
+\end{tabular}
+\end{center}
+
+(\textcolor{thegreen}{\#} signifies the start of a comment in Python)
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Basic variables}
+
+Variables can change (they are \emph{variable})
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/basic_vars2.py}
+\end{tabular}
+\end{center}
+
+(no more knowledge of 1.343, 2, or 14)
+
+\end{frame}
+
+
+\section{Arithmetic and boolean operators}
+
+\begin{frame}
+\frametitle{Arithmetic operators}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/arith_ops1.py}
+\end{tabular}
+\end{center}
+
+Python supports this ``arithmetic" on strings.  (Note: Matlab does not.)
+\end{frame}
+
+\begin{frame}
+\frametitle{Arithmetic operators}
+
+Some nice shortcuts:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/arith_ops2.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Comparison operators}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/comp_ops1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Boolean operations}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/bool_ops1.py}
+\end{tabular}
+\end{center}
+
+Python conveniently uses the keywords \textcolor{theblue}{and}, \textcolor{theblue}{or}, \textcolor{theblue}{not} instead of the symbols \textcolor{theblue}{\&\&}, $\textcolor{theblue}{||}$, \textcolor{theblue}{!}
+
+\end{frame}
+
+
+\section{Control Flow}
+\begin{frame}
+\frametitle{if}
+The \texttt{if} statement is the most basic way to control the direction and flow of a program
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/if1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{if/else}
+\texttt{if} is often accompanied by \texttt{else} to specify a second path for the code if the \texttt{if} statement is false
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/if2.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+% TODO: maybe a section on if/elif
+
+\begin{frame}
+\frametitle{while}
+The \texttt{while} loop repeatedly executes a task while a condition is true
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/while1.py}
+\end{tabular}
+\end{center}
+
+What is this code doing?
+
+\end{frame}
+
+\begin{frame}
+\frametitle{for}
+The \texttt{for} loop also repeatedly executes a task
+
+\vspace{0.1in}
+
+Typically, \texttt{for} provides more structure:
+
+\vspace{0.1in}
+
+\centering
+for ($i = 0$; $i < n$; $i = i + 1$)
+
+\end{frame}
+
+\begin{frame}
+\frametitle{for}
+
+%\begin{figure}[h!]
+\centering
+\includegraphics[height=1.5in]{"images/for"}
+%\caption{}
+%\label{}
+%\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Python for}
+\begin{itemize}
+\setlength{\itemsep}{0.2in}
+\item{Python uses \texttt{for} differently than Matlab, C++, ...}
+\item{\texttt{for} is used to iterate over elements in an ``object"}
+\item{This is a reason why Python is easy and powerful}
+\item{More next lecture on how you can iterate over a ``object"}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Python for}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/for1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\section{Functions}
+\begin{frame}
+\frametitle{Functions}
+Functions are used to organize programs into coherent pieces
+
+\vspace{0.2in}
+
+In other words, functions are used to generalize or ``abstract" components of a program 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Root finding}
+
+What is a problem with this code?
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/while1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Root finding}
+We do not want a $\sqrt{7}$ method, we want a $\sqrt{x}$ method
+
+\vspace{0.2in}
+
+We still have the same capabilities (just let $x = 7$), but now our ``abstracted" root finder can be used for more cases
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Root finding}
+
+With the function, we can call \texttt{root(7)}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/while2.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Root finding}
+More general, we can call \texttt{root(7, 0.1)}:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/while3.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Root finding}
+Python makes it easy to provide default argument values:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/while4.py}
+\end{tabular}
+\end{center}
+
+Can call \texttt{root(3)}, \texttt{root(113, 0.01)}
+\end{frame}
+
+\begin{frame}
+\frametitle{Root finding}
+A few things to think about:
+\vspace{0.1in}
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{Are there cases where \texttt{root()} will have an error?}
+\item{Are there cases where \texttt{root()} will run forever? (fail to converge)}
+\item{How else can we generalize the function?}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Basic functions}
+
+What will happen when this code runs?
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/func1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Basic functions}
+
+What about this code?
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/func2.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{More function examples}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/poly_eval1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{More function examples}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/poly_eval2.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\end{document}
