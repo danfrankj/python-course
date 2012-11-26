@@ -1,9 +1,12 @@
-courseinfo = ('CME192', 'ICME', 2)
+p1 = ('start', 1.2, -3.0, 17.222)
+p2 = ('end', -7.3, 0.0, -0.0001)
 
-courseinfo[2] = 3 # error!
+p1[3] = 17.2 # error!
 
-print courseinfo[2] # prints '2'
+print p2[2] # prints '0.0'
 
 # unpacking
-course, department, lecture = courseinfo
-print course # prints 'CME192'
+type1, x1, y1, z1 = p1
+type2, x2, y2, z2 = p2
+
+print x1 - x2 # prints '8.5'

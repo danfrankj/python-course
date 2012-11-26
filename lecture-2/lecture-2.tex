@@ -5,6 +5,7 @@
 \usepackage{subcaption}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{amsmath}
 
 \definecolor{thegreen}{rgb}{0,.5,0}
 \definecolor{theblue}{rgb}{0,0,.8}
@@ -184,12 +185,140 @@ There are many built-in string commands that make string manipulations easy (we 
 \begin{frame}
 \frametitle{Strings}
 
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/strings1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Strings}
+Parsing a vector:
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/strings2.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Strings}
+Parsing a vector (one-liner):
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/strings3.py}
+\end{tabular}
+\end{center}
 
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Dictionaries}
+
+Dictionaries are maps from a set of keys to a set of values.  Keys need to be immutable (not changing)
+
+\vspace{0.2in}
+
+Dictionaries are also called ``associative arrays"
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Dictionaries}
+
+$K = \{$ keys $\}$, $V = \{$ values $\}$.  $D: K \rightarrow V$:
+
+\huge{
+\begin{center}
+$k \stackrel{D}{\longmapsto} v_k \in V$
+\end{center}
+} \normalsize{}
+
+\vspace{0.2in}
+
+In Python, you form $D$ by a series of insertions of tuples $(k, v_k) \in K \times V$.  It is ``fast" to compute $D(k)$.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Dictionaries}
+
+Example:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/dicts1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Dictionaries}
+
+Example:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/dicts2.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{White space}
+
+Python uses indentation (``white space") to group statements
+
+\vspace{0.15in}
+
+Each code block is indented the same amount (for loop, while loop, function definition, etc.)
+
+\vspace{0.15in}
+
+Python will complain if your indentation is incorrect
+\end{frame}
+
+\begin{frame}
+\frametitle{White space}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/white1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{White space}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/white2.py}
+\end{tabular}
+\end{center}
+
+2-space or 4-space indentation is standard.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{White space}
+
+Some people like this indentation structure and some people do not.
+
+\vspace{0.2in}
+
+... Python isn't going to stop using it
 
 
 \end{frame}
