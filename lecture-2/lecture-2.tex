@@ -58,6 +58,8 @@ Data types covered today:
 
 \end{frame}
 
+\section{Lists and tuples}
+
 \begin{frame}
 \frametitle{Lists}
 
@@ -171,6 +173,8 @@ You can use tuples to enforce structure in your code
 
 \end{frame}
 
+\section{Strings}
+
 \begin{frame}
 \frametitle{Strings}
 Properties of strings are similar to those of lists (indexing, slicing)
@@ -215,6 +219,8 @@ Parsing a vector (one-liner):
 
 \end{frame}
 
+
+\section{Dictionaries}
 
 \begin{frame}
 \frametitle{Dictionaries}
@@ -320,6 +326,89 @@ Some people like this indentation structure and some people do not.
 
 ... Python isn't going to stop using it
 
+\end{frame}
+
+\section{Functions}
+
+\begin{frame}
+\frametitle{More functions}
+
+Functions:
+\begin{itemize}
+\setlength{\itemsep}{0.15in}
+\item{Last time: functions are used to organize programs into coherent pieces}
+\item{Today:
+\begin{itemize}
+  \setlength{\itemsep}{0.1in}
+  \item{Specifically learn Python functions}
+  \item{What is a lambda?}
+\end{itemize}
+}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{FFT}
+Def is used to define a function
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/func1.py}
+\end{tabular}
+\end{center}
+
+$x$ and $k$ are the arguments to the function
+\end{frame}
+
+\begin{frame}
+\frametitle{FFT}
+
+We can provide default argument values:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/func2.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{FFT}
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/func3.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Functions}
+In Python, we can pass functions as objects:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/lambda1.py}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Lambdas}
+Sometimes it is more convenient to not have to declare the functions:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/lambda2.py}
+\end{tabular}
+\end{center}
+
+These in-line function definitions are called lambdas
 
 \end{frame}
 
