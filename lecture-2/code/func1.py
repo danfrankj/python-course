@@ -1,4 +1,4 @@
-import cmath
+import cmath # complex math library
 
 def fftk(x, k):
   c = -1j * 2 * cmath.pi * k / len(x)

@@ -1,3 +1,11 @@
-vals = [1, 3, 5, 7, 9]
+squares = [0, 1, 4, 9, 16, 25]
 
-double_vals = [2*v for v in vals]
+for i, val in enumerate(squares):
+    print i, val
+
+# cleaner and more concise than:
+i = 0
+for val in squares:
+  print i, val
+  i = i + 1
+
