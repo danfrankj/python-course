@@ -1,0 +1,145 @@
+\documentclass{article}
+\newcommand{\assgnnum}{1}
+\newcommand{\assigndate}{January 10}
+
+\usepackage{amsmath}
+%\usepackage{fullpage}
+\usepackage{amssymb}
+%\usepackage{bbm}
+\usepackage{fancyhdr}
+%\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{thegreen}{rgb}{0,.5,0}
+\definecolor{theblue}{rgb}{0,0,.8}
+\lstset{% use our version of highlighting
+  language=python,      % using python
+  keywordstyle={\color{theblue}\bfseries},          % keywords
+  commentstyle=\color{thegreen},         % comments
+}
+\lstset{%
+  basicstyle={\ttfamily\normalsize},  % use font and smaller size
+  basewidth={0.5em,0.5em},
+  showstringspaces=false,                   % do not emphasize spaces in strings
+  tabsize=2,                                % number of spaces of a TAB
+  aboveskip={0\baselineskip},               % a bit of space above
+  columns=fixed,                            % nice spacing
+}
+
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -0.5in \headheight 0.25in \headsep 0.25in
+\textwidth 6.5in \textheight 9in
+\parskip 6pt \parindent 0in \footskip 20pt
+
+% set the header up
+\fancyhead{}
+\fancyhead[L]{CME193: In-class exercises \assgnnum}
+\fancyhead[R]{\assigndate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\headrulewidth{0.4pt}
+\setlength\headheight{15pt}
+
+
+\newcommand{\p}{\ensuremath{\mathbf{P}}}
+\renewcommand{\Pr}[1]{\ensuremath{\p \left \{ #1 \right \}}}
+\newcommand{\nti}{\ensuremath{n \to \infty}}
+\newcommand{\I}{\ensuremath{\operatorname{I}}}
+\newcommand{\One}[1]{\ensuremath{\mathbbm{1}_{\left \{ #1 \right \}}}}
+\newcommand{\E}{\ensuremath{\mathbf{E}}}
+\newcommand{\Ex}[2][]{\ensuremath{\E_{#1} \left[ #2 \right]}}
+\newcommand{\var}{\ensuremath{\operatorname{Var}}}
+\newcommand{\cov}{\ensuremath{\operatorname{Cov}}}
+\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\NormRV}[2]{\ensuremath{\operatorname{N}\left(#1, #2\right)}}
+\newcommand{\BetaRV}[2]{\ensuremath{\operatorname{Beta}\left(#1, #2\right)}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\bb}{\mathbf{b}}
+
+
+\newcounter{points}
+\setcounter{points}{0}
+
+\newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
+\newcommand\printpoints{Total number of points: \thepoints}
+
+\newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
+
+\setlength{\parindent}{0in}
+
+\begin{document}
+
+\pagestyle{fancy}
+%\vspace*{15pt}
+\begin{enumerate}
+\item \textbf{Arithmetic and Logic} \\
+In class, we saw the arithmetic operators \texttt{+}, \texttt{-}, \texttt{*}, and \texttt{/} and the boolean operators \texttt{and}, \texttt{or}, and \texttt{not}.  In this exercise, we explore more about arithmetic and boolean operators.  Use the Python interpreter to answer the following questions.
+
+\begin{enumerate}
+\item What is the difference between the expressions \texttt{x = 7 / 2}, \texttt{x = 7.0 / 2}, and \texttt{x = 7.0 // 2}?  What is the result of \texttt{type(x)} after each expressions? Describe a potential hazard of this arithmetic.  \emph{Note: In Matlab, there is no difference between the first and second expressions.}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Let's examine a few other useful operators.  What do the following operators do: \texttt{**}, \texttt{\%}.  Can these operators be used on strings?
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item The operators \texttt{and}, \texttt{or}, and \texttt{not}, corresponding to the more conventional symbols \texttt{\&\&}, \texttt{||}, and \texttt{!} (in Matlab \texttt{\~} instead of \texttt{!}).  To what symbols do the Python operators \texttt{is} and \texttt{is not} correspond? Why is using English words instead of symbols useful?
+\end{enumerate}
+
+For more information see:
+\begin{itemize}
+\item Python expressions: \url{http://docs.python.org/2/reference/expressions.html}
+\item Python floating point: \url{http://docs.python.org/2/tutorial/floatingpoint.html}
+\end{itemize}
+
+
+
+\item \textbf{Control Flow} \\
+
+\begin{enumerate}
+\item 
+\end{enumerate}
+
+
+
+\item \textbf{Functions} \\
+Consider the following snippet of Python code: \\
+
+\lstinputlisting{code/diff.py}
+
+\begin{enumerate}
+\item What gets printed?
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item What is this function doing?
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Describe some abstractions for this function.  What can be provided as parameters?
+\end{enumerate}
+
+Using concepts from the next lecture, here is a much more powerful function:
+
+\begin{center}
+\begin{tabular}{c}
+\lstinputlisting{code/diff2.py}
+\end{tabular}
+\end{center}
+
+
+
+\end{enumerate}
+%\printpoints.
+\end{document} 

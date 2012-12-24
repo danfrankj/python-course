@@ -1,0 +1,212 @@
+\documentclass{article}
+\newcommand{\assgnnum}{1}
+\newcommand{\duedate}{January 15}
+
+\usepackage{amsmath}
+%\usepackage{fullpage}
+\usepackage{amssymb}
+%\usepackage{bbm}
+\usepackage{fancyhdr}
+%\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{thegreen}{rgb}{0,.5,0}
+\definecolor{theblue}{rgb}{0,0,.8}
+\lstset{% use our version of highlighting
+  language=python,      % using python
+  keywordstyle={\color{theblue}\bfseries},          % keywords
+  commentstyle=\color{thegreen},         % comments
+}
+\lstset{%
+  basicstyle={\ttfamily\normalsize},  % use font and smaller size
+  basewidth={0.5em,0.5em},
+  showstringspaces=false,                   % do not emphasize spaces in strings
+  tabsize=2,                                % number of spaces of a TAB
+  aboveskip={0\baselineskip},               % a bit of space above
+  columns=fixed,                            % nice spacing
+}
+
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -0.5in \headheight 0.25in \headsep 0.25in
+\textwidth 6.5in \textheight 9in
+\parskip 6pt \parindent 0in \footskip 20pt
+
+% set the header up
+\fancyhead{}
+\fancyhead[L]{CME193: Assignment \assgnnum}
+\fancyhead[R]{Due: \duedate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\headrulewidth{0.4pt}
+\setlength\headheight{15pt}
+
+\newcommand{\p}{\ensuremath{\mathbf{P}}}
+\renewcommand{\Pr}[1]{\ensuremath{\p \left \{ #1 \right \}}}
+\newcommand{\nti}{\ensuremath{n \to \infty}}
+\newcommand{\I}{\ensuremath{\operatorname{I}}}
+\newcommand{\One}[1]{\ensuremath{\mathbbm{1}_{\left \{ #1 \right \}}}}
+\newcommand{\E}{\ensuremath{\mathbf{E}}}
+\newcommand{\Ex}[2][]{\ensuremath{\E_{#1} \left[ #2 \right]}}
+\newcommand{\var}{\ensuremath{\operatorname{Var}}}
+\newcommand{\cov}{\ensuremath{\operatorname{Cov}}}
+\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\NormRV}[2]{\ensuremath{\operatorname{N}\left(#1, #2\right)}}
+\newcommand{\BetaRV}[2]{\ensuremath{\operatorname{Beta}\left(#1, #2\right)}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\bb}{\mathbf{b}}
+
+
+\newcounter{points}
+\setcounter{points}{0}
+
+\newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
+\newcommand\printpoints{Total number of points: \thepoints}
+
+\newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
+
+\setlength{\parindent}{0in}
+
+\begin{document}
+
+\pagestyle{fancy}
+%\vspace*{15pt}
+
+Each part of each question is worth 1 point.  Total: 20 points.  70+\% correctness (14+ points) is needed to pass.  Remember: you must pass all assignments to pass the class.  Using Python to answer questions for this assignment is encouraged but not required.  The assignment is due at the beginning of class.
+
+\begin{enumerate}
+\item \textbf{True or False, literally} \\
+State whether the statement is \texttt{True} or \texttt{False} as it would be evaluated in Python (i.e., how it was described in lecture).  Assume that the variable \texttt{x} has a boolean value of \texttt{True}.  No need for explanation, except for the bonus question.  For the order of operations of Python commands, see: % TODO: link here
+
+\begin{enumerate}
+\item \texttt{2 == 2 and 1 > 0}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \texttt{'py' * 3 + 'thon' == 'pypypython' and 1 < 2 < 3}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \texttt{0 is True or not x}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \texttt{1 and 2 and 3 and x}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{4}
+\item Bonus (1 extra point):  \texttt{'hello' < 'jello'}  \\
+Why is this true or false?
+\end{enumerate}
+
+
+\item \textbf{Fun with numbers} \\
+State to what numeric value the following statements will evaluate in Python.  Assume that the variable \texttt{x} has a numeric value of \texttt{10.0}.  For the order of operations of Python arithmetic, see: % TODO: link here
+
+\begin{enumerate}
+\item \texttt{x + 2 ** 3 - 17 / 2}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \texttt{x + 2 ** 3 - 17.0 / 2}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \texttt{11 * 2 \% 6}
+\end{enumerate}
+
+
+\item \textbf{Functions and flow} \\
+For each of the following Python scripts, state what gets printed.
+
+\begin{enumerate}
+\item \lstinputlisting{code/fnf_a.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item 
+The \texttt{elif} statement combines the concepts of an \texttt{else} and an \texttt{if} statement.  It follows an \texttt{if} statement.  If the \texttt{if} statement is false, then the \texttt{elif} statement is evaluated.  If the \texttt{elif} statement is true, that code block executes.
+
+\lstinputlisting{code/fnf_b.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \lstinputlisting{code/fnf_c.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \lstinputlisting{code/fnf_d.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{4}
+\item Bonus (1 extra point):
+
+\lstinputlisting{code/fnf_e.py}
+\end{enumerate}
+
+
+\item \textbf{Sequence products}
+
+The code below computes the product of every other number between the parameter \texttt{start} and 100.  For example, \text{mult(15)} would return $15 * 17 * 19 = 4845$ and \text{mult(14)} would return $14 * 16 * 18 * 20 = 80640$.  You will implement the \texttt{errorcheck()} functions in part (a). \\
+
+\lstinputlisting{code/mult.py}
+
+\begin{enumerate}
+\item Suppose we want the function to return an error if either (1) the value of \texttt{start} is less than or equal to zero or (2) the value of \texttt{start} is greater than $20$.  What should \texttt{errorcheck()} return so that the function follows this behavior?
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Describe an abstraction that can be made for this function.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Suppose that your abstraction from part (b) is implemented.  What function call can you make so that the function returns the same value as it would have before the abstraction was implemented?
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item Does your \texttt{errorcheck()} implementation in part (a) still make sense?
+\end{enumerate}
+
+\item \textbf{Survey}
+
+(1 point total).  Approximately how much time did you spend on this assignment?
+\begin{enumerate}
+\item less than one hour
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item between one and three hours
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item between three and five hours
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item more than five hours
+\end{enumerate}
+
+\end{enumerate}
+%\printpoints.
+\end{document} 
