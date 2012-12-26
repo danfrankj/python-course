@@ -1,0 +1,150 @@
+\documentclass{article}
+\newcommand{\assgnnum}{1}
+\newcommand{\duedate}{January 17}
+
+\usepackage{amsmath}
+%\usepackage{fullpage}
+\usepackage{amssymb}
+%\usepackage{bbm}
+\usepackage{fancyhdr}
+%\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
+\usepackage{arbenson-math}
+
+
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -0.5in \headheight 0.25in \headsep 0.25in
+\textwidth 6.5in \textheight 9in
+\parskip 6pt \parindent 0in \footskip 20pt
+
+% set the header up
+\fancyhead{}
+\fancyhead[L]{CME193: Assignment \assgnnum}
+\fancyhead[R]{Due: \duedate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\headrulewidth{0.4pt}
+\setlength\headheight{15pt}
+
+\newcommand{\p}{\ensuremath{\mathbf{P}}}
+\renewcommand{\Pr}[1]{\ensuremath{\p \left \{ #1 \right \}}}
+\newcommand{\nti}{\ensuremath{n \to \infty}}
+\newcommand{\I}{\ensuremath{\operatorname{I}}}
+\newcommand{\One}[1]{\ensuremath{\mathbbm{1}_{\left \{ #1 \right \}}}}
+\newcommand{\E}{\ensuremath{\mathbf{E}}}
+\newcommand{\Ex}[2][]{\ensuremath{\E_{#1} \left[ #2 \right]}}
+\newcommand{\var}{\ensuremath{\operatorname{Var}}}
+\newcommand{\cov}{\ensuremath{\operatorname{Cov}}}
+\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\NormRV}[2]{\ensuremath{\operatorname{N}\left(#1, #2\right)}}
+\newcommand{\BetaRV}[2]{\ensuremath{\operatorname{Beta}\left(#1, #2\right)}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\bb}{\mathbf{b}}
+
+\newcounter{points}
+\setcounter{points}{0}
+
+\newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
+\newcommand\printpoints{Total number of points: \thepoints}
+
+\newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
+
+\setlength{\parindent}{0in}
+
+\begin{document}
+
+\pagestyle{fancy}
+%\vspace*{15pt}
+
+40 points total.  70+\% correctness (28+ points) is needed to pass.  There is also the opportunity for 5 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of class.  For the grading details, see question 2, part (e).
+
+\begin{enumerate}
+\item \textbf{Executing python scripts} \\
+
+\item \textbf{Coordinate systems in three-dimensions} \\
+In class, we saw how to use a dictionary to store cartesian and spherical coordinates.  In this homework assignment, we will write code that converts data types between different three-dimensional coordinates systems.  First, we will review three coordinate systems.
+
+The first system is the familiar cartesian coordinate system.  Three points, call them $x$, $y$, and $z$, are used to represent the point on three orthogonal coordinate axes.
+
+The second system is spherical coordinates, which represents a point by a nonnegative radial distance $r$, a polar angle $\phi$, and an azimuthal angle angle $\theta$.  ($r$, $\phi$, $\theta$) represent a point on a sphere centered at the origin.  The two-dimensional analog to spherical coordinates is polar coordinates: the ($r$, $\theta$) form.  Thus, the spherical coordinate system is sometimes called the polar coordinate system.
+
+The third system is cylindrical coordinates, which represents a point by a nonnegative radial distance $\rho$, an angle $\phi$, and a height $z$.  $(\rho, \phi, z)$ represents a point on a cylinder centered at the origin.
+
+We will use the following formulas to convert between coordinate systems:
+
+\begin{itemize}
+\item{cartesian $\rightarrow$ spherical: ($r = \sqrt{x^2 + y^2 + z^2}$, $\theta = \tan^{-1}\left(\frac{y}{x}\right)$, $\phi = \cos^{-1}\left(\frac{z}{r}\right)$)}
+\item{cartesian $\rightarrow$ cylindrical: ($\rho = \sqrt{x^2 + y^2}$, $\theta = \tan^{-1}\left(\frac{y}{x}\right)$, $z = z$)}
+
+\item{spherical $\rightarrow$ cartesian: ($x = r\cos\theta\sin\phi$, $y = r\sin\theta\sin\phi$, $z = r\cos\theta$)}
+\item{spherical $\rightarrow$ cylindrical: ($\rho = r\cos\theta$, $\phi = \phi$, $z = r\sin\theta$)}
+
+\item{cylindrical $\rightarrow$ cartesian: ($x = \rho\sin\theta$, $y = \rho\cos\theta$, $z = z$)}
+\item{cylindrical $\rightarrow$ spherical: ($r = \sqrt{\rho^2 + z^2}$, $\theta = \cos^{-1}\left(\frac{z}{r}\right)$, $\phi = \phi$)  \\
+\emph{Note: the r term to compute $\theta$ is $\sqrt{\rho^2 + z^2}$}
+}
+\end{itemize}
+
+\begin{enumerate}
+\item Implement the functions \texttt{cart2sphere()}, \texttt{cart2cyl()}, \texttt{sphere2cart()}, \texttt{sphere2cyl()}, \texttt{cyl2cart()}, and \texttt{cyl2sphere()} in the file \texttt{coordinates\_tuples.py}.  These functions convert between the coordinate systems by representing points as Python tuples in $(x, y, z)$, $(r, \theta, \phi)$, or $(\rho, \theta, \phi)$ form. \\
+
+For $cos^{-1}$, use \texttt{math.acos()}, for $\sin^{-1}$, use \texttt{math.asin()}, and for $\tan^{-1}$, use \texttt{math.atan2()}.  \texttt{math.atan2()} maintains the quadrant information of $x$ and $y$, while \texttt{math.atan()} does not.  See \url{http://docs.python.org/2/library/math.html#trigonometric-functions} for more information.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Implement \texttt{convert\_points()} in the file \texttt{coordinates\_tuples.py}.  This function converts a list of points in one coordinate system to a list of points in another coordinate system.  The implementation has been started for you.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Repeat part (a) in the file \texttt{coordinates\_dicts.py}.  These functions use dictionaries instead of tuples to represent points.  Again, \texttt{cart2sphere()} has been implemented for you.  For $cos^{-1}$, use \texttt{math.acos()}, for $\sin^{-1}$, use \texttt{math.asin()}, and for $\tan^{-1}$, use \texttt{math.atan2()}.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item Implement \texttt{detect\_type()} in the file \texttt{coordinates\_dicts.py}.  This function determines what type of coordinate system is being used based on the keys in the dictionary.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{4}
+\item Grading: \\
+
+To grade this assignment, tests will be conducted by calling the functions you implement.  Each test is worth 0 points (do not pass test) or 1 point (pass test).  There is no partial credit on tests.  Parts (a) and (b) are worth a combined 20 points (20 tests).  Parts (c) and (d) are worth a combined 20 points (20 tests).
+
+10 of the 20 tests for parts (a)/(b) and (c)/(d) are provided with the assignment.  The remaining tests will be run after you submit the assignment.  If you pass all of the provided tests, you know that you have earned at least 50\% of the points on the assignment.
+
+Gaming the autograder by hard-coding the answers of the provided test functions is considered cheating and a violation of the Stanford honor code.
+\end{enumerate}
+
+
+\item \textbf{Python classes (bonus)} \\
+Python has support for object-oriented programming.  The basis for this is the Python class, which is a container for data and functions.  For this bonus question, you are asked to implement a class representing a point.  The starter code is \texttt{coordinates\_classes.py}.  You can read about classes at:
+
+\begin{itemize}
+\item \url{http://docs.python.org/2/tutorial/classes.html}
+\item \url{http://www.tutorialspoint.com/python/python_classes_objects.htm}
+\end{itemize}
+
+\begin{enumerate}
+\item 
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Grading: \\
+
+5 tests will be conducted on your implementation.  Same rules as question 2, part (3) apply, except no tests will be provided for you.
+\end{enumerate}
+
+\item \textbf{Submission} \\
+
+
+
+\end{enumerate}
+%\printpoints.
+\end{document} 
