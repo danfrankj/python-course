@@ -10,24 +10,7 @@
 %\usepackage{paralist}
 \usepackage{graphicx}
 \usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
-\usepackage{listings}
-\usepackage{color}
-
-\definecolor{thegreen}{rgb}{0,.5,0}
-\definecolor{theblue}{rgb}{0,0,.8}
-\lstset{% use our version of highlighting
-  language=python,      % using python
-  keywordstyle={\color{theblue}\bfseries},          % keywords
-  commentstyle=\color{thegreen},         % comments
-}
-\lstset{%
-  basicstyle={\ttfamily\normalsize},  % use font and smaller size
-  basewidth={0.5em,0.5em},
-  showstringspaces=false,                   % do not emphasize spaces in strings
-  tabsize=2,                                % number of spaces of a TAB
-  aboveskip={0\baselineskip},               % a bit of space above
-  columns=fixed,                            % nice spacing
-}
+\usepackage{arbenson-math}
 
 \oddsidemargin 0in \evensidemargin 0in
 \topmargin -0.5in \headheight 0.25in \headsep 0.25in
@@ -114,7 +97,7 @@ For more information see:
 \item \textbf{Functions} \\
 Consider the following snippet of Python code: \\
 
-\lstinputlisting{code/diff.py}
+\lstinputlisting{code/deriv1.py}
 
 \begin{enumerate}
 \item What gets printed?
@@ -134,7 +117,7 @@ Using concepts from the next lecture, here is a much more powerful function:
 
 \begin{center}
 \begin{tabular}{c}
-\lstinputlisting{code/diff2.py}
+\lstinputlisting{code/deriv2.py}
 \end{tabular}
 \end{center}
 

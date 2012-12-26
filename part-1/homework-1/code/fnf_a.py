@@ -1,7 +1,7 @@
 def func_a():
     i = 0
     j = 0
-    while (i < 20):
+    while (i < 16):
         if i > 3:
             i += 2
         if i < 10:

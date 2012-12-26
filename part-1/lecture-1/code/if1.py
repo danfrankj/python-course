@@ -1,8 +1,8 @@
 if x:
-  print 'hello'
+  print 'hello1'
 
 if not x:
-  print 'hello'
+  print 'hello2'
 
 if not x and y:
-  print 'hello'
+  print 'hello3'

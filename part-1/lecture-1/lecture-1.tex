@@ -1,26 +1,10 @@
 \documentclass{beamer}
-\usetheme{Frankfurt}
-
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{listings}
-\usepackage{color}
+\usepackage{arbenson-math}
 
-\definecolor{thegreen}{rgb}{0,.5,0}
-\definecolor{theblue}{rgb}{0,0,.8}
-\lstset{% use our version of highlighting
-  language=python,      % using python
-  keywordstyle={\color{theblue}\bfseries},          % keywords
-  commentstyle=\color{thegreen},         % comments
-}
-\lstset{%
-  basicstyle={\ttfamily\normalsize},  % use font and smaller size
-  basewidth={0.5em,0.5em},
-  showstringspaces=false,                   % do not emphasize spaces in strings
-  tabsize=2,                                % number of spaces of a TAB
-  aboveskip={0\baselineskip},               % a bit of space above
-  columns=fixed,                            % nice spacing
-}
+\usetheme{boxes}
+\usecolortheme{seahorse}
 
 \AtBeginSection[]
 {
@@ -30,64 +14,15 @@
   \end{frame}
 }
 
-\title{Introduction to Scientific Python \\
+\title{CME 193: Introduction to Scientific Python \\
 Lecture 1: Introduction to computing}
 \author{Austin Benson \\
 \vspace{0.1in}
 Dan Frank \\
 \vspace{0.1in}
-Institue for Computational and Mathematical Engineering (ICME)}
+Institute for Computational and Mathematical Engineering (ICME)}
 \begin{document}
 \maketitle
-
-\begin{frame}
-\frametitle{Course structure}
-
-\begin{itemize}
-\setlength{\itemsep}{0.2in}
-\item{
-Five 2-hour lectures, all in first three weeks
-}
-
-\item{
-% this may change, leaving here as a filler
-Homework due at the beginning of each lecture (except this lecture)
-\begin{itemize}
-\setlength{\itemsep}{0.05in}
-\item{All electronic submissions}
-\end{itemize}
-}
-
-\item{
-Lectures:
-\begin{itemize}
-\setlength{\itemsep}{0.05in}
-\item{1 hour of instruction and demos}
-\item{1 hour of interactive exercises}
-\end{itemize}
-}
-
-\item{
-Please bring a laptop to class!
-}
-\end{itemize}
-
-\vspace{0.2in}
-
-All course materials on the course web site: \url{http://www.stanford.edu/~arbenson/cme193.html}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Course textbook}
-
-\begin{itemize}
-\setlength{\itemsep}{0.2in}
-\item{No textbook!}
-\item{We will post online materials on the course web site}
-\end{itemize}
-
-\end{frame}
 
 \begin{frame}
 \frametitle{About the instructors}
@@ -146,11 +81,74 @@ Offices: ICME (Huang basement)
 One reason why we are excited to teach this class:
 
 \begin{itemize}
-\item{Students in: CEE, Bioengr., Mech. Engr., Petroleum Engr., EE, ERE, ICME, MSE, Econ, Biophysics, CS, Business, Biology, Geophysics, Undeclared}
+\item{Students in: CEE, Bioengr., Mech. Engr., Petroleum Engr., EE, ERE, ICME, MSE, Econ, Biophysics, CS, Business, Biology, Geophysics, Music, Undeclared}
 \item{Undergraduate: year 1, 2, 3, 4; Graduate: year 1, 2, 3, 4+}
 \end{itemize}
 
 \end{frame}
+
+\begin{frame}
+\frametitle{Course structure}
+
+\begin{itemize}
+\setlength{\itemsep}{0.2in}
+\item{
+Five 2-hour lectures, all in first three weeks
+}
+
+\item{
+% this may change, leaving here as a filler
+Homework due at the beginning of each lecture (except this lecture)
+\begin{itemize}
+\setlength{\itemsep}{0.05in}
+\item{All electronic submissions}
+\end{itemize}
+}
+
+\item{
+Lectures:
+\begin{itemize}
+\setlength{\itemsep}{0.05in}
+\item{1 hour of instruction and demos}
+\item{1 hour of interactive exercises}
+\end{itemize}
+}
+
+\item{
+Please bring a laptop to class!
+}
+\end{itemize}
+
+\vspace{0.2in}
+
+All course materials on the course web site: \url{http://www.stanford.edu/~arbenson/cme193.html}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Passing the class}
+
+The grading scheme is Satisfactory/Not Satisfactory.
+
+\vspace{0.2in}
+
+To pass, you need to complete \textbf{all} homework assignments and earn at least \textbf{70\%} of the points on \textbf{each} assignment.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Course textbook}
+
+\begin{itemize}
+\setlength{\itemsep}{0.2in}
+\item{No textbook!}
+\item{We will post online materials on the course web site}
+\end{itemize}
+
+\end{frame}
+
 
 
 \begin{frame}
@@ -181,13 +179,9 @@ A variable holds information (1.343, 'hi', [1, 1, 2, 3, 5, 8])
 
 In Python this is simple:
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/basic_vars1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/basic_vars1.py}
 
-(\textcolor{thegreen}{\#} signifies the start of a comment in Python)
+\textcolor{comment-color}{\#} signifies the start of a comment in Python.  The comment terminates at the end of the line.
 
 \end{frame}
 
@@ -197,13 +191,20 @@ In Python this is simple:
 
 Variables can change (they are \emph{variable})
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/basic_vars2.py}
-\end{tabular}
-\end{center}
+\codeblock{code/basic_vars2.py}
+
 
 (no more knowledge of 1.343, 2, or 14)
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Types}
+Unlike C/C++ and Java, variables can change types. Python keeps track of the type internally.
+
+\codeblock{code/basic_vars3.py}
+
+If you have PL theory background: Python is strongly typed but not statically typed
 
 \end{frame}
 
@@ -213,25 +214,23 @@ Variables can change (they are \emph{variable})
 \begin{frame}
 \frametitle{Arithmetic operators}
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/arith_ops1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/arith_ops1.py}
 
-Python supports this ``arithmetic" on strings.  (Note: Matlab does not.)
+
+Python supports this arithmetic on strings.  (Note: Matlab does not.)
 \end{frame}
 
 \begin{frame}
 \frametitle{Arithmetic operators}
 
-Some nice shortcuts:
+Shorthand to combine assignment and addition statements:
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/arith_ops2.py}
-\end{tabular}
-\end{center}
+\codeblock{code/arith_ops2.py}
+
+
+\vspace{0.1in}
+
+\texttt{x} is now \texttt{6} and \texttt{y} is now \textcolor{string-color}{\texttt{'hihihihi'}}
 
 \end{frame}
 
@@ -239,38 +238,28 @@ Some nice shortcuts:
 \begin{frame}
 \frametitle{Comparison operators}
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/comp_ops1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/comp_ops1.py}
+
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Boolean operations}
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/bool_ops1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/bool_ops1.py}
 
-Python conveniently uses the keywords \textcolor{theblue}{and}, \textcolor{theblue}{or}, \textcolor{theblue}{not} instead of the symbols \textcolor{theblue}{\&\&}, $\textcolor{theblue}{||}$, \textcolor{theblue}{!}
+
+Python conveniently uses the keywords \textcolor{teal}{and}, \textcolor{teal}{or}, \textcolor{teal}{not} instead of the symbols \textcolor{teal}{\&\&}, $\textcolor{teal}{||}$, \textcolor{teal}{!}
 
 \end{frame}
-
 
 \section{Control Flow}
 \begin{frame}
 \frametitle{if}
 The \texttt{if} statement is the most basic way to control the direction and flow of a program
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/if1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/if1.py}
+
 
 \end{frame}
 
@@ -279,25 +268,27 @@ The \texttt{if} statement is the most basic way to control the direction and flo
 \frametitle{if/else}
 \texttt{if} is often accompanied by \texttt{else} to specify a second path for the code if the \texttt{if} statement is false
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/if2.py}
-\end{tabular}
-\end{center}
+\codeblock{code/if2.py}
+
 
 \end{frame}
 
-% TODO: maybe a section on if/elif
+\begin{frame}
+\frametitle{Evaluating numerical values}
+
+The numerical value 0 is considered False and all other numerical valued are considered True.
+
+\codeblock{code/bool_ops2.py}
+
+
+\end{frame}
 
 \begin{frame}
 \frametitle{while}
 The \texttt{while} loop repeatedly executes a task while a condition is true
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/while1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/while1.py}
+
 
 What is this code doing?
 
@@ -344,11 +335,8 @@ for ($i = 0$; $i < n$; $i = i + 1$)
 \begin{frame}
 \frametitle{Python for}
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/for1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/for1.py}
+
 
 \end{frame}
 
@@ -369,11 +357,8 @@ In other words, functions are used to generalize or ``abstract" components of a 
 
 What is a problem with this code?
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/while1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/while1.py}
+
 
 \end{frame}
 
@@ -392,11 +377,8 @@ We still have the same capabilities (just let $x = 7$), but now our ``abstracted
 
 With the function, we can call \texttt{root(7)}
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/while2.py}
-\end{tabular}
-\end{center}
+\codeblock{code/while2.py}
+
 
 \end{frame}
 
@@ -404,11 +386,8 @@ With the function, we can call \texttt{root(7)}
 \frametitle{Root finding}
 More general, we can call \texttt{root(7, 0.1)}:
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/while3.py}
-\end{tabular}
-\end{center}
+\codeblock{code/while3.py}
+
 
 \end{frame}
 
@@ -417,11 +396,8 @@ More general, we can call \texttt{root(7, 0.1)}:
 \frametitle{Root finding}
 Python makes it easy to provide default argument values:
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/while4.py}
-\end{tabular}
-\end{center}
+\codeblock{code/while4.py}
+
 
 Can call \texttt{root(3)}, \texttt{root(113, 0.01)}
 \end{frame}
@@ -444,11 +420,8 @@ A few things to think about:
 
 What will happen when this code runs?
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/func1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/func1.py}
+
 
 \end{frame}
 
@@ -457,11 +430,8 @@ What will happen when this code runs?
 
 What about this code?
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/func2.py}
-\end{tabular}
-\end{center}
+\codeblock{code/func2.py}
+
 
 \end{frame}
 
@@ -469,22 +439,34 @@ What about this code?
 \begin{frame}
 \frametitle{More function examples}
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/poly_eval1.py}
-\end{tabular}
-\end{center}
+\codeblock{code/poly_eval1.py}
+
 
 \end{frame}
 
 \begin{frame}
 \frametitle{More function examples}
 
-\begin{center}
-\begin{tabular}{c}
-\lstinputlisting{code/poly_eval2.py}
-\end{tabular}
-\end{center}
+\codeblock{code/poly_eval2.py}
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{End}
+Assignment 1 is posted on the course web site (due Tuesday 1/14).
+
+\vspace{0.2in}
+
+Next time:
+\begin{enumerate}
+\setlength{\itemsep}{0.05in}
+\item{More on Python functions}
+\item{Manipulating arrays and strings}
+\item{Lists and tuples}
+\item{Dictionaries}
+\end{enumerate}
 
 \end{frame}
 

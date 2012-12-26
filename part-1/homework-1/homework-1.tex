@@ -10,24 +10,8 @@
 %\usepackage{paralist}
 \usepackage{graphicx}
 \usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
-\usepackage{listings}
-\usepackage{color}
+\usepackage{arbenson-math}
 
-\definecolor{thegreen}{rgb}{0,.5,0}
-\definecolor{theblue}{rgb}{0,0,.8}
-\lstset{% use our version of highlighting
-  language=python,      % using python
-  keywordstyle={\color{theblue}\bfseries},          % keywords
-  commentstyle=\color{thegreen},         % comments
-}
-\lstset{%
-  basicstyle={\ttfamily\normalsize},  % use font and smaller size
-  basewidth={0.5em,0.5em},
-  showstringspaces=false,                   % do not emphasize spaces in strings
-  tabsize=2,                                % number of spaces of a TAB
-  aboveskip={0\baselineskip},               % a bit of space above
-  columns=fixed,                            % nice spacing
-}
 
 \oddsidemargin 0in \evensidemargin 0in
 \topmargin -0.5in \headheight 0.25in \headsep 0.25in
@@ -61,7 +45,6 @@
 \newcommand{\A}{\mathbf{A}}
 \newcommand{\bb}{\mathbf{b}}
 
-
 \newcounter{points}
 \setcounter{points}{0}
 
@@ -77,9 +60,41 @@
 \pagestyle{fancy}
 %\vspace*{15pt}
 
-Each part of each question is worth 1 point.  Total: 20 points.  70+\% correctness (14+ points) is needed to pass.  Remember: you must pass all assignments to pass the class.  Using Python to answer questions for this assignment is encouraged but not required.  The assignment is due at the beginning of class.
+Each part of each question is worth 1 point.  Total: 20 points.  70+\% correctness (14+ points) is needed to pass.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of class.
 
 \begin{enumerate}
+\item \textbf{Python Interpreter} \\
+You can run the Python interpreter at the command-line on your computer.  This allows you to type commands interactively.  To see what this looks like, an online interpreter is available at:
+\begin{center}
+\url{http://shell.appspot.com/}.
+\end{center}
+For this question, you have to get Python installed and running on your computer.  Instructions are on the course web site.  Please come to office hours if you are having difficulty with this question.
+
+What are the outputs of the following command sequences in the interpreter?:
+
+\begin{enumerate}
+\item
+\texttt{>>> import math} \\
+\texttt{>>> print math.e}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item
+\texttt{>>> x = 'py' * 4} \\
+\texttt{>>> x}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item
+\texttt{>>> print undeclaredvariable} \\
+\end{enumerate}
+For questions (2) and (3), using the Python interpreter is recommended but not required.
+
+For questions (4) and (5), we have not covered all of the syntax for defining functions (that will be in the second lecture).  We have also not covered how to write and execute Python scripts.  If you are comfortable with this, please feel free to go ahead and implement the code.  You can take a look at the Lecture 2 and Homework 2 resources on the course website.
+
+
 \item \textbf{True or False, literally} \\
 State whether the statement is \texttt{True} or \texttt{False} as it would be evaluated in Python (i.e., how it was described in lecture).  Assume that the variable \texttt{x} has a boolean value of \texttt{True}.  No need for explanation, except for the bonus question.  For the order of operations of Python commands, see: % TODO: link here
 
@@ -167,7 +182,7 @@ The code below computes the product of every other number between the parameter 
 \lstinputlisting{code/mult.py}
 
 \begin{enumerate}
-\item Suppose we want the function to return an error if either (1) the value of \texttt{start} is less than or equal to zero or (2) the value of \texttt{start} is greater than $20$.  What should \texttt{errorcheck()} return so that the function follows this behavior?
+\item Suppose we want the function to return an error if either (1) the value of \texttt{start} is less than or equal to zero or (2) the value of \texttt{start} is strictly greater than $20$.  What should \texttt{errorcheck()} return so that the function follows this behavior?
 \end{enumerate}
 
 \begin{enumerate}
