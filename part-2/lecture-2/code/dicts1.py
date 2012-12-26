@@ -9,4 +9,4 @@ point['y'] = p[1]
 point['z'] = p[2]
 point['r'] = math.sqrt(sum([v ** 2 for v in p]))
 point['theta'] = math.acos(point['z'] / point['r'])
-point['phi'] = math.atan(point['y'] / point['r'])
+point['phi'] = math.atan(point['y'] / point['x'])
