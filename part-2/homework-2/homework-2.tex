@@ -9,6 +9,8 @@
 \usepackage{fancyhdr}
 %\usepackage{paralist}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
 \usepackage{arbenson-math}
 
@@ -60,7 +62,7 @@
 \pagestyle{fancy}
 %\vspace*{15pt}
 
-40 points total.  70+\% correctness (28+ points) is needed to pass.  There is also the opportunity for 5 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of class.  For the grading details, see question 2, part (e).
+40 points total.  70+\% correctness (28+ points) is needed to pass.  There is also the opportunity for 5 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class.  For the grading details, see question 2, part (e).
 
 \begin{enumerate}
 \item \textbf{Executing python scripts} \\
@@ -70,9 +72,28 @@ In class, we saw how to use a dictionary to store cartesian and spherical coordi
 
 The first system is the familiar cartesian coordinate system.  Three points, call them $x$, $y$, and $z$, are used to represent the point on three orthogonal coordinate axes.
 
-The second system is spherical coordinates, which represents a point by a nonnegative radial distance $r$, a polar angle $\phi$, and an azimuthal angle angle $\theta$.  ($r$, $\phi$, $\theta$) represent a point on a sphere centered at the origin.  The two-dimensional analog to spherical coordinates is polar coordinates: the ($r$, $\theta$) form.  Thus, the spherical coordinate system is sometimes called the polar coordinate system.
+The second system is spherical coordinates, which represents a point by a nonnegative radial distance $r$, a polar angle $\phi$, and an azimuthal angle angle $\theta$.  ($r$, $\phi$, $\theta$) represent a point on a sphere centered at the origin.  The two-dimensional analog to spherical coordinates is polar coordinates: the ($r$, $\theta$) form.  Thus, the spherical coordinate system is sometimes called the polar coordinate system.  See Fig.~\ref{fig:spherical_coords} to see how spherical coordinates compare to cartesian coordinates.
 
-The third system is cylindrical coordinates, which represents a point by a nonnegative radial distance $\rho$, an angle $\phi$, and a height $z$.  $(\rho, \phi, z)$ represents a point on a cylinder centered at the origin.
+The third system is cylindrical coordinates, which represents a point by a nonnegative radial distance $\rho$, an angle $\phi$, and a height $z$.  $(\rho, \phi, z)$ represents a point on a cylinder centered at the origin.  See Fig.~\ref{fig:cylindrical_coords} to see how cylindrical coordinates compare to cartesian coordinates.
+
+\begin{figure}[h!!!]
+        \centering
+	\begin{subfigure}[b]{0.48\textwidth}
+	\centering
+	\includegraphics[height=2.9in]{"./figures/spherical"}
+	\caption{Spherical coordinates}
+	\label{fig:spherical_coords}
+	\end{subfigure}
+        \quad%add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+          %(or a blank line to force the subfigure onto a new line)
+	\begin{subfigure}[b]{0.48\textwidth}
+	\centering
+	\includegraphics[height=2.9in]{"./figures/cylindrical"}
+	\caption{Cylindrical coordinates}
+	\label{fig:cylindrical_coords}
+	\end{subfigure}
+	 \caption{}\label{fig:coord_systems}
+\end{figure}
 
 We will use the following formulas to convert between coordinate systems:
 
@@ -90,7 +111,7 @@ We will use the following formulas to convert between coordinate systems:
 \end{itemize}
 
 \begin{enumerate}
-\item Implement the functions \texttt{cart2sphere()}, \texttt{cart2cyl()}, \texttt{sphere2cart()}, \texttt{sphere2cyl()}, \texttt{cyl2cart()}, and \texttt{cyl2sphere()} in the file \texttt{coordinates\_tuples.py}.  These functions convert between the coordinate systems by representing points as Python tuples in $(x, y, z)$, $(r, \theta, \phi)$, or $(\rho, \theta, \phi)$ form. \\
+\item Implement the functions \texttt{cart2cyl()}, \texttt{sphere2cart()}, \texttt{sphere2cyl()}, \texttt{cyl2cart()}, and \texttt{cyl2sphere()} in the file \texttt{coordinates\_tuples.py}.  The function \texttt{cart2sphere()} has already been implemented for you.  These functions convert between the coordinate systems by representing points as Python tuples in $(x, y, z)$, $(r, \theta, \phi)$, or $(\rho, \theta, \phi)$ form. \\
 
 For $cos^{-1}$, use \texttt{math.acos()}, for $\sin^{-1}$, use \texttt{math.asin()}, and for $\tan^{-1}$, use \texttt{math.atan2()}.  \texttt{math.atan2()} maintains the quadrant information of $x$ and $y$, while \texttt{math.atan()} does not.  See \url{http://docs.python.org/2/library/math.html#trigonometric-functions} for more information.
 \end{enumerate}
@@ -138,7 +159,7 @@ Python has support for object-oriented programming.  The basis for this is the P
 \setcounter{enumii}{1}
 \item Grading: \\
 
-5 tests will be conducted on your implementation.  Same rules as question 2, part (3) apply, except no tests will be provided for you.
+5 tests will be conducted on your implementation.  Same rules as question 2, part (3) apply, except no tests will be provided for you and these are all bonus points.  
 \end{enumerate}
 
 \item \textbf{Submission} \\

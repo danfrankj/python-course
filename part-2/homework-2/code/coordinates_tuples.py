@@ -64,9 +64,10 @@ return value is a tuple in (r, theta, phi) form
 '''
 def cart2sphere(coords):
   # From lecture 2 slides
-  r = math.sqrt(sum([v ** 2 for v in coords]))
+  x, y, z = coords
+  r = math.sqrt(x ** 2 + y ** 2 + z ** 2)
   theta = math.acos(coords[2] / r)
-  phi = math.atan(coords[1] / r)
+  phi = math.atan2(coords[1], coords[0])
   return (r, theta, phi)
 
 

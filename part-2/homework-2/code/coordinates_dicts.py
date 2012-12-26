@@ -78,11 +78,19 @@ return value is a dictionary with keys 'r', 'theta', and 'phi'  with
        corresponding values as spherical coordinate values
 '''
 def cart2sphere(coords):
-  # IMPLEMENT THIS FUNCTION
+  # From lecture 2 slides
 
+  # initialize empty dictionary
+  cart_points = {}
+  x = coords['x']
+  y = coords['y']
+  z = coords['z']
 
-  # REMOVE THIS
-  return {}
+  cart_points['r'] = math.sqrt(x ** 2 + y ** 2 + z ** 2)
+  cart_points['theta'] = math.acos(z / cart_points['r'])
+  cart_points['phi'] = math.acos(y / x)
+
+  return cart_points
 
 
 '''
@@ -95,19 +103,11 @@ return value is a dictionary with keys 'r', 'theta', and 'z'  with
        corresponding values as cylindrical coordinate values
 '''
 def cart2cyl(coords):
-  # From lecture 2 slides
+  # IMPLEMENT THIS FUNCTION
 
-  # initialize empty dictionary
-  cart_points = {}
-  x = coords['x']
-  y = coords['y']
-  z = coords['z']
 
-  cart_points['r'] = math.sqrt(x ** 2 + y ** 2 + z ** 2)
-  cart_points['theta'] = math.acos(z / cart_points['r'])
-  cart_points['phi'] = math.acos(y / cart_points['r'])
-
-  return cart_points
+  # REMOVE THIS
+  return {}
 
 
 '''
