@@ -61,40 +61,95 @@
 \pagestyle{fancy}
 %\vspace*{15pt}
 \begin{enumerate}
-\item \textbf{Arithmetic and Logic} \\
-In class, we saw the arithmetic operators \texttt{+}, \texttt{-}, \texttt{*}, and \texttt{/} and the boolean operators \texttt{and}, \texttt{or}, and \texttt{not}.  In this exercise, we explore more about arithmetic and boolean operators.  Use the Python interpreter to answer the following questions.
+
+\item \textbf{True/False} \\
+State whether the following statements are \texttt{True} or \texttt{False} as it would be evaluated in Python (i.e., how it was described in lecture).  Assume that the variable \texttt{x} has a boolean value of \texttt{False} and that the variable \texttt{y} has the value $10$.
 
 \begin{enumerate}
-\item What is the difference between the expressions \texttt{x = 7 / 2}, \texttt{x = 7.0 / 2}, and \texttt{x = 7.0 // 2}?  What is the result of \texttt{type(x)} after each expressions? Describe a potential hazard of this arithmetic.  \emph{Note: In Matlab, there is no difference between the first and second expressions.}
+\item
+\begin{lstlisting}
+x and 8 < y < 12
+\end{lstlisting}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{1}
-\item Let's examine a few other useful operators.  What do the following operators do: \texttt{**}, \texttt{\%}.  Can these operators be used on strings?
+\item 
+\begin{lstlisting}
+'CME ' + '193' == 'cme193'
+\end{lstlisting}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{2}
-\item The operators \texttt{and}, \texttt{or}, and \texttt{not}, corresponding to the more conventional symbols \texttt{\&\&}, \texttt{||}, and \texttt{!} (in Matlab \texttt{\~} instead of \texttt{!}).  To what symbols do the Python operators \texttt{is} and \texttt{is not} correspond? Why is using English words instead of symbols useful?
+\item 
+\begin{lstlisting}
+y != 12 - 2 or x
+\end{lstlisting}
 \end{enumerate}
-
-For more information see:
-\begin{itemize}
-\item Python expressions: \url{http://docs.python.org/2/reference/expressions.html}
-\item Python floating point: \url{http://docs.python.org/2/tutorial/floatingpoint.html}
-\end{itemize}
-
-
-
-\item \textbf{Control Flow} \\
 
 \begin{enumerate}
+\setcounter{enumii}{3}
 \item 
+\begin{lstlisting}
+'py' * 2 + 'thonic' == 'pypythonic'
+\end{lstlisting}
+\end{enumerate}
+
+\item \textbf{Arithmetic} \\
+State what $x$ is after each of the following scripts is executed.
+
+\begin{enumerate}
+\item \lstinputlisting{code/arith1.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \lstinputlisting{code/arith2.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \lstinputlisting{code/arith3.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \lstinputlisting{code/arith4.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{4}
+\item \lstinputlisting{code/arith5.py}
 \end{enumerate}
 
 
+\item \textbf{Functions and Flow} \\
+For each of the following Python scripts, state what gets printed.
 
-\item \textbf{Functions} \\
+\begin{enumerate}
+\item \lstinputlisting{code/fnf_a.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \lstinputlisting{code/fnf_b.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \lstinputlisting{code/fnf_c.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item The \texttt{elif} statement combines the concepts of an \texttt{else} and an \texttt{if} statement.  It follows an \texttt{if} statement.  If the \texttt{if} statement is false, then the \texttt{elif} statement is evaluated.  If the \texttt{elif} statement is true, that code block executes.
+
+\lstinputlisting{code/fnf_d.py}
+\end{enumerate}
+
+
+\item \textbf{Applications} \\
 Consider the following snippet of Python code: \\
 
 \lstinputlisting{code/deriv1.py}
