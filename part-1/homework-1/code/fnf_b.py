@@ -1,9 +1,10 @@
-def func_b(x):
-    if x < 0:
-        return 'hello'
-    elif x > 0:
-        return 'world!'
-    else:
-        return ' '
+def func_b(x, k):
+  i = 0
+  while x > 1:
+    x = x / k
+    i = i + 1
+  return i 
 
-print func_b(104) + func_b(0) + func_b(-11)
+print func_b(10.0, 3)
+
+  

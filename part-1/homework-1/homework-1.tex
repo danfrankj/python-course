@@ -47,9 +47,15 @@
 
 \newcounter{points}
 \setcounter{points}{0}
+\newcounter{bonuspoints}
+\setcounter{bonuspoints}{0}
 
 \newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
-\newcommand\printpoints{Total number of points: \thepoints}
+\newcommand\setpoint{\addtocounter{points}{1}(1 point)}
+\newcommand\setbonuspoints[1]{\addtocounter{bonuspoints}{#1}(#1 bonus points)}
+\newcommand\setbonuspoint{\addtocounter{bonuspoints}{1}(1 bonus point)}
+
+\newcommand\printpoints{Total number of points: \value{\thepoints}}
 
 \newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
 
@@ -60,7 +66,7 @@
 \pagestyle{fancy}
 %\vspace*{15pt}
 
-Each part of each question is worth 1 point.  Total: 20 points.  70+\% correctness (14+ points) is needed to pass.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of class.
+There are 30 total points.  70+\% correctness (21+ points) is needed to pass.  There is also the opportunity for 3 bonus points.  Remember that you must pass all assignments to pass the class.  The assignment is due at the beginning of class.
 
 \begin{enumerate}
 \item \textbf{Python Interpreter} \\
@@ -73,72 +79,148 @@ For this question, you have to get Python installed and running on your computer
 What are the outputs of the following command sequences in the interpreter?:
 
 \begin{enumerate}
-\item
+\item \setpoint \\
 \texttt{>>> import math} \\
 \texttt{>>> print math.e}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{1}
-\item
+\item \setpoint \\
 \texttt{>>> x = 'py' * 4} \\
 \texttt{>>> x}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{2}
-\item
-\texttt{>>> print undeclaredvariable} \\
+\item \setpoint \\
+\texttt{>>> print undeclaredvariable}
 \end{enumerate}
 For questions (2) and (3), using the Python interpreter is recommended but not required.
 
-For questions (4) and (5), we have not covered all of the syntax for defining functions (that will be in the second lecture).  We have also not covered how to write and execute Python scripts.  If you are comfortable with this, please feel free to go ahead and implement the code.  You can take a look at the Lecture 2 and Homework 2 resources on the course website.
+For questions (4), (5), and (6), we have not covered all of the syntax for defining functions (that will be in the second lecture).  We have also not covered how to write and execute Python scripts.  If you are comfortable with this, please feel free to go ahead and implement the code.  Otherwise, just treat the code as pseudocode.
 
+\item \textbf{Arithmetic} \\
+It will be very useful to use the Python interpreter for this question.  Here is possibly useful information for this question:
+\begin{itemize}
+\item Binary arithmetic operators: 
 
-\item \textbf{True or False, literally} \\
-State whether the statement is \texttt{True} or \texttt{False} as it would be evaluated in Python (i.e., how it was described in lecture).  Assume that the variable \texttt{x} has a boolean value of \texttt{True}.  No need for explanation, except for the bonus question.  For the order of operations of Python commands, see: % TODO: link here
+\url{http://docs.python.org/2/reference/expressions.html#binary-arithmetic-operations}
+
+\item Python expressions: 
+
+\url{http://docs.python.org/2/reference/expressions.html}
+
+\item Python floating point:
+
+\url{http://docs.python.org/2/tutorial/floatingpoint.html}
+
+\item Python operator precedence:
+
+\url{http://docs.python.org/2/reference/expressions.html#operator-precedence}
+\end{itemize}
+%In class, we saw the arithmetic operators \texttt{+}, \texttt{-}, \texttt{*}, and \texttt{/} and the boolean operators \texttt{and}, \texttt{or}, and \texttt{not}.  In this exercise, we explore more about arithmetic and boolean operators.  Use the Python interpreter to answer the following questions.
 
 \begin{enumerate}
-\item \texttt{2 == 2 and 1 > 0}
+\item \setpoint \\
+What is the difference between the expressions \texttt{x = 7 / 2} and \texttt{x = 7.0 / 2}?  \emph{Hint: what is the result of} \texttt{type(x)} \emph{after each expressions?}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{1}
-\item \texttt{'py' * 3 + 'thon' == 'pypypython' and 1 < 2 < 3}
+\item \setpoint \\
+Describe a potential hazard of the difference in part (a).  \emph{Note: In Matlab, there is no difference between the first and second expressions.}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{2}
-\item \texttt{0 is True or not x}
+\item \setpoint \\
+What does the \texttt{\%} operator do?  Does this operator work on strings?
 \end{enumerate}
+
+State to what numeric value the following statements will evaluate in Python.  Assume that the variable \texttt{x} has a numeric value of \texttt{10.0}.
 
 \begin{enumerate}
 \setcounter{enumii}{3}
-\item \texttt{1 and 2 and 3 and x}
+\item \setpoint \\ 
+\begin{lstlisting}
+x + 2 ** 3 - 17 / 2
+\end{lstlisting}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{4}
-\item Bonus (1 extra point):  \texttt{'hello' < 'jello'}  \\
-Why is this true or false?
+\item \setpoint \\
+\begin{lstlisting}
+x + 2 ** 3 - 17.0 / 2
+\end{lstlisting}
 \end{enumerate}
-
-
-\item \textbf{Fun with numbers} \\
-State to what numeric value the following statements will evaluate in Python.  Assume that the variable \texttt{x} has a numeric value of \texttt{10.0}.  For the order of operations of Python arithmetic, see: % TODO: link here
 
 \begin{enumerate}
-\item \texttt{x + 2 ** 3 - 17 / 2}
+\setcounter{enumii}{5}
+\item \setpoint \\
+\begin{lstlisting}
+11 * 2 % 6
+\end{lstlisting}
 \end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{6}
+\item \setbonuspoint \\
+\begin{lstlisting}
+1 if x / 5 > 6 else 2
+\end{lstlisting}
+\emph{Note: this is called a ternary conditional operator.}
+\end{enumerate}
+
+\item \textbf{Logic} \\
+
+\begin{enumerate}
+\item \setpoint \\
+As seen in lecture, the operators \textcolor{teal}{and}, \textcolor{teal}{or}, and \textcolor{teal}{not}, correspond to the more conventional symbols \texttt{\&\&}, \texttt{||}, and \texttt{!} (in Matlab \texttt{\~} instead of \texttt{!}).  To what symbols do the Python operators \textcolor{teal}{is} and \textcolor{teal}{is not} correspond? Why is using English words instead of symbols useful?
+\end{enumerate}
+
+State whether the following statements are \texttt{True} or \texttt{False} as it would be evaluated in Python (i.e., how it was described in lecture).  Assume that the variable \texttt{x} has a boolean value of \texttt{True}.  No need for explanation, except for the bonus question.
 
 \begin{enumerate}
 \setcounter{enumii}{1}
-\item \texttt{x + 2 ** 3 - 17.0 / 2}
+\item \setpoint \\
+\begin{lstlisting}
+2 == 2 and 1 > 0
+\end{lstlisting}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{2}
-\item \texttt{11 * 2 \% 6}
+\item \setpoint \\
+\begin{lstlisting}
+'py' * 3 + 'thon' == 'pypypython' and 1 < 2 < 3
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \setpoint \\
+\begin{lstlisting}
+0 is True or not x
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{4}
+\item \setpoint \\
+\begin{lstlisting}
+1 > 2 or x
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{5}
+\item \setbonuspoint \\
+\begin{lstlisting}
+'hello' < 'jello'
+\end{lstlisting}
+Why is this true or false?
 \end{enumerate}
 
 
@@ -146,31 +228,31 @@ State to what numeric value the following statements will evaluate in Python.  A
 For each of the following Python scripts, state what gets printed.
 
 \begin{enumerate}
-\item \lstinputlisting{code/fnf_a.py}
+\item \setpoint \\
+\lstinputlisting{code/fnf_a.py}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{1}
-\item 
-The \texttt{elif} statement combines the concepts of an \texttt{else} and an \texttt{if} statement.  It follows an \texttt{if} statement.  If the \texttt{if} statement is false, then the \texttt{elif} statement is evaluated.  If the \texttt{elif} statement is true, that code block executes.
-
+\item \setpoint \\
 \lstinputlisting{code/fnf_b.py}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{2}
-\item \lstinputlisting{code/fnf_c.py}
+\item \setpoint \\
+\lstinputlisting{code/fnf_c.py}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{3}
-\item \lstinputlisting{code/fnf_d.py}
+\item \setpoint \\
+\lstinputlisting{code/fnf_d.py}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{4}
-\item Bonus (1 extra point):
-
+\item \setbonuspoint \\
 \lstinputlisting{code/fnf_e.py}
 \end{enumerate}
 
@@ -182,27 +264,75 @@ The code below computes the product of every other number between the parameter 
 \lstinputlisting{code/mult.py}
 
 \begin{enumerate}
-\item Suppose we want the function to return an error if either (1) the value of \texttt{start} is less than or equal to zero or (2) the value of \texttt{start} is strictly greater than $20$.  What should \texttt{errorcheck()} return so that the function follows this behavior?
+\item \setpoint \\
+Suppose we want the function to return an error if either (1) the value of \texttt{start} is less than or equal to zero or (2) the value of \texttt{start} is strictly greater than $20$.  What should \texttt{errorcheck()} return so that the function follows this behavior?
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{1}
-\item Describe an abstraction that can be made for this function.
+\item \setpoint \\
+Describe an abstraction that can be made for this function.  For example, in lecture, we changed our $\sqrt{7}$ function to a $\sqrt{x}$ function.
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{2}
-\item Suppose that your abstraction from part (b) is implemented.  What function call can you make so that the function returns the same value as it would have before the abstraction was implemented?
+\item \setpoint \\
+Suppose that your abstraction from part (b) is implemented.  What function call can you make so that the function returns the same value as it would have before the abstraction was implemented?  For example, in lecture, we could make the call \texttt{root(7)}.
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{3}
-\item Does your \texttt{errorcheck()} implementation in part (a) still make sense?
+\item \setpoint \\
+Does your \texttt{errorcheck()} implementation in part (a) still make sense?
 \end{enumerate}
+
+
+\item \textbf{Factorials} \\
+The factorial of a positive integer $n$ is the product $1 * 2 * \hdots * n$.  The factorial operator is denoted with '!', for example: $5! = 5 * 4 * 3 * 2 * 1 = 120$.
+
+\begin{enumerate}
+\item \setpoint \\
+Suppose we want to write a factorial function in Python.  First, the function declaration gives the name of the function and information about the arguments.  For example, in lecture 1, we had
+
+\begin{tabular}{c}
+\begin{lstlisting}
+def root(x, tol=0.1)
+\end{lstlisting}
+\end{tabular}
+
+as the function declaration of our root finder.  \texttt{x} and \texttt{tol} are the arguments, and \texttt{tol} has a default value of $0.1$. \\
+
+Write the function declaration for a factorial function with name \texttt{factorial} and a single argument, \texttt{n}.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \setpoint \\
+Implement the factorial function.  Do not worry about using exact Python syntax--pseudocode is fine.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \setpoint \\
+The number of ways to pick a subset of $k$ items from a set of $n$ items, where order of selection does not matter, is denoted ${n \choose k}$ (often pronounced ``n choose k").  There is a simple formula for the function:
+\[
+{n \choose k} = \frac{n!}{k!(n - k)!}
+\]
+
+Write the function declaration for a function that computes ${n \choose k}$ with function name \texttt{nchoosek} and function arguments \texttt{n} and \texttt{k}.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \setpoint \\
+Implement the \texttt{nchoosek} function from part (c) by calling your factorial function from part (b).  Again, do not worry about using exact Python syntax--pseudocode is fine.
+\end{enumerate}
+
+
 
 \item \textbf{Survey}
 
-(1 point total).  Approximately how much time did you spend on this assignment?
+Approximately how much time did you spend on this assignment? \setpoints{4}
 \begin{enumerate}
 \item less than one hour
 \end{enumerate}
@@ -223,5 +353,5 @@ The code below computes the product of every other number between the parameter 
 \end{enumerate}
 
 \end{enumerate}
-%\printpoints.
+
 \end{document} 
