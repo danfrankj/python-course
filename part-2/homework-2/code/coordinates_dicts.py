@@ -80,15 +80,16 @@ return value is a dictionary with keys 'r', 'theta', and 'phi'  with
 def cart2sphere(coords):
   # From lecture 2 slides
 
-  # initialize empty dictionary
-  cart_points = {}
   x = coords['x']
   y = coords['y']
   z = coords['z']
 
+  # initialize empty dictionary
+  cart_points = {}
+
   cart_points['r'] = math.sqrt(x ** 2 + y ** 2 + z ** 2)
   cart_points['theta'] = math.acos(z / cart_points['r'])
-  cart_points['phi'] = math.acos(y / x)
+  cart_points['phi'] = math.atan2(y, x)
 
   return cart_points
 
@@ -129,3 +130,5 @@ def detect_type(coords):
   
   # REMOVE THIS
   return 'cart'
+
+

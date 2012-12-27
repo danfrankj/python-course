@@ -4,7 +4,7 @@ import math
 Convert a tuple of spherical coordinates to a tuple of cylindrical coordinates.
 
 coords is a tuple in (r, theta, phi) form
-return value is a tuple in (r, theta, z) form
+return value is a tuple in (rho, theta, z) form
 '''
 def sphere2cyl(coords):
   # IMPLEMENT THIS FUNCTION
@@ -31,7 +31,7 @@ def sphere2cart(coords):
 '''
 Convert a tuple of cylindrical coordinates to a tuple of spherical coordinates.
 
-coords is a tuple in (r, theta, z) form
+coords is a tuple in (rho, theta, z) form
 return value is a tuple in (r, theta, phi) form
 '''
 def cyl2sphere(coords):
@@ -45,7 +45,7 @@ def cyl2sphere(coords):
 '''
 Convert a tuple of cylindrical coordinates to a tuple of spherical coordinates.
 
-coords is a tuple in (r, theta, z) form
+coords is a tuple in (rho, theta, z) form
 return value is a tuple in (x, y, z) form
 '''
 def cyl2cart(coords):
@@ -66,8 +66,8 @@ def cart2sphere(coords):
   # From lecture 2 slides
   x, y, z = coords
   r = math.sqrt(x ** 2 + y ** 2 + z ** 2)
-  theta = math.acos(coords[2] / r)
-  phi = math.atan2(coords[1], coords[0])
+  theta = math.acos(z / r)
+  phi = math.atan2(y, x)
   return (r, theta, phi)
 
 
@@ -75,7 +75,7 @@ def cart2sphere(coords):
 Convert a tuple of cartesian coordinates to a tuple of cylindrical coordinates.
 
 coords is a tuple in (x, y, z) form
-return value is a tuple in (r, theta, z) form
+return value is a tuple in (rho, theta, z) form
 '''
 def cart2cyl(coords):
   # IMPLEMENT THIS FUNCTION
@@ -97,7 +97,7 @@ def convert_points(points, type='cart', new_type='cart'):
     # Create a copy instead of returning the exact list
     return points[:]
 
-  if type is 'cart' and new_type is 'sphere':
-    return [cart2sphere(p) for p in points]
-
   # FINISH THIS FUNCTIONS
+
+  return []
+
