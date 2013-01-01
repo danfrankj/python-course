@@ -108,11 +108,29 @@ dicts_testpt4_sphere = {'r': tuples_testpt4_sphere[0],
 def run_tuples_test(i, name, input, output):
   print '\nrunning tuples test %d...' % i
 
-  result = tuples_func_table[name](input)
-  for i, elmt in enumerate(result):
-    if abs(elmt - output[i]) / abs(output[i]) > TOL:
-      print '%s FAILED (expected: %s, actual: %s)' % (SPACING, str(output),
-                                                      str(result))
+  def compare_result(actual, expected):
+    for exp, elmt in zip(expected, actual):
+      if abs(elmt - exp) / abs(exp) > TOL:
+        print '%s FAILED (expected: %s, actual: %s)' % (SPACING, str(expected),
+                                                      str(actual))
+        return False
+    return True
+
+  if name is 'convert_points':
+    result = tuples_func_table[name](**input)
+    if not type(result) == type([]):
+      print '%s FAILED expected list type, input was: %s' % (SPACING,
+          str(input['points']))
+    if len(result) != len(input['points']):
+      print '%s FAILED: expected %d elements in list, but there were %d' % (
+          SPACING, len(input['points']), len(result))
+      return False
+    for res, out in zip(result, output):
+      if not compare_result(res, out):
+        return False
+  else:
+    result = tuples_func_table[name](input)
+    if not compare_result(result, output):
       return False
   
   print '%s SUCCESS' % SPACING
@@ -170,6 +188,26 @@ def init_tuples_tests():
               tuples_testpt2_sphere, tuples_testpt2_cart, 'tuples')
   create_test(9, 'cyl2cart',
               tuples_testpt2_cyl, tuples_testpt2_cart, 'tuples')
+
+  create_test(10, 'convert_points',
+              {'points': [tuples_testpt1_cart, tuples_testpt2_cart],
+               'type': 'cart', 'new_type': 'sphere'},
+              [tuples_testpt1_sphere, tuples_testpt2_sphere], 'tuples')
+  create_test(11, 'convert_points',
+              {'points': [tuples_testpt1_cart, tuples_testpt2_cart],
+               'type': 'cart', 'new_type': 'cyl'},
+              [tuples_testpt1_cyl, tuples_testpt2_cyl], 'tuples')
+  create_test(12, 'convert_points',
+              {'points': [tuples_testpt1_cyl, tuples_testpt2_cyl],
+               'type': 'cyl', 'new_type': 'cart'},
+              [tuples_testpt1_cart, tuples_testpt2_cart], 'tuples')
+  create_test(13, 'convert_points',
+              {'points': [tuples_testpt3_sphere] * 4 + [tuples_testpt4_sphere] * 6,
+               'type': 'sphere', 'new_type': 'cart'},
+              [tuples_testpt3_cart] * 4 + [tuples_testpt4_cart] * 6, 'tuples')
+  create_test(14, 'convert_points',
+              {'points': [], 'type': 'cyl', 'new_type': 'sphere'},
+              [], 'tuples')
 
 
 def init_dicts_tests():
