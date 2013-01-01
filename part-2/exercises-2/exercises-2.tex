@@ -62,11 +62,37 @@
 %\vspace*{15pt}
 \begin{enumerate}
 
-\item \textbf{(x)range} \\
-\texttt{range()} and \texttt{xrange()} are two useful and commonly used Python function.  
+\item \textbf{Data structures practice} \\
+\begin{enumerate}
+\item An $m \times n$ matrix $A$ is a mathematical structure with $m * n$ entries of data.  Typically, $A$ is partitioned into $m$ rows and $n$ columns, so that $A_{ij}$ is the entry in the $j$th column of the $i$th row.  For example, if $m = 3$, $n = 2$, and $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \\ -7 & 4 \\ \end{pmatrix}$, $A_{21} = 3$. \\
+
+Using the data structures from class, describe how you could construct an $m \times n$ matrix.  How can you access element $A_{ij}$?  Can you change the element $A_{ij}$?
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item A directed graph is a set of vertices $V$ and a set of edges $E \subset V \times V$.  Suppose we have a graph with vertices $V = \BraceOf{A, B, C, D, E, F}$ and edges $E = \BraceOf{(A, B), (B, C), (A, F), (E, D), (C, B)}$.  Using the data structures from class, describe a way to represent this graph. \\
+
+How would you add the edge $(F, B)$ to your structure?
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Sometimes, the edges in a graph can have weights.  For example, if the set of vertices represent cities and the set of edges represent roads between those cities, then the weights could be the distance of the roads between the edges. \\
+
+Update your data structure from part (b) to have information about edge weights.  This is called a weighted directed graph.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item We can think of a graph as a matrix.  Consider the weighted directed graph from part (c) and suppose that $V$ has $n$ elements.  Label the vertices $1, 2, \hdots, n$.  We then say that entry $A_{ij}$ is $0$ if the edge $(i, j)$ is not in the graph, otherwise it is equal to the edge weight of $(i, j)$. \\
+
+Write a function that takes as input a weighted directed graph (using your data structure from part (c)) and returns the associated matrix (using your data structure from part (a)).
+\end{enumerate}
+
 
 \item \textbf{List comprehensions} \\
-The following pieces of code are kludgy.  Rewrite each of them using list comprehensions.  \emph{Hint: for parts (a) and (b), the xrange() function may be useful.}
+The following pieces of code are kludgy.  Rewrite each of them using list comprehensions.  \emph{Hint: for parts (a) and (b), the range() function may be useful.}
 
 \begin{enumerate}
 \item \lstinputlisting{code/kludge1.py}
