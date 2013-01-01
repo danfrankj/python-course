@@ -1,5 +1,5 @@
 \documentclass{article}
-\newcommand{\assgnnum}{1}
+\newcommand{\assgnnum}{2}
 \newcommand{\duedate}{January 17}
 
 \usepackage{amsmath}
@@ -49,9 +49,15 @@
 
 \newcounter{points}
 \setcounter{points}{0}
+\newcounter{bonuspoints}
+\setcounter{bonuspoints}{0}
 
 \newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
-\newcommand\printpoints{Total number of points: \thepoints}
+\newcommand\setpoint{\addtocounter{points}{1}(1 point)}
+\newcommand\setbonuspoints[1]{\addtocounter{bonuspoints}{#1}(#1 bonus points)}
+\newcommand\setbonuspoint{\addtocounter{bonuspoints}{1}(1 bonus point)}
+
+\newcommand\printpoints{Total number of points: \value{\thepoints}}
 
 \newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
 
@@ -62,17 +68,26 @@
 \pagestyle{fancy}
 %\vspace*{15pt}
 
-40 points total.  70+\% correctness (28+ points) is needed to pass.  There is also the opportunity for 5 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class.  For the grading details, see question 2, part (e).
+30 points total.  70+\% correctness (21+ points) is needed to pass.  There is also the opportunity for 4 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class.
 
 \begin{enumerate}
 \item \textbf{Executing python scripts} \\
+In Assignment 1, you used the Python interpreter.  In this assignment, you will use a text editor to write Python code in a file, or ``Python script".  You will then execute the script.  This first question is designed to make sure that everyone knows how to edit a file and execute a Python script. \\
+
+If you have basic knowledge of how to use a command line interface (terminal on Linux/OS X; DOS prompt on Windows), then this question should be straightforward.  If you prefer not to use the command line, you can use an interactive development environment (IDE). See the course web site for resources. \\
+
+Open and read the file \texttt{myfirstscript.py}.  Change the value of the variable \texttt{name} to your name.  Execute the python script by typing:
+\begin{center}
+\texttt{python myfirstscript.py}
+\end{center}
+into the command line (you must be in the same directory as the script).  What gets printed?  It should be something about your name and the value of pi.  \setpoints{2}
 
 \item \textbf{Coordinate systems in three-dimensions} \\
 In class, we saw how to use a dictionary to store cartesian and spherical coordinates.  In this homework assignment, we will write code that converts data types between different three-dimensional coordinates systems.  First, we will review three coordinate systems.
 
 The first system is the familiar cartesian coordinate system.  Three points, call them $x$, $y$, and $z$, are used to represent the point on three orthogonal coordinate axes.
 
-The second system is spherical coordinates, which represents a point by a nonnegative radial distance $r$, a polar angle $\phi$, and an azimuthal angle angle $\theta$.  ($r$, $\phi$, $\theta$) represent a point on a sphere centered at the origin.  The two-dimensional analog to spherical coordinates is polar coordinates: the ($r$, $\theta$) form.  Thus, the spherical coordinate system is sometimes called the polar coordinate system.  See Fig.~\ref{fig:spherical_coords} to see how spherical coordinates compare to cartesian coordinates.
+The second system is spherical coordinates, which represents a point by a nonnegative radial distance $r$, an an inclination angle $\theta$, and an azimuthal angle $\phi$  ($r$, $\theta$, $\phi$) represent a point on a sphere centered at the origin.  The two-dimensional analog to spherical coordinates is polar coordinates, and hence spherical coordinates are sometimes referred to as polar coordinates.  See Fig.~\ref{fig:spherical_coords} to see how spherical coordinates compare to cartesian coordinates.
 
 The third system is cylindrical coordinates, which represents a point by a nonnegative radial distance $\rho$, an angle $\phi$, and a height $z$.  $(\rho, \phi, z)$ represents a point on a cylinder centered at the origin.  See Fig.~\ref{fig:cylindrical_coords} to see how cylindrical coordinates compare to cartesian coordinates.
 
@@ -95,74 +110,93 @@ The third system is cylindrical coordinates, which represents a point by a nonne
 	 \caption{}\label{fig:coord_systems}
 \end{figure}
 
-We will use the following formulas to convert between coordinate systems:
+We will use the following formulas to convert between coordinate systems in this assignment:
 
 \begin{itemize}
-\item{cartesian $\rightarrow$ spherical: ($r = \sqrt{x^2 + y^2 + z^2}$, $\theta = \tan^{-1}\left(\frac{y}{x}\right)$, $\phi = \cos^{-1}\left(\frac{z}{r}\right)$)}
-\item{cartesian $\rightarrow$ cylindrical: ($\rho = \sqrt{x^2 + y^2}$, $\theta = \tan^{-1}\left(\frac{y}{x}\right)$, $z = z$)}
-
-\item{spherical $\rightarrow$ cartesian: ($x = r\cos\theta\sin\phi$, $y = r\sin\theta\sin\phi$, $z = r\cos\theta$)}
-\item{spherical $\rightarrow$ cylindrical: ($\rho = r\cos\theta$, $\phi = \phi$, $z = r\sin\theta$)}
-
-\item{cylindrical $\rightarrow$ cartesian: ($x = \rho\sin\theta$, $y = \rho\cos\theta$, $z = z$)}
-\item{cylindrical $\rightarrow$ spherical: ($r = \sqrt{\rho^2 + z^2}$, $\theta = \cos^{-1}\left(\frac{z}{r}\right)$, $\phi = \phi$)  \\
-\emph{Note: the r term to compute $\theta$ is $\sqrt{\rho^2 + z^2}$}
-}
+\item{cartesian $\rightarrow$ spherical: ($r = \sqrt{x^2 + y^2 + z^2}$, $\theta = \cos^{-1}\left(\frac{z}{r}\right)$, $\phi = \tan^{-1}\left(\frac{y}{x}\right)$)}
+\item{spherical $\rightarrow$ cartesian: ($x = r\sin\theta\cos\phi$, $y = r\sin\theta\sin\phi$, $z = r\cos\theta$)}
+\item{cartesian $\rightarrow$ cylindrical: ($\rho = \sqrt{x^2 + y^2}$, $\phi = \tan^{-1}\left(\frac{y}{x}\right)$, $z = z$)}
+\item{cylindrical $\rightarrow$ cartesian: ($x = \rho\cos\phi$, $y = \rho\sin\phi$, $z = z$)}
+\item{spherical $\rightarrow$ cylindrical: spherical $\rightarrow$ cartesian $\rightarrow$ cylindrical}
+\item{cylindrical $\rightarrow$ spherical: cylindrical $\rightarrow$ cartesian $\rightarrow$ spherical}
 \end{itemize}
 
-\begin{enumerate}
-\item Implement the functions \texttt{cart2cyl()}, \texttt{sphere2cart()}, \texttt{sphere2cyl()}, \texttt{cyl2cart()}, and \texttt{cyl2sphere()} in the file \texttt{coordinates\_tuples.py}.  The function \texttt{cart2sphere()} has already been implemented for you.  These functions convert between the coordinate systems by representing points as Python tuples in $(x, y, z)$, $(r, \theta, \phi)$, or $(\rho, \theta, \phi)$ form. \\
+where the last two conversions are compositions of the other conversions.
 
-For $cos^{-1}$, use \texttt{math.acos()}, for $\sin^{-1}$, use \texttt{math.asin()}, and for $\tan^{-1}$, use \texttt{math.atan2()}.  \texttt{math.atan2()} maintains the quadrant information of $x$ and $y$, while \texttt{math.atan()} does not.  See \url{http://docs.python.org/2/library/math.html#trigonometric-functions} for more information.
+\begin{enumerate}
+\item Finish the implementation of the functions \texttt{cart2cyl()}, \texttt{sphere2cart()}, \texttt{sphere2cyl()}, \texttt{cyl2cart()}, and \texttt{cyl2sphere()} in the file \texttt{coordinates\_tuples.py}.  The function \texttt{cart2sphere()} has already been implemented for you.  These functions convert between the coordinate systems by representing points as Python tuples in $(x, y, z)$, $(r, \theta, \phi)$, or $(\rho, \theta, \phi)$ form. Remember to use your other functions to implement \texttt{sphere2cyl()} and \texttt{cyl2sphere()}. \\
+
+For $cos^{-1}$, use \texttt{math.acos()}; for $\sin^{-1}$, use \texttt{math.asin()}; and for $\tan^{-1}$, use \texttt{math.atan2()}.  \texttt{math.atan2()} maintains the quadrant information of its two input parameters, while \texttt{math.atan()} does not.  See \url{http://docs.python.org/2/library/math.html#trigonometric-functions} for more information.  \setpoints{9}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{1}
-\item Implement \texttt{convert\_points()} in the file \texttt{coordinates\_tuples.py}.  This function converts a list of points in one coordinate system to a list of points in another coordinate system.  The implementation has been started for you.
+\item Finish the implementation of \texttt{convert\_points()} in the file \texttt{coordinates\_tuples.py}.  This function converts a list of points in one coordinate system to a list of points in another coordinate system.  The implementation has been started for you.  \setpoints{5}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{2}
-\item Repeat part (a) in the file \texttt{coordinates\_dicts.py}.  These functions use dictionaries instead of tuples to represent points.  Again, \texttt{cart2sphere()} has been implemented for you.  For $cos^{-1}$, use \texttt{math.acos()}, for $\sin^{-1}$, use \texttt{math.asin()}, and for $\tan^{-1}$, use \texttt{math.atan2()}.
+\item Repeat part (a) in the file \texttt{coordinates\_dicts.py}.  These functions use dictionaries instead of tuples to represent points.  Again, \texttt{cart2sphere()} has been implemented for you.  For $cos^{-1}$, use \texttt{math.acos()}; for $\sin^{-1}$, use \texttt{math.asin()}; and for $\tan^{-1}$, use \texttt{math.atan2()}.  \setpoints{9}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{3}
-\item Implement \texttt{detect\_type()} in the file \texttt{coordinates\_dicts.py}.  This function determines what type of coordinate system is being used based on the keys in the dictionary.
+\item Implement \texttt{detect\_type()} in the file \texttt{coordinates\_dicts.py}.  This function determines what type of coordinate system is being used based on the keys in the dictionary.  \setpoints{5} \\
 \end{enumerate}
+
+\textbf{Grading}:
+
+To grade this question, tests will be conducted by calling the functions you implement.  Each test is worth 0 points (do not pass test) or 1 point (pass test).  There are 30 total tests.
+
+All of the tests used for grading are distributed with the assignment.  Gaming the autograder by hard-coding the answers of the provided test functions is considered cheating and a violation of the Stanford honor code.  I will be testing your code with additional (unreleased) tests to ensure that there is no cheating.
+
+To run the autograder, simply do \texttt{python grader.py}.  See the documentation in \texttt{grader.py} for running individual tests.
+
+
+\item \textbf{Generator power (bonus)} \\
+In this bonus question, we explore generator functions.  Consider the following function, which takes as input a set of x coordinates, y coordinates, and z coordinates and returns all possible (x, y, z) points from the sets:
+
+\begin{tabular}{c}
+\lstinputlisting{code/triples.py}
+\end{tabular}
 
 \begin{enumerate}
-\setcounter{enumii}{4}
-\item Grading: \\
-
-To grade this assignment, tests will be conducted by calling the functions you implement.  Each test is worth 0 points (do not pass test) or 1 point (pass test).  There is no partial credit on tests.  Parts (a) and (b) are worth a combined 20 points (20 tests).  Parts (c) and (d) are worth a combined 20 points (20 tests).
-
-10 of the 20 tests for parts (a)/(b) and (c)/(d) are provided with the assignment.  The remaining tests will be run after you submit the assignment.  If you pass all of the provided tests, you know that you have earned at least 50\% of the points on the assignment.
-
-Gaming the autograder by hard-coding the answers of the provided test functions is considered cheating and a violation of the Stanford honor code.
+\item
+Describe a potential memory hazard with this function.   \setbonuspoint \\
 \end{enumerate}
 
+In Python, we can alternatively choose to ``yield" a value.  This allows us to iterate over objects without constructing the entire object.  These types of functions are called generating functions.  For example, the following function is the generator analog to \texttt{triples()}:
 
-\item \textbf{Python classes (bonus)} \\
-Python has support for object-oriented programming.  The basis for this is the Python class, which is a container for data and functions.  For this bonus question, you are asked to implement a class representing a point.  The starter code is \texttt{coordinates\_classes.py}.  You can read about classes at:
-
-\begin{itemize}
-\item \url{http://docs.python.org/2/tutorial/classes.html}
-\item \url{http://www.tutorialspoint.com/python/python_classes_objects.htm}
-\end{itemize}
-
-\begin{enumerate}
-\item 
-\end{enumerate}
+\begin{tabular}{c}
+\lstset{morekeywords={yield}}
+\lstinputlisting{code/triples_gen.py}
+\end{tabular}
 
 \begin{enumerate}
 \setcounter{enumii}{1}
-\item Grading: \\
+\item
+What gets printed with the following code?  Explain.  \setbonuspoint
 
-5 tests will be conducted on your implementation.  Same rules as question 2, part (3) apply, except no tests will be provided for you and these are all bonus points.  
+\begin{tabular}{c}
+\lstinputlisting{code/triples_test.py}
+\end{tabular}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item
+Write a function \texttt{keyvals}, which takes as input a dictionary and returns a list of (key, value) tuples of all key-value pairs in the dictionary.   \setbonuspoint
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item
+Write a function \texttt{keyvals\_gen}, which is the generator function analog of \texttt{keyvals} from part (c). \setbonuspoint
 \end{enumerate}
 
 \item \textbf{Submission} \\
+
+% TODO
 
 
 

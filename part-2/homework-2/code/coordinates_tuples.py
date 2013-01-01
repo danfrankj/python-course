@@ -98,6 +98,6 @@ def convert_points(points, type='cart', new_type='cart'):
     return points[:]
 
   # FINISH THIS FUNCTIONS
+  # HINT: it may be useful to use a list comprehension
 
   return []
-
