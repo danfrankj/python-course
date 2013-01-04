@@ -77,7 +77,8 @@
 \newcommand{\codeblock}[1]{
 \begin{center}
 \begin{tabular}{c}
-\setlength{\fboxsep}{12pt}
+\setlength{\fboxsep}{8pt}
+\lstset{morekeywords={yield,self}}
 \fcolorbox{structure}{light-gray}{\lstinputlisting{#1}}
 \end{tabular}
 \end{center}

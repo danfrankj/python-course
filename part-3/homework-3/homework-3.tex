@@ -1,9 +1,9 @@
 \documentclass{article}
-\newcommand{\assgnnum}{1}
-\newcommand{\duedate}{January 17}
+\newcommand{\assgnnum}{3}
+\newcommand{\duedate}{January 22}
 
 \usepackage{amsmath}
-%\usepackage{fullpage}
+\usepackage{fullpage}
 \usepackage{amssymb}
 %\usepackage{bbm}
 \usepackage{fancyhdr}
@@ -12,7 +12,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
-\usepackage{arbenson-math}
+\usepackage{../../arbenson-math}
 
 
 \oddsidemargin 0in \evensidemargin 0in
@@ -81,7 +81,7 @@ $n$-grams are sometimes used to analyze patterns in text (for example, see Googl
 \end{lstlisting}
 $n$ specifies that we are computing $n$-grams, $k$ specifies that we want the $k$ most frequently occurring $n$-grams, and text is the name of a file containing the text.  If there are fewer than $k$ $n$-grams, return all $n$-grams.  The return value should be a dictionary with keys given by $n$-grams and values given by $n$-gram frequency in the text. \\
 
-Assume that the file \texttt{text} contains no punctuation.  Also assume that all words are separated by a single space. \\
+Assume that the file \texttt{text} contains no punctuation.  Also assume that all words are separated by a single space. Note that capital letters constitute different words, so ``Python programming" and``python programming" would be counted as different 2-grams. \\
 
 Finally, only compute $n$-grams that occur on a single line of the text (not $n$-grams that contain words from the end of one line and the beginning of the next line).  Therefore, you can follow the examples from lecture on reading a file line-by-line.
 \end{enumerate}
