@@ -1,7 +1,7 @@
 \documentclass{beamer}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{arbenson-math}
+\usepackage{../../arbenson-math}
 
 \usetheme{boxes}
 \usecolortheme{seahorse}
@@ -24,9 +24,148 @@ Institute for Computational and Mathematical Engineering (ICME)}
 \begin{document}
 \maketitle
 
-%\begin{frame}
-%\frametitle{Data types}
+\section{Python Classes}
 
+\begin{frame}
+\frametitle{Classes}
+
+Classes:
+\vspace{0.1in}
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{containers of data, information, and ideas}
+\item{basis for object-oriented programming}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Python Classes}
+
+More specifically, Python classes:
+\vspace{0.1in}
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{contain ``member" data, which are just variables}
+\item{contain functions (sometimes called ``methods" in the context of classes)}
+\item{structure can change on the fly}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Differences from traditional OO}
+
+In languages like C++ and Java, classes provide data protection (public/private functions, friend classes, etc.).  In Python, we just get the basics like inheritance.
+
+\vspace{0.2in}
+
+It is up to the programmer to not abuse the classes.  This works well in practice, and the code remains simple.
+\end{frame}
+
+\begin{frame}
+\frametitle{Stock Prices}
+
+\codeblock{code/stocks1.py}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Constructors}
+
+The \texttt{\_\_init\_\_()} function is the special class constructor.  It is the function that gets called when we make the statement:
+
+\begin{center}
+\texttt{Stock('Google', 'GOOG')}.
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{self}
+The self parameter is a little weird.  We do not actually provide the self value.
+
+\vspace{0.2in}
+
+The self variable is a pointer to the class that you are modifying.  For example:
+
+\begin{center}
+\texttt{self.symbol = symbol}.
+\end{center}
+
+says to modify the variable \texttt{symbol} in this class.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Functions in classes}
+Classes can have functions:
+
+\codeblock{code/stocks2.py}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Functions in classes}
+Notice how the \texttt{high\_price()} function uses \texttt{self} to get the maximum price from that particular stock.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Glorified dictionaries?}
+If you think that classes are like dictionaries, you are right:
+\codeblock{code/stocks3.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Glorified dictionaries?}
+The dictionary version is messy, and classes are cleaner.
+
+\vspace{0.2in}
+
+The subject of how to implement classes is material for a Programming Languages/Compilers course.
+\end{frame}
+
+\begin{frame}
+\frametitle{Inheritance}
+Inheritance is a way for classes to share structure.
+
+\vspace{0.2in}
+A class can ``inherit" the functions and data from a parent class.
+\end{frame}
+
+\begin{frame}
+\frametitle{Stock options}
+A stock option is like a stock.  When purchasing a stock option, we purchase the ``right to buy" the stock at a certain price at a certain time in the future.
+
+\vspace{0.2in}
+We want to augment our stock class with information about option.
+\end{frame}
+
+\begin{frame}
+\frametitle{Stock options}
+
+
+\codeblock{code/stocks4.py}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Python goodies}
+\codeblock{code/stocks5.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Python goodies}
+The \text{\_\_contains\_\_()} function is a special class function designed to work with the \texttt{in} operator.
+
+\vspace{0.2in}
+
+There are other special class functions.  For example, there is one for iterators (\texttt{for item in my\_class}).
+
+\end{frame}
 %After knowing a few basic types, you can write powerful Python code.
 
 %\vspace{0.1in}
@@ -49,8 +188,6 @@ Institute for Computational and Mathematical Engineering (ICME)}
 
 %\end{frame}
 
-\begin{frame}
 
-\end{frame}
 
 \end{document}
