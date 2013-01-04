@@ -6,4 +6,4 @@ def func_d(x=0):
     else:
         return ' '
 
-print func_b(104) + func_b() + func_b(-11)
+print func_d(104) + func_d() + func_d(-11)

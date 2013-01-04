@@ -11,4 +11,4 @@ def func_c():
         i += 1
     return j
 
-print func_a()
+print func_c()
