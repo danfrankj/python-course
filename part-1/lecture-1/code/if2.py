@@ -1,4 +1,4 @@
 if x:
-  print 'hello'
+    print 'hello'
 else:
-  print 'hi!'
+    print 'hi!'

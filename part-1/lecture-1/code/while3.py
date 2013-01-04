@@ -1,12 +1,12 @@
 import math
 def root(x, tol):
-  lower = 0.0
-  upper = x
-  guess = (upper + lower) / 2
-  while (math.fabs(x - guess * guess) > tol):
-    if guess * guess > x:
-      upper = guess
-    else:
-      lower = guess
+    lower = 0.0
+    upper = x
     guess = (upper + lower) / 2
-  return guess
+    while (math.fabs(x - guess * guess) > tol):
+        if guess * guess > x:
+            upper = guess
+        else:
+            lower = guess
+        guess = (upper + lower) / 2
+    return guess
