@@ -49,9 +49,15 @@
 
 \newcounter{points}
 \setcounter{points}{0}
+\newcounter{bonuspoints}
+\setcounter{bonuspoints}{0}
 
 \newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
-\newcommand\printpoints{Total number of points: \thepoints}
+\newcommand\setpoint{\addtocounter{points}{1}(1 point)}
+\newcommand\setbonuspoints[1]{\addtocounter{bonuspoints}{#1}(#1 bonus points)}
+\newcommand\setbonuspoint{\addtocounter{bonuspoints}{1}(1 bonus point)}
+
+\newcommand\printpoints{Total number of points: \value{\thepoints}}
 
 \newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
 
@@ -62,7 +68,7 @@
 \pagestyle{fancy}
 %\vspace*{15pt}
 
-40 points total.  70+\% correctness (28+ points) is needed to pass.  There is also the opportunity for 5 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class.  For the grading details, see question 2, part (e).
+40 points total.  70+\% correctness (28+ points) is needed to pass.  There is also the opportunity for 5 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class.
 
 \begin{enumerate}
 \item \textbf{Textual analysis} \\
@@ -71,40 +77,45 @@ An \emph{n-gram} is a sequence of $n$ consecutive words in a text.  For example,
  ``I love the Python programming language"
 \end{center} are ``I love", ``love the", ``the Python", ``Python programming", and ``programming langue";  the $3-$grams are ``I love the", "love the Python", "the Python programming", and "Python programming language"; and so on for larger values of $n$.  We say that there are no $7$-grams for this sentence because there are only $6$ words.
 
-$n$-grams are sometimes used to analyze patterns in text (for example, see Google's Ngram Viewer at \url{http://books.google.com/ngrams}).  In this assignment, you are going to implement a function that computes the $k$ most frequently occurring $n$-grams in a text file.
+$n$-grams are sometimes used to analyze patterns in text (for example, see Google's Ngram Viewer at \url{http://books.google.com/ngrams}).  In this assignment, you are going to implement a function that computes the $k$ most frequently occurring $n$-grams in a text file. \\
 
-\begin{enumerate}
-\item Implement \texttt{ngram()} in the file \texttt{ngram.py}.  The function definition is: \\
+\textbf{Delivarables} \\
+Implement \texttt{ngram()} in the file \texttt{ngram.py}.  The function definition is: \\
 
 \begin{lstlisting}
                        def ngram(n, k, text):
 \end{lstlisting}
-$n$ specifies that we are computing $n$-grams, $k$ specifies that we want the $k$ most frequently occurring $n$-grams, and text is the name of a file containing the text.  If there are fewer than $k$ $n$-grams, return all $n$-grams.  The return value should be a dictionary with keys given by $n$-grams and values given by $n$-gram frequency in the text. \\
+$n$ specifies that we are computing $n$-grams, $k$ specifies that we want the $k$ most frequently occurring $n$-grams, and text is the name of a file containing the text.  If there are fewer than $k$ $n$-grams, return all $n$-grams.  The return value should be a dictionary with keys given by $n$-grams and values given by $n$-gram frequency in the text.  \setpoints{20} \\
 
 Assume that the file \texttt{text} contains no punctuation.  Also assume that all words are separated by a single space. Note that capital letters constitute different words, so ``Python programming" and``python programming" would be counted as different 2-grams. \\
 
-Finally, only compute $n$-grams that occur on a single line of the text (not $n$-grams that contain words from the end of one line and the beginning of the next line).  Therefore, you can follow the examples from lecture on reading a file line-by-line.
+Finally, only compute $n$-grams that occur on a single line of the text (not $n$-grams that contain words from the end of one line and the beginning of the next line).  Therefore, you can follow the examples from lecture on reading a file line-by-line. \\
+
+\textbf{Grading} \\
+To grade this question, tests will be conducted by calling the functions you implement.  Each test is worth 0 points (do not pass test) or 1 point (pass test).  There are 25 total tests.
+
+All of the tests used for grading are distributed with the assignment.  Gaming the autograder by hard-coding the answers of the provided test functions is considered cheating and a violation of the Stanford honor code.  I will be testing your code with additional (unreleased) tests to ensure that there is no cheating.
+
+To run the autograder, simply do \texttt{python grader.py}.  See the documentation in \texttt{grader.py} for running individual tests.
+
+
+\item \textbf{Classes} \\
+The file \texttt{stocks.py} contains the skeleton code for a stock portfolio class.  This class is similar in spirit to the one presented in class, but it is a different class with different functionality.
+
+\begin{enumerate}
+\item Implement the \texttt{add\_stock()} and \texttt{most\_money()} functions.  What gets printed from calling the function \texttt{test1()}? \setpoints{8}
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{1}
-\item Similar to last week, an autograder has been provided.
+\item Implement the \texttt{\_\_contains\_\_()} function.  Remember from lecture that this is a special function that works with the \texttt{in} operator.  What gets printed from calling the function \texttt{test2()}? \setpoints{7}
 \end{enumerate}
 
-\item \textbf{Classes} \\
-In the last homework, we 
-
-\item \textbf{Python libraries} \\
-One reason to love Python is the vast amount of libraries available.  For this problem, find a Python library related to your major/graduate program/interests and briefly explain what it does.  If you choose NumPy/SciPy, choose a specific application area or function.  Give a sample snippet of code that uses the library.  An example is provided below. \\
-
-
-
-
+\item \textbf{Python libraries (bonus)} \\
+One reason to love Python is the vast amount of libraries that are available.  For this problem, find a Python library related to your major/graduate program/interests and briefly explain what it does.  If you choose NumPy/SciPy, choose a specific application area or function.  Give a sample snippet of code that uses the library.  \setbonuspoints {2} 
 
 
 \item \textbf{Submission} \\
-
-
 
 \end{enumerate}
 %\printpoints.
