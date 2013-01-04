@@ -6,6 +6,6 @@ for i, val in enumerate(squares):
 # cleaner and more concise than:
 i = 0
 for val in squares:
-  print i, val
-  i = i + 1
+    print i, val
+    i = i + 1
 
