@@ -15,7 +15,7 @@ python grader.py [type] [number]
 type is either 'tuples' or 'dicts' to specify running a test on the
 implementation in coordinates_tuples or coordinates_dicts
 
-number is the test number (1, 2, ..., 10).
+number is the test number (1, 2, ...).
 
 If you do not provide any arguments, the script will execute all tests
 for both the tuples and dicts implementation.
@@ -181,7 +181,7 @@ def init_tuples_tests():
   create_test(5, 'sphere2cyl',
               tuples_testpt1_sphere, tuples_testpt1_cyl, 'tuples')
   create_test(6, 'cyl2sphere',
-              tuples_testpt2_cyl, tuples_testpt1_sphere, 'tuples')
+              tuples_testpt2_cyl, tuples_testpt2_sphere, 'tuples')
   create_test(7, 'cart2cyl',
               tuples_testpt2_cart, tuples_testpt2_cyl, 'tuples')
   create_test(8, 'sphere2cart',
@@ -222,7 +222,7 @@ def init_dicts_tests():
   create_test(5, 'sphere2cyl',
               dicts_testpt1_sphere, dicts_testpt1_cyl, 'dicts')
   create_test(6, 'cyl2sphere',
-              dicts_testpt2_cyl, dicts_testpt1_sphere, 'dicts')
+              dicts_testpt2_cyl, dicts_testpt2_sphere, 'dicts')
   create_test(7, 'cart2cyl',
               dicts_testpt2_cart, dicts_testpt2_cyl, 'dicts')
   create_test(8, 'sphere2cart',
@@ -261,16 +261,29 @@ def main():
 
   test_funcs = {'tuples': run_tuples_test, 'dicts': run_dicts_test}
 
+  total_tests = 0
+  successes = 0
   if test_number is not None:
-    test_funcs[test_type](**TESTS[test_type][test_number - 1])
+    if test_funcs[test_type](**TESTS[test_type][test_number - 1]):
+      successes += 1
+    total_tests += 1
   elif test_type is not None:
     for test in TESTS[test_type]:
-      test_funcs[test_type](**test)
+      if test_funcs[test_type](**test):
+        successes += 1
+      total_tests += 1
   else:
     for test in TESTS['tuples']:
-      run_tuples_test(**test)
+      if run_tuples_test(**test):
+        successes += 1
+      total_tests += 1
     for test in TESTS['dicts']:
-      run_dicts_test(**test)
+      if run_dicts_test(**test):
+        successes += 1
+      total_tests += 1
+
+  print '\n%d / %d correct (%f)' % (successes, total_tests,
+                                    float(successes) / total_tests)
 
 
 if __name__ == "__main__":
