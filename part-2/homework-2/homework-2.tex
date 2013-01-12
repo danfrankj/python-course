@@ -71,25 +71,25 @@
 30 points total.  70+\% correctness (21+ points) is needed to pass.  There is also the opportunity for 4 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class.
 
 \begin{enumerate}
-\item \textbf{Executing python scripts} \\
+\item \textbf{Executing Python scripts} \\
 In Assignment 1, you used the Python interpreter.  In this assignment, you will use a text editor to write Python code in a file, or ``Python script".  You will then execute the script.  This first question is designed to make sure that everyone knows how to edit a file and execute a Python script. \\
-
-If you have basic knowledge of how to use a command line interface (terminal on Linux/OS X; DOS prompt on Windows), then this question should be straightforward.  If you prefer not to use the command line, you can use an interactive development environment (IDE). See the course web site for resources. \\
 
 Open and read the file \texttt{myfirstscript.py}.  Change the value of the variable \texttt{name} to your name.  Execute the python script by typing:
 \begin{center}
 \texttt{python myfirstscript.py}
 \end{center}
-into the command line (you must be in the same directory as the script).  What gets printed?  It should be something about your name and the value of pi.  \setpoints{2}
+into the command line (you must be in the same directory as the script).  Alternatively, you can run the script in an integrated development environment (IDE), for example, Eclipse with the PyDev add-on.  What gets printed?  It should be something about your name and the value of pi.  Add a comment to the script saying what gets printed.  \setpoints{2}
+
+\newpage
 
 \item \textbf{Coordinate systems in three-dimensions} \\
 In class, we saw how to use a dictionary to store cartesian and spherical coordinates.  In this homework assignment, we will write code that converts data types between different three-dimensional coordinates systems.  First, we will review three coordinate systems.
 
 The first system is the familiar cartesian coordinate system.  Three points, call them $x$, $y$, and $z$, are used to represent the point on three orthogonal coordinate axes.
 
-The second system is spherical coordinates, which represents a point by a nonnegative radial distance $r$, an an inclination angle $\theta$, and an azimuthal angle $\phi$  ($r$, $\theta$, $\phi$) represent a point on a sphere centered at the origin.  The two-dimensional analog to spherical coordinates is polar coordinates, and hence spherical coordinates are sometimes referred to as polar coordinates.  See Fig.~\ref{fig:spherical_coords} to see how spherical coordinates compare to cartesian coordinates.
+The second system is spherical coordinates, which represents a point by a nonnegative radial distance $r$, an an inclination angle $\theta$, and an azimuthal angle $\phi$.  ($r$, $\theta$, $\phi$) represent a point on a sphere centered at the origin.  The two-dimensional analog to spherical coordinates is polar coordinates, and hence spherical coordinates are sometimes referred to as polar coordinates.  See Fig.~\ref{fig:spherical_coords} for the relationship between spherical and cartesian coordinates.
 
-The third system is cylindrical coordinates, which represents a point by a nonnegative radial distance $\rho$, an angle $\phi$, and a height $z$.  $(\rho, \phi, z)$ represents a point on a cylinder centered at the origin.  See Fig.~\ref{fig:cylindrical_coords} to see how cylindrical coordinates compare to cartesian coordinates.
+The third system is cylindrical coordinates, which represents a point by a nonnegative radial distance $\rho$, an angle $\phi$, and a height $z$.  $(\rho, \phi, z)$ represents a point on a cylinder centered at the origin.  See Fig.~\ref{fig:cylindrical_coords} for the relationship between cylindrical and cartesian coordinates.
 
 \begin{figure}[h!!!]
         \centering
@@ -146,13 +146,19 @@ For $cos^{-1}$, use \texttt{math.acos()}; for $\sin^{-1}$, use \texttt{math.asin
 
 \textbf{Grading}:
 
-To grade this question, tests will be conducted by calling the functions you implement.  Each test is worth 0 points (do not pass test) or 1 point (pass test).  There are 30 total tests.
+To grade this question, tests will be conducted by calling the functions you implement.  Each test is worth 0 points (do not pass test) or 1 point (pass test).  There are 28 total tests.
 
 All of the tests used for grading are distributed with the assignment.  Gaming the autograder by hard-coding the answers of the provided test functions is considered cheating and a violation of the Stanford honor code.  I will be testing your code with additional (unreleased) tests to ensure that there is no cheating.
 
-To run the autograder, simply do \texttt{python grader.py}.  See the documentation in \texttt{grader.py} for running individual tests.
+To run the autograder, place the file \texttt{grader.py} in the same directory as \texttt{coordinates\_tuples.py} and \texttt{coordinates\_dicts.py}.  You can run the autograder with:
 
+\begin{center}
+\texttt{python grader.py}
+\end{center}
 
+See the documentation in \texttt{grader.py} to learn how to run individual tests.
+
+\newpage
 \item \textbf{Generator power (bonus)} \\
 In this bonus question, we explore generator functions.  Consider the following function, which takes as input a set of x coordinates, y coordinates, and z coordinates and returns all possible (x, y, z) points from the sets:
 
@@ -194,11 +200,11 @@ Write a function \texttt{keyvals}, which takes as input a dictionary and returns
 Write a function \texttt{keyvals\_gen}, which is the generator function analog of \texttt{keyvals} from part (c). \setbonuspoint
 \end{enumerate}
 
+\vspace{0.3in}
 \item \textbf{Submission} \\
+Upload the files \texttt{myfirstscript.py}, \texttt{coordinates\_tuples.py}, and \texttt{coordinates\_dicts.py} to your Drop Box on Coursework.  Do not change the names of the files. \\
 
-% TODO
-
-
+You can submit you answer to the bonus question either by uploading it electronically to your Drop Box or by bringing a hard-copy to class.
 
 \end{enumerate}
 %\printpoints.
