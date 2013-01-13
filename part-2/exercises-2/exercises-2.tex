@@ -1,9 +1,9 @@
 \documentclass{article}
-\newcommand{\assgnnum}{1}
-\newcommand{\assigndate}{January 10}
+\newcommand{\assgnnum}{2}
+\newcommand{\assigndate}{January 15}
 
 \usepackage{amsmath}
-%\usepackage{fullpage}
+\usepackage{fullpage}
 \usepackage{amssymb}
 %\usepackage{bbm}
 \usepackage{fancyhdr}
@@ -62,7 +62,7 @@
 %\vspace*{15pt}
 \begin{enumerate}
 
-\item \textbf{Data structures practice} \\
+\item \textbf{Using data structures}
 \begin{enumerate}
 \item An $m \times n$ matrix $A$ is a mathematical structure with $m * n$ entries of data.  Typically, $A$ is partitioned into $m$ rows and $n$ columns, so that $A_{ij}$ is the entry in the $j$th column of the $i$th row.  For example, if $m = 3$, $n = 2$, and $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \\ -7 & 4 \\ \end{pmatrix}$, $A_{21} = 3$. \\
 
@@ -78,17 +78,17 @@ How would you add the edge $(F, B)$ to your structure?
 
 \begin{enumerate}
 \setcounter{enumii}{2}
-\item Sometimes, the edges in a graph can have weights.  For example, if the set of vertices represent cities and the set of edges represent roads between those cities, then the weights could be the distance of the roads between the edges. \\
+\item Sometimes, the edges in a graph can have weights.  For example, if the set of vertices represent cities and the set of edges represent roads between those cities, then the weights could be the distance of the roads between the edges. Update your data structure from part (b) to have information about edge weights.
 
-Update your data structure from part (b) to have information about edge weights.  This is called a weighted directed graph.
+%  This is called a weighted directed graph.
 \end{enumerate}
 
-\begin{enumerate}
-\setcounter{enumii}{3}
-\item We can think of a graph as a matrix.  Consider the weighted directed graph from part (c) and suppose that $V$ has $n$ elements.  Label the vertices $1, 2, \hdots, n$.  We then say that entry $A_{ij}$ is $0$ if the edge $(i, j)$ is not in the graph, otherwise it is equal to the edge weight of $(i, j)$. \\
+%\begin{enumerate}
+%\setcounter{enumii}{3}
+%\item We can think of a graph as a matrix.  Consider the weighted directed graph from part (c) and suppose that $V$ has $n$ elements.  Label the vertices $1, 2, \hdots, n$.  We then say that entry $A_{ij}$ is $0$ if the edge $(i, j)$ is not in the graph, otherwise it is equal to the edge weight of $(i, j)$. \\
 
-Write a function that takes as input a weighted directed graph (using your data structure from part (c)) and returns the associated matrix (using your data structure from part (a)).
-\end{enumerate}
+%Write a function that takes as input a weighted directed graph (using your data structure from part (c)) and returns the associated matrix (using your data structure from part (a)).
+%\end{enumerate}
 
 
 \item \textbf{List comprehensions} \\
@@ -139,7 +139,7 @@ Identify any syntax or indentation errors in the following Python scripts.
 
 
 \item \textbf{Copying} \\
-Unlike Matlab, Python does not use copy on assignment for objects.  We will explore this in the following examples.  What gets printed in the following Python scripts?
+Python does not use copy on assignment for objects.  We will explore this in the following examples.  What gets printed in the following Python scripts?  Explain.
 
 \begin{enumerate}
 \item

@@ -5,5 +5,3 @@ print arr1[2]
 arr3 = arr1[0:3]
 arr3[0] = 17
 print arr1[0]
-
-
