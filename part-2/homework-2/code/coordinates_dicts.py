@@ -6,7 +6,7 @@ cylindrical coordinates.
 
 coords is a dictionary with string keys 'r', 'theta', and 'phi' with
        corresponding values as spherical coordinate values
-return value is a dictionary with keys 'rho', 'theta', and 'z'  with
+return value is a dictionary with keys 'rho', 'phi', and 'z'  with
        corresponding values as cylindrical coordinate values
 '''
 def sphere2cyl(coords):
@@ -38,7 +38,7 @@ def sphere2cart(coords):
 Convert a dictionary of cylindrical coordinates to a dictionary of
 spherical coordinates.
 
-coords is a dictionary with string keys 'rho', 'theta', and 'z' with
+coords is a dictionary with string keys 'rho', 'phi', and 'z' with
        corresponding values as cylindrical coordinate values
 return value is a dictionary with keys 'r', 'theta', and 'phi'  with
        corresponding values as spherical coordinate values
@@ -55,7 +55,7 @@ def cyl2sphere(coords):
 Convert a dictionary of cylindrical coordinates to a dictionary of
 cartesian coordinates.
 
-coords is a dictionary with string keys 'rho', 'theta', and 'z' with
+coords is a dictionary with string keys 'rho', 'phi', and 'z' with
        corresponding values as cylindrical coordinate values
 return value is a dictionary with keys 'x', 'y', and 'z'  with
        corresponding values as cartesian coordinate values
@@ -99,7 +99,7 @@ cylindrical coordinates.
 
 coords is a dictionary with string keys 'x', 'y', and 'z' with
        corresponding values as cartesian coordinate values
-return value is a dictionary with keys 'rho', 'theta', and 'z'  with
+return value is a dictionary with keys 'rho', 'phi', and 'z'  with
        corresponding values as cylindrical coordinate values
 '''
 def cart2cyl(coords):
