@@ -1,0 +1,4 @@
+salt: NaCl
+sugar: C6H1206
+ethanol: CH3CH2OH
+ammonia: NH3

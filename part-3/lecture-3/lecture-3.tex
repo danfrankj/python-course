@@ -15,18 +15,141 @@
 }
 
 \title{CME 193: Introduction to Scientific Python \\
-Lecture 3: File I/O and Object-oriented Python}
+Lecture 3: File I/O, Object-oriented Python, and Intro to NumPy}
 \author{Austin Benson \\
 \vspace{0.1in}
 Dan Frank \\
 \vspace{0.1in}
 Institute for Computational and Mathematical Engineering (ICME)}
+\date{January 17, 2013}
 \begin{document}
 \maketitle
 
 \section{File I/O}
 \begin{frame}
+\frametitle{Programming Languages and the system}
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{Matlab encourages a separation between the program and the computer system}
+\item{C provides powerful ways to control the computer system, but the code is verbose}
+\item{Python makes it very easy to interact with the computer system in basic ways}
+\end{itemize}
+\end{frame}
 
+\begin{frame}
+\frametitle{Python and the system}
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{For scientific computing, this balance between power and ease of programming makes Python a popular choice}
+\item{Today, we will focus on file I/O as our interaction with the computer system}
+\item{Please check out the \texttt{os} library (operating system): \url{http://docs.python.org/2/library/os.html}.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{File reading}
+Suppose we have a text file of chemical compounds:
+\codeblock{code/compounds.txt}
+We want to read this file and store the information in a dictionary.
+\end{frame}
+
+\begin{frame}
+\frametitle{File reading}
+\codeblock{code/compounds1.py}
+'r'  specifies that we want to read the file. \\
+\vspace{0.1in}
+\emph{f} is now a file object
+\end{frame}
+
+\begin{frame}
+\frametitle{File reading}
+Print the entire contents of the file:
+\codeblock{code/compounds2.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{File reading}
+Print each line individually:
+\codeblock{code/compounds3.py}
+
+\vspace{0.3in}
+Prints ``(Line \#1) salt: NaCl", etc.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{File reading}
+A verbose dictionary formulation:
+\codeblock{code/compounds4.py}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{File reading}
+The ``with" statement closes the file automatically.  A more Pythonic implementation:
+\codeblock{code/compounds5.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{File reading}
+One liner:
+\codeblock{code/compounds6.py}
+
+\vspace{0.3in}
+... might be a bit much for one line.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{File writing}
+Now we are going the other way.  We have data in our Python program that we want to store.
+\end{frame}
+
+\begin{frame}
+\frametitle{File writing}
+Suppose we have scraped some web data from \url{www.reddit.com}.
+\end{frame}
+
+\begin{frame}
+\frametitle{File writing}
+\codeblock{code/reddit_data.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{File writing}
+\codeblock{code/reddit1.py}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File writing}
+Result:
+\begin{verbatim}
+{'sub': 'aww', 'comments': 595, 'title': 'The eyes says it all'}
+{'sub': 'AskReddit', 'comments': 6494, 'title': 'From typical youtube upload to serendipity in 30 seconds'}
+{'sub': 'AdviceAnimals', 'comments': 95, 'title': "Use a decent host or don't even try at all..."}
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{File writing}
+We might want a little more structure to the output file:
+\codeblock{code/reddit2.py}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File writing}
+Result:
+\begin{verbatim}
+Post #0
+        The eyes says it all
+                aww (595)
+Post #1
+        From typical youtube
+                AskReddit (6494)
+Post #2
+        Use a decent host or
+                AdviceAnimals (95)
+\end{verbatim}
 \end{frame}
 
 \section{Python Classes}
@@ -180,28 +303,44 @@ The \text{\_\_contains\_\_()} function is a special class function designed to w
 There are other special class functions.  For example, there is one for iterators (\texttt{for item in my\_class}).
 
 \end{frame}
-%After knowing a few basic types, you can write powerful Python code.
-
-%\vspace{0.1in}
-
-%Data types covered today:
-%\begin{itemize}
-%\setlength{\itemsep}{0.1in}
-%\item{Lists and tuples}
-%\item{Strings}
-%\item{Dictionaries}
-%\end{itemize}
-
-%\end{frame}
-
-%\begin{frame}
-%\frametitle{Lists}
-%We can also manipulate slices of an array:
-
-%\codeblock{code/lists2.py}
-
-%\end{frame}
 
 
+\section{Intro to NumPy}
+
+\begin{frame}
+\frametitle{NumPy}
+\codeblock{code/numpy1.py}
+\end{frame}
+
+
+\begin{frame}
+Linear classifier:
+\frametitle{NumPy}
+\codeblock{code/numpy2.py}
+\end{frame}
+
+
+\begin{frame}
+QR factorizations:
+\frametitle{NumPy}
+\codeblock{code/numpy3.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{End}
+
+Assignment 3 is posted on the course web site (due Tuesday 1/22).
+
+\vspace{0.2in}
+
+Next time:
+\begin{enumerate}
+\setlength{\itemsep}{0.05in}
+\item{Dan is lecturing}
+\item{More NumPy}
+\item{SciPy}
+\end{enumerate}
+
+\end{frame}
 
 \end{document}
