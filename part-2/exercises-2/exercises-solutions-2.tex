@@ -1,0 +1,216 @@
+\documentclass{article}
+\newcommand{\assgnnum}{2}
+\newcommand{\assigndate}{January 15}
+
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{amssymb}
+%\usepackage{bbm}
+\usepackage{fancyhdr}
+%\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
+\usepackage{../../arbenson-math}
+
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -0.5in \headheight 0.25in \headsep 0.25in
+\textwidth 6.5in \textheight 9in
+\parskip 6pt \parindent 0in \footskip 20pt
+
+% set the header up
+\fancyhead{}
+\fancyhead[L]{CME193: In-class exercises \assgnnum}
+\fancyhead[R]{\assigndate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\headrulewidth{0.4pt}
+\setlength\headheight{15pt}
+
+
+\newcommand{\p}{\ensuremath{\mathbf{P}}}
+\renewcommand{\Pr}[1]{\ensuremath{\p \left \{ #1 \right \}}}
+\newcommand{\nti}{\ensuremath{n \to \infty}}
+\newcommand{\I}{\ensuremath{\operatorname{I}}}
+\newcommand{\One}[1]{\ensuremath{\mathbbm{1}_{\left \{ #1 \right \}}}}
+\newcommand{\E}{\ensuremath{\mathbf{E}}}
+\newcommand{\Ex}[2][]{\ensuremath{\E_{#1} \left[ #2 \right]}}
+\newcommand{\var}{\ensuremath{\operatorname{Var}}}
+\newcommand{\cov}{\ensuremath{\operatorname{Cov}}}
+\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\NormRV}[2]{\ensuremath{\operatorname{N}\left(#1, #2\right)}}
+\newcommand{\BetaRV}[2]{\ensuremath{\operatorname{Beta}\left(#1, #2\right)}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\bb}{\mathbf{b}}
+
+
+\newcounter{points}
+\setcounter{points}{0}
+
+\newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
+\newcommand\printpoints{Total number of points: \thepoints}
+
+\newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
+
+\setlength{\parindent}{0in}
+
+\begin{document}
+
+\pagestyle{fancy}
+%\vspace*{15pt}
+\begin{enumerate}
+
+\item \textbf{Using data structures}
+\begin{enumerate}
+\item An $m \times n$ matrix $A$ is a mathematical structure with $m * n$ entries of data.  Typically, $A$ is partitioned into $m$ rows and $n$ columns, so that $A_{ij}$ is the entry in the $j$th column of the $i$th row.  For example, if $m = 3$, $n = 2$, and $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \\ -7 & 4 \\ \end{pmatrix}$, $A_{21} = 3$. \\
+
+Using the data structures from class, describe how you could construct an $m \times n$ matrix.  How can you access element $A_{ij}$?  Can you change the element $A_{ij}$? \\
+
+We could use a nested list structure: \\
+\begin{tabular}{c}
+\lstinputlisting{code/matrix.py}
+\end{tabular}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item A directed graph is a set of vertices $V$ and a set of edges $E \subset V \times V$.  Suppose we have a graph with vertices $V = \BraceOf{A, B, C, D, E, F}$ and edges $E = \BraceOf{(A, B), (B, C), (A, F), (E, D), (C, B)}$.  Using the data structures from class, describe a way to represent this graph. \\
+
+How would you add the edge $(F, B)$ to your structure? \\
+
+We can create an adjacency list using a dictionary and lists: \\
+\begin{tabular}{c}
+\lstinputlisting{code/graph1.py}
+\end{tabular}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Sometimes, the edges in a graph can have weights.  For example, if the set of vertices represent cities and the set of edges represent roads between those cities, then the weights could be the distance of the roads between the edges. Update your data structure from part (b) to have information about edge weights. \\
+
+Instead of using a list of node keys for the adjacency list, we can use a list of (node key, weight) tuples: \\
+\begin{tabular}{c}
+\lstinputlisting{code/graph2.py}
+\end{tabular}
+
+%  This is called a weighted directed graph.
+\end{enumerate}
+
+%\begin{enumerate}
+%\setcounter{enumii}{3}
+%\item We can think of a graph as a matrix.  Consider the weighted directed graph from part (c) and suppose that $V$ has $n$ elements.  Label the vertices $1, 2, \hdots, n$.  We then say that entry $A_{ij}$ is $0$ if the edge $(i, j)$ is not in the graph, otherwise it is equal to the edge weight of $(i, j)$. \\
+
+%Write a function that takes as input a weighted directed graph (using your data structure from part (c)) and returns the associated matrix (using your data structure from part (a)).
+%\end{enumerate}
+
+
+\item \textbf{List comprehensions} \\
+The following pieces of code are kludgy.  Rewrite each of them using list comprehensions.  \emph{Hint: for parts (a) and (b), the range() function may be useful.}
+
+\begin{enumerate}
+\item \lstinputlisting{code/kludge1.py}
+\texttt{powers = [2 ** i for i in range(20)]}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \lstinputlisting{code/kludge2.py}
+\texttt{approximations = [round(math.pi, i) for i in range(1, 21)]}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \lstinputlisting{code/kludge3.py}
+\texttt{points = [(x, y, z) for x in xpoints for y in ypoints for z in zpoints]}
+\end{enumerate}
+
+\newpage
+\item \textbf{Syntax and indentation errors} \\
+Identify any syntax or indentation errors in the following Python scripts.
+
+\begin{enumerate}
+\item
+\lstset{numbers=left}
+\begin{tabular}{c}
+\lstinputlisting{code/syntax1.py}
+\end{tabular} \\ \\
+Line 3 (syntax error): no parentheses; need \texttt{def func1():} \\
+Line 6 (indentation error): else does not align with if
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item
+\lstset{numbers=left}
+\begin{tabular}{c}
+\lstinputlisting{code/syntax2.py}
+\end{tabular} \\ \\
+Line 2 (syntax error): should be \texttt{while i < 10:} \\
+Line 5 (indentation error): \texttt{i += 1} does not align with the rest of the code block
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item
+\lstset{numbers=left}
+\begin{tabular}{c}
+\lstinputlisting{code/syntax3.py}
+\end{tabular} \\ \\
+No errors.  However, mixing all of these coding styles is frowned upon.
+\end{enumerate}
+
+\newpage
+\item \textbf{Copying} \\
+Python does not use copy on assignment for objects.  We will explore this in the following examples.  What gets printed in the following Python scripts?  Explain.
+
+\begin{enumerate}
+\item
+\begin{tabular}{c}
+\lstinputlisting{code/copy1.py}
+\end{tabular} \\ \\
+On the second line, \texttt{arr2} points to the same object as \texttt{arr1}.  Thus, in line 3, the assignment affects both \texttt{arr1} and \texttt{arr2} (they point to the same object).  The first print statement prints 13. \\
+
+The slicing operator creates a copy, so \texttt{arr3} points to a newly created object.  Therefore, the second print statement prints 2.
+\end{enumerate}
+
+\vspace{0.05in}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item
+\begin{tabular}{c}
+\lstinputlisting{code/copy2.py}
+\end{tabular} \\ \\
+The first print statement just prints 3, the length of \texttt{my\_arr}.  When the function is called, the reference is passed, so $2$ gets appended to \texttt{my\_arr}.  Thus, the second print statement prints 4.
+\end{enumerate}
+
+\vspace{0.05in}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item
+\begin{tabular}{c}
+\lstinputlisting{code/copy3.py}
+\end{tabular} \\ \\
+\texttt{dict1} and \texttt{dict2} are references to the same dictionary.  Adding the bananas key to \texttt{dict2} also adds the key to \texttt{dict1}.  Thus, ``bananas is there!" gets printed.
+\end{enumerate}
+
+\vspace{0.05in}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item
+\begin{tabular}{c}
+\lstinputlisting{code/copy4.py}
+\end{tabular} \\ \\
+Strings are immutable, so we can't change them.  In line 2, we just make a copy of ``hello" that gets stored in the variable y.  Thus, the print statement prints ``hi".  The same holds for ints and tuples, which are also immutable.
+\end{enumerate}
+
+
+
+
+\end{enumerate}
+%\printpoints.
+\end{document} 
