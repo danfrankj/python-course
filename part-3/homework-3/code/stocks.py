@@ -41,8 +41,6 @@ def test1():
   techs.add_stock('FB', 45.73, 2)
   print techs.most_money()
 
-test1()
-
 def test2():
   if 'P' not in techs:
     print 'Maybe I should buy Pandora stock'
@@ -50,4 +48,9 @@ def test2():
   if 'P' in techs:
     print 'I now have Pandora stock'
 
-test2()
+
+if __name__ == '__main__':
+  print 'running test 1...'
+  test1()
+  print 'running test 2...'
+  test2()
