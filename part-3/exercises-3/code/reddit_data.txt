@@ -1,0 +1,5 @@
+imgur.com | 345 | 5060
+i.imgur.com | 1228 | 42151
+quickmeme.com | 434 | 4312
+scientificamerican.com | 185 | 2412
+bbc.co.uk | 191 | 726

@@ -1,6 +1,6 @@
 \documentclass{article}
-\newcommand{\assgnnum}{1}
-\newcommand{\assigndate}{January 17}
+\newcommand{\assgnnum}{3}
+\newcommand{\assigndate}{January 22}
 
 \usepackage{amsmath}
 %\usepackage{fullpage}
@@ -62,22 +62,66 @@
 %\vspace*{15pt}
 \begin{enumerate}
 
-\item \textbf{Parsing strings} \\
+\item \textbf{Reading file data}
+\begin{enumerate}
+\item Write a function that takes as input the name of a text file and returns the most frequently occurring word in the file.  You can test your function with:
+\begin{center}
+\url{http://stanford.edu/~arbenson/cme193/data/course_description.txt}
+\end{center}
+\end{enumerate}
 
-\item \textbf{Manipulating strings} \\
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Write a function that takes as input the name of a text file and returns the total number of words in the file.  You can test your function with:
+\begin{center}
+\url{http://stanford.edu/~arbenson/cme193/data/bill_of_rights.txt}
+\end{center}
+\end{enumerate}
 
-\item \textbf{Classes}
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Suppose that we have scraped some web data from reddit.  We have a text file where each row contains the base web page of the post, the number of comments, and the number of ``upvotes" the post has received.  Suppose that the data for each post is separated by \texttt{|}.  For example, here are 5 data points: \\
+\lstinputlisting{code/reddit_data.txt}
+Write a function that computes the average number of comments (number of comments is the right-most column) of the data points.  Assume that the name of the data file is the function argument. \\
 
+The above data is available at:
+\begin{center}
+\url{http://stanford.edu/~arbenson/cme193/data/reddit_data.txt}
+\end{center}
+\end{enumerate}
 
-%\item \textbf{Copying} \\
-%Unlike Matlab, Python does not use copy on assignment for objects.  We will explore this in the following examples.  What gets printed in the following Python scripts?
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item Write a function that computes the average number of upvotes for posts on imgur and average number of upvotes for posts not on imgur.
+\end{enumerate}
 
-%\begin{enumerate}
-%\item
-%\begin{tabular}{c}
-%\lstinputlisting{code/copy1.py}
-%\end{tabular}
-%\end{enumerate}
+\item \textbf{Cartesian points}
+\begin{enumerate}
+\item In the second homework, you represented $(x, y, z)$ points using tuples and lists.  Write a class called \texttt{CartPoint} that contains x, y, and z points as member variables.  The constructor for the class should take an $(x, y, z)$ tuple.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Add a \texttt{magnitude()} function to \texttt{CartPoint} that computes the magnitude of the point ($\sqrt{x^2 + y^2 + z^2}$).
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Create a subclass of \texttt{CartPoint} called \texttt{CartPointTime} that represents an $(x, y, z, t)$ vector, $t$ representing time.  The constructor for the class should take an $(x, y, z, t)$ tuple.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item Add a \texttt{magnitude\_and\_time()} to \texttt{CartPointTime} function that returns a $(magnitude, time)$ tuple.
+\end{enumerate}
+
+\newpage
+\item \textbf{Applications: Gene sequencing} \\
+Suppose we are trying to find length-4 patterns in length-10 gene sequences.  We have some Python data structures with information, and we have some methods for managing our data.  However, there is not much organization to these pieces. \\
+
+Create a class called \texttt{GenePatterns} that has similar functionality to the code provided below. \\
+
+\lstinputlisting{code/genes.py}
 
 
 
