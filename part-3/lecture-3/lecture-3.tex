@@ -25,6 +25,39 @@ Institute for Computational and Mathematical Engineering (ICME)}
 \begin{document}
 \maketitle
 
+\section{Administrivia}
+\begin{frame}
+\frametitle{Homework}
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{Overall, good job on homework 1.}
+\item{Homework 2 is due right now.}
+\item{Homework 3 is posted (longer than the first two assignments).}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Homework 1: is and is not}
+\texttt{==} determines if the objects have the same value.  \texttt{is} checks if the objects are the same.
+\codeblock{code/is_comp.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Homework 1: \% operator on strings}
+There is no analogous modulo operator on strings.  However, \texttt{\%} is used for string formatting:
+\codeblock{code/string_formatting.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Homework 1: style}
+\codeblock{code/return_style1.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Homework 1: style}
+\codeblock{code/return_style2.py}
+\end{frame}
+
 \section{File I/O}
 \begin{frame}
 \frametitle{Programming Languages and the system}
@@ -112,12 +145,14 @@ Suppose we have scraped some web data from \url{www.reddit.com}.
 
 \begin{frame}
 \frametitle{File writing}
+\texttt{reddit\_data.py}:
 \codeblock{code/reddit_data.py}
 \end{frame}
 
 \begin{frame}
 \frametitle{File writing}
 \codeblock{code/reddit1.py}
+Note that we request write permission with `w' when opening the file.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -128,6 +163,8 @@ Result:
 {'sub': 'AskReddit', 'comments': 6494, 'title': 'From typical youtube upload to serendipity in 30 seconds'}
 {'sub': 'AdviceAnimals', 'comments': 95, 'title': "Use a decent host or don't even try at all..."}
 \end{verbatim}
+\vspace{0.2in}
+any problems with this output?
 \end{frame}
 
 \begin{frame}
@@ -174,7 +211,7 @@ More specifically, Python classes:
 \vspace{0.1in}
 \begin{itemize}
 \setlength{\itemsep}{0.1in}
-\item{contain ``member" data, which are just variables}
+\item{contain ``instance variables" as data}
 \item{contain functions (sometimes called ``methods" in the context of classes)}
 \item{structure can change on the fly}
 \end{itemize}
@@ -189,6 +226,7 @@ In languages like C++ and Java, classes provide data protection (public/private 
 \vspace{0.2in}
 
 It is up to the programmer to not abuse the classes.  This works well in practice, and the code remains simple.
+
 \end{frame}
 
 \begin{frame}
@@ -212,7 +250,7 @@ The \texttt{\_\_init\_\_()} function is the special class constructor.  It is th
 
 \begin{frame}
 \frametitle{self}
-The self parameter is a little weird.  We do not actually provide the self value.
+The self parameter is a little weird.
 
 \vspace{0.2in}
 
@@ -222,7 +260,7 @@ The self variable is a pointer to the class that you are modifying.  For example
 \texttt{self.symbol = symbol}.
 \end{center}
 
-says to modify the variable \texttt{symbol} in this class.
+says to modify the variable instance variable \texttt{symbol} in this class instantiation.  On the right-hand-side, symbol is the name of a local variable (from the parameters).
 
 \end{frame}
 
