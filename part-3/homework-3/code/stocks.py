@@ -16,7 +16,7 @@ class Portfolio():
    Return the symbol of the stock in which this portfolio
    is the most invested.  In other words, return the symbol
    of the stock for which the price per share multiplied by the
-   number of shares is the most.
+   number of shares is the largest.
   """
   def most_money(self):
     # IMPLEMENT
