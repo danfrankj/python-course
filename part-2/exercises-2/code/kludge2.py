@@ -5,5 +5,6 @@ i = 1
 while i <= 20:
   approx = round(math.pi, i)
   approximations.append(approx)
+  i += 1
 
 

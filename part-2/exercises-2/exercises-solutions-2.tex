@@ -117,7 +117,9 @@ The following pieces of code are kludgy.  Rewrite each of them using list compre
 \begin{enumerate}
 \setcounter{enumii}{1}
 \item \lstinputlisting{code/kludge2.py}
-\texttt{approximations = [round(math.pi, i) for i in range(1, 21)]}
+\texttt{approximations = [round(math.pi, i) for i in range(1, 21)]}.  \\
+
+Note that, due to finite-precision floating point numbers, we can only get 16 digits of precision.
 \end{enumerate}
 
 \begin{enumerate}
