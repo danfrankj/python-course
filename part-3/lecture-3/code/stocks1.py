@@ -8,4 +8,4 @@ google = Stock('Google', 'GOOG')
 apple = Stock('Apple', 'APPL', [500.43, 570.60])
 
 print google.symbol
-print str(max(apple.prices))
+print max(apple.prices)
