@@ -24,6 +24,7 @@
 *.nav
 *.snm
 *.pdf
+*.vrb
 
 *.pptx
 *.pyc
