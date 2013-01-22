@@ -12,7 +12,33 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
-\usepackage{../../arbenson-math}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+
+\definecolor{thegreen}{rgb}{0,.5,0}
+\definecolor{comment-green}{rgb}{0,.3,0}
+\definecolor{theblue}{rgb}{0,0,.8}
+\definecolor{light-gray}{gray}{0.98}
+\definecolor{comment-color}{rgb}{0,0,.8}
+\definecolor{string-color}{rgb}{0,.75,0}
+\definecolor{border-blue}{rgb}{0,0,.6}
+
+\lstset{% use our version of highlighting                                            
+  language=python,      % using python                                               
+  keywordstyle={\color{teal}\bfseries},          % keywords                          
+  commentstyle=\color{comment-color},         % comments                             
+  stringstyle=\color{string-color},                   %strings                       
+}
+
+\lstset{
+  basicstyle={\ttfamily\normalsize},  % use font and smaller size                    
+  basewidth={0.5em,0.5em},
+  showstringspaces=false,                   % do not emphasize spaces in strings     
+  tabsize=2,                                % number of spaces of a TAB              
+  aboveskip={0\baselineskip},               % a bit of space above                   
+  columns=fixed,                            % nice spacing                           
+}
 
 
 \oddsidemargin 0in \evensidemargin 0in
@@ -47,6 +73,8 @@
 \newcommand{\A}{\mathbf{A}}
 \newcommand{\bb}{\mathbf{b}}
 
+\newcommand{\ssum}[3]{\displaystyle\sum\limits_{#1}^{#2} #3}
+
 \newcounter{points}
 \setcounter{points}{0}
 \newcounter{bonuspoints}
@@ -79,7 +107,6 @@ An \emph{n-gram} is a sequence of $n$ consecutive words in a text.  For example,
 
 $n$-grams are sometimes used to analyze patterns in text (for example, see Google's Ngram Viewer at \url{http://books.google.com/ngrams}).  In this assignment, you are going to implement a function that computes the $k$ most frequently occurring $n$-grams in a text file. \\
 
-\textbf{Delivarables} \\
 Implement \texttt{ngram()} in the file \texttt{ngram.py}.  The function definition is: \\
 
 \begin{lstlisting}

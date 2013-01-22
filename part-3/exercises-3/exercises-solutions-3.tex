@@ -1,6 +1,6 @@
 \documentclass{article}
 \newcommand{\assgnnum}{3}
-\newcommand{\assigndate}{January 17}
+\newcommand{\assigndate}{January 22}
 
 \usepackage{amsmath}
 %\usepackage{fullpage}
@@ -68,6 +68,9 @@
 \begin{center}
 \url{http://stanford.edu/~arbenson/cme193/data/course_description.txt}
 \end{center}
+
+\lstinputlisting{code/total_words.py}
+The above prints 136.
 \end{enumerate}
 
 \begin{enumerate}
@@ -77,8 +80,12 @@
 \url{http://stanford.edu/~arbenson/cme193/data/bill_of_rights.txt}
 \end{center}
 Hint: The Python \texttt{sorted()} function might be useful. \\
+
+\lstinputlisting{code/most_common_word.py}
+The above prints \texttt{('the', 39)}.
 \end{enumerate}
 
+\newpage
 \begin{enumerate}
 \setcounter{enumii}{2}
 \item Suppose that we have scraped some web data from reddit.  We have a text file where each row contains the base web page of the post, the number of comments, and the number of ``upvotes" the post has received.  Suppose that the data for each post is separated by \texttt{|}.  For example, here are 5 data points: \\
@@ -90,13 +97,20 @@ The above data is available at:
 \url{http://stanford.edu/~arbenson/cme193/data/reddit_data.txt}
 \end{center}
 
+\lstinputlisting{code/reddit_comments.py}
+The above prints 3345.0.
+
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{3}
-\item Write a function that computes the average number of upvotes for posts on imgur and average number of upvotes for posts not on imgur.
+\item Write a function that computes the average number of upvotes for posts on imgur and average number of upvotes for posts not on imgur. \\
+
+\lstinputlisting{code/reddit_upvotes.py}
+The above prints (786.5, 270.0).
 \end{enumerate}
 
+\newpage
 \item \textbf{Cartesian points}
 \begin{enumerate}
 \item In the second homework, you represented $(x, y, z)$ points using tuples and lists.  Write a class called \texttt{CartPoint} that contains x, y, and z points as member variables.  The constructor for the class should take an $(x, y, z)$ tuple.
@@ -117,6 +131,14 @@ The above data is available at:
 \item Add a \texttt{magnitude\_and\_time()} to \texttt{CartPointTime} function that returns a $(magnitude, time)$ tuple.
 \end{enumerate}
 
+\lstinputlisting{code/points.py}
+
+The above prints:
+\begin{verbatim}
+1.41421356237
+(1.4142135623730951, 0.5)
+\end{verbatim}
+
 \newpage
 \item \textbf{Applications: Gene sequencing} \\
 Suppose we are trying to find length-4 patterns in length-10 gene sequences.  We have some Python data structures with information, and we have some methods for managing our data.  However, there is not much organization to these pieces. \\
@@ -124,6 +146,18 @@ Suppose we are trying to find length-4 patterns in length-10 gene sequences.  We
 Create a class called \texttt{GenePatterns} that has similar functionality to the code provided below. \\
 
 \lstinputlisting{code/genes.py}
+
+\newpage
+\lstinputlisting{code/genes_soln.py}
+
+The above prints:
+\begin{verbatim}
+True
+False
+['GACT', 'AAAA']
+\end{verbatim}
+
+
 
 \end{enumerate}
 %\printpoints.

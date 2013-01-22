@@ -1,0 +1,13 @@
+CME 193 Introduction to Scientific Python
+This short course runs for the first three weeks of the quarter and is
+offered each quarter during the academic year It is recommended for
+students who want to use Python in math science or engineering courses
+and for students who want to learn the basics of Python programming The 
+goal of the short course is to familiarize students with Python tools for
+scientific computing Lectures will be interactive with a focus on learning
+by example and assignments will be application-driven No prior programming
+experience is needed Topics covered include control flow basic data 
+structures File I O and an introduction to NumPy SciPy
+Terms Win Spr Units 1 Grading Satisfactory No Credit
+Tue Thu at 200-034
+CME 193 1 units Class 60784 Section 01 Grading Satisfactory No Credit WKS 

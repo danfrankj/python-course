@@ -1,7 +1,7 @@
 sequences = ['AGACTTTCAA', 'GAAAAATCGT', 'AAAAGACTTT']
 patterns = ['GACT', 'AAAA']
 
-matched = {'AGACTTTCAA': ['GACT'], 'GAAAAATCGT': ['AAAA'],
+matches = {'AGACTTTCAA': ['GACT'], 'GAAAAATCGT': ['AAAA'],
            'AAAAGACTTT': ['GACT', 'AAAA']}
 
 def add_sequence(seq):
@@ -13,7 +13,7 @@ def add_pattern(pattern):
 def contains_pattern(pattern):
     return pattern in patterns
 
-def update_matched(pattern):
+def update_matches(pattern):
   # make sure that matched dictionary is up to date
   # Implement this
   return
