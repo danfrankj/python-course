@@ -93,7 +93,8 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 \begin{enumerate}
 
 
-\item  \\
+\item  
+
 \begin{verbatim}
 >>> def f(arr):
 ...     arr[0, 0] = 42
@@ -103,7 +104,8 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 >>> A is B
 \end{verbatim}
 
-\item  \\
+\item  
+
 \begin{verbatim}
 >>> A = np.ones((2, 5))
 >>> B = A[:, 1:3]
@@ -111,7 +113,8 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 >>> A[0, 1] == 1.
 \end{verbatim}
 
-\item  \\
+\item  
+
 \begin{verbatim}
 >>> A = np.ones((2, 5))
 >>> B = A[:, np.array([False, True, True, False, False])]
@@ -120,7 +123,8 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 \end{verbatim}
 
 
-\item  \\
+\item  
+
 \begin{verbatim}
 >>> A = np.ones((2, 5))
 >>> B = A[:, np.array([1, 3])]
@@ -128,7 +132,8 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 >>> A[0, 1] == 1
 \end{verbatim}
 
-\item  \\
+\item  
+
 \begin{verbatim}
 >>> A = np.ones((2, 5))
 >>> B = A[:, 1:3]
@@ -160,14 +165,14 @@ The \texttt{scipy.optimize} module contains functions that perform numerical opt
 \texttt{scipy.optimize.minimize} to minimize the following function. 
 $$f(x) = \frac{1}{2}x^TAx - b^Tx$$
 When 
-A= \begin{pmatrix}
+$A= \begin{pmatrix}
 1 & 1\\
 1 & 2
-\end{pmatrix}
-and b = \begin{pmatrix}
+\end{pmatrix}$
+and $b = \begin{pmatrix}
 1 \\
 1 \\
-\end{pmatrix}.
+\end{pmatrix}$.
 Verify that your solution $x^*$ is a solution to the system of linear equations defined by $A$ and $b$. That is, make sure $Ax^*=b$.
 
 \item \textbf{matplotlib} \setpoints{0}
