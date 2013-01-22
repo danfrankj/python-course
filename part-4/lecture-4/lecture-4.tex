@@ -1,0 +1,125 @@
+%
+\documentclass{beamer}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{../../arbenson-math}
+
+\usetheme{boxes}
+\usecolortheme{seahorse}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{\thesection}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\title{CME 193: Introduction to Scientific Python \\
+Lecture 4: NumPy and SciPy}
+\author{Austin Benson \\
+\vspace{0.1in}
+Dan Frank \\
+\vspace{0.1in}
+Institute for Computational and Mathematical Engineering (ICME)}
+\date{January 22, 2013}
+\begin{document}
+
+\maketitle
+
+\section{NumPy}
+
+\begin{frame}
+\frametitle{What is NumPy?}
+
+Wikipedia: NumPy is an extension to the Python programming language, adding support for large, multi-dimensional arrays and matrices, along with a large library of high-level mathematical functions to operate on these arrays.
+
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{At the core of the NumPy package, is the \textit{ndarray} object which encapsulates n-dimensional arrays of homogeneous data. 
+}
+\item{Many operations performed using \textit{ndarray} objects execute in compiled code for performance}
+\item{The standard mathematical and scientific packages in Python use NumPy arrays}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Array Creation}
+Several ways to create arrays...
+\lstset{basicstyle=\scriptsize}
+\codeblock{code/array_creation.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Array IO}
+\lstset{basicstyle=\small}
+\codeblock{code/array_io.py}
+Other options control data types, delimiters, comments, headers, etc.
+See documentation, especially "See Also".
+\end{frame}
+
+\begin{frame}
+\frametitle{Array Attribtues}
+Arrays are objects and so have attributes and methods.
+\codeblock{code/array_attributes.py}
+And many others. Explore in documentation or with TAB complete in ipython.
+\end{frame}
+
+\begin{frame}
+\frametitle{Array Operations \& ufuncs}
+Default behavior is elementwise 
+\lstset{basicstyle=\scriptsize}
+\codeblock{code/array_operations.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Array Slicing and Indexing}
+Similar to lists but a few new ways to select
+\lstset{basicstyle=\scriptsize}
+\codeblock{code/array_slice.py}
+Boolean indexing can be very powerful as we will see in the exercises.
+\end{frame}
+
+\begin{frame}
+\frametitle{Array Broadcasting \& Vectorization}
+Broadcasting allows us to operate on arrays of different shapes by 'copying' smaller arrays when possible. This allows us to write more efficient and readable code (with fewer for loops).
+\codeblock{code/array_broadcasting.py}
+\end{frame}
+
+
+\section{SciPy}
+
+\begin{frame}
+\frametitle{What is SciPy?}
+SciPy is a library of algorithms and mathematical tools built to work with NumPy arrays.
+\vspace{0.2in}
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{statistics - \textit{scipy.stats}}
+\item{optimization - \textit{scipy.optimize}}
+\item{sparse matrices - \textit{scipy.sparse}}
+\item{signal processing - \textit{scipy.signal}}
+\item{etc.}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Example: KS-test}
+Question: do two data samples come from the same distribution?
+\lstset{basicstyle=\scriptsize}
+\codeblock{code/ks_test.py}
+\end{frame}
+
+\begin{frame}
+\lstset{basicstyle=\scriptsize}
+\frametitle{Example: bootstrapped confidence interval}
+\codeblock{code/bootstrap_mean.py}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{Example: k-means clustering}
+%\codeblock{code/k_means.py}
+%\end{frame}
+
+\end{document}
