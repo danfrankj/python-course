@@ -1,0 +1,169 @@
+\documentclass{article}
+\newcommand{\assgnnum}{3}
+\newcommand{\duedate}{January 22}
+
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{amssymb}
+%\usepackage{bbm}
+\usepackage{fancyhdr}
+%\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
+\usepackage{../../arbenson-math}
+
+
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -0.5in \headheight 0.25in \headsep 0.25in
+\textwidth 6.5in \textheight 9in
+\parskip 6pt \parindent 0in \footskip 20pt
+
+% set the header up
+\fancyhead{}
+\fancyhead[L]{CME193: Assignment \assgnnum}
+\fancyhead[R]{Due: \duedate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\headrulewidth{0.4pt}
+\setlength\headheight{15pt}
+
+\newcommand{\p}{\ensuremath{\mathbf{P}}}
+\renewcommand{\Pr}[1]{\ensuremath{\p \left \{ #1 \right \}}}
+\newcommand{\nti}{\ensuremath{n \to \infty}}
+\newcommand{\I}{\ensuremath{\operatorname{I}}}
+\newcommand{\One}[1]{\ensuremath{\mathbbm{1}_{\left \{ #1 \right \}}}}
+\newcommand{\E}{\ensuremath{\mathbf{E}}}
+\newcommand{\Ex}[2][]{\ensuremath{\E_{#1} \left[ #2 \right]}}
+\newcommand{\var}{\ensuremath{\operatorname{Var}}}
+\newcommand{\cov}{\ensuremath{\operatorname{Cov}}}
+\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\NormRV}[2]{\ensuremath{\operatorname{N}\left(#1, #2\right)}}
+\newcommand{\BetaRV}[2]{\ensuremath{\operatorname{Beta}\left(#1, #2\right)}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\bb}{\mathbf{b}}
+
+\newcounter{points}
+\setcounter{points}{0}
+\newcounter{bonuspoints}
+\setcounter{bonuspoints}{0}
+
+\newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
+\newcommand\setpoint{\addtocounter{points}{1}(1 point)}
+\newcommand\setbonuspoints[1]{\addtocounter{bonuspoints}{#1}(#1 bonus points)}
+\newcommand\setbonuspoint{\addtocounter{bonuspoints}{1}(1 bonus point)}
+
+\newcommand\printpoints{Total number of points: \value{\thepoints}}
+
+\newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
+
+\setlength{\parindent}{0in}
+
+\begin{document}
+
+\pagestyle{fancy}
+%\vspace*{15pt}
+
+50 points total.  70+\% correctness (35+ points) is needed to pass.  There is also the opportunity for 5 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class.
+
+\begin{enumerate}
+\item \textbf{Textual analysis} \\
+An \emph{n-gram} is a sequence of $n$ consecutive words in a text.  For example, the $2$-grams of:
+\begin{center}
+ ``I love the Python programming language"
+\end{center} are ``I love", ``love the", ``the Python", ``Python programming", and ``programming langue";  the $3-$grams are ``I love the", "love the Python", "the Python programming", and "Python programming language"; and so on for larger values of $n$.  We say that there are no $7$-grams for this sentence because there are only $6$ words.
+
+$n$-grams are sometimes used to analyze patterns in text (for example, see Google's Ngram Viewer at \url{http://books.google.com/ngrams}).  In this assignment, you are going to implement a function that computes the $k$ most frequently occurring $n$-grams in a text file. \\
+
+\textbf{Delivarables} \\
+Implement \texttt{ngram()} in the file \texttt{ngram.py}.  The function definition is: \\
+
+\begin{lstlisting}
+                       def ngram(n, k, document):
+\end{lstlisting}
+$n$ specifies that we are computing $n$-grams, $k$ specifies that we want the $k$ most frequently occurring $n$-grams (breaking ties arbitrarily), and \emph{document} is the name of a file containing the text.  If there are fewer than $k$ $n$-grams, return all $n$-grams).  The return value should be a dictionary with keys given by $n$-grams and values given by $n$-gram frequency in the text  (if no $n$-grams are found, say for $n$ too big, return an empty dictionary).  \\
+
+Record the output from \texttt{test1()} and \texttt{test2()} \setpoints{20}.  These tests use the files \texttt{course\_description.txt} and \texttt{bill\_of\_rights.txt}. \\
+
+Assume that the file \texttt{document} contains no punctuation.  Also assume that all words are separated by a single space. Note that capital letters constitute different words, so ``Python programming" and``python programming" would be counted as different 2-grams. \\
+
+Finally, only compute $n$-grams that occur on a single line of the text (not $n$-grams that contain words from the end of one line and the beginning of the next line).  Therefore, you can follow the examples from lecture on reading a file line-by-line. \\
+
+%\textbf{Grading} \\
+%To grade this question, tests will be conducted by calling the functions you implement.  Each test is worth 0 points (do not pass test) or 1 point (pass test).  There are 25 total tests.
+
+%All of the tests used for grading are distributed with the assignment.  Gaming the autograder by hard-coding the answers of the provided test functions is considered cheating and a violation of the Stanford honor code.  I will be testing your code with additional (unreleased) tests to ensure that there is no cheating.
+
+%To run the autograder, simply do \texttt{python grader.py}.  See the documentation in \texttt{grader.py} for running individual tests.
+
+\item \textbf{Money classes} \\
+The file \texttt{stocks.py} contains the skeleton code for a stock portfolio class.  This class is similar in spirit to the one presented in class, but it is a different class with different functionality.
+
+\begin{enumerate}
+\item Implement the \texttt{add\_stock()} and \texttt{most\_money()} functions.  What gets printed from calling the function \texttt{test1()}? \setpoints{8}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Implement the \texttt{\_\_contains\_\_()} function.  Remember from lecture that this is a special function that works with the \texttt{in} operator.  What gets printed from calling the function \texttt{test2()}? \setpoints{7}
+\end{enumerate}
+
+\newpage
+\item \textbf{NumPy} \\
+In this problem, we will explore the basics of NumPy.  Place all of your code into a file called \texttt{myfirstnumpy.py}.
+
+\begin{enumerate}
+\item Download and install NumPy on your machine.  Record the output of the following lines.  \setpoints{3} \\
+\texttt{>>> import numpy as np} \\
+\texttt{>>> np.eye(4, 4)} \\
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item The files \texttt{a.txt} and \texttt{b.txt} each contain data for a vector.  Each row of each file contains one floating point number.  Read the files \texttt{a.txt} and \texttt{b.txt} and store the data into two lists, \texttt{a} and \texttt{b}.  What are the lengths of these lists?  They should be the same.  \setpoints{3}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Use the \texttt{numpy.dot()} function to compute the dot product of these vectors.  See:
+\begin{center}
+\url{http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html}
+\end{center}
+\setpoints{3}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item Convert your vectors to the \texttt{numpy.array} data type.  Use the normal multiplication operator \texttt{*} to compute the entry-wise multiplication of the vectors into a new vector, \texttt{c}.  Write the elements of \texttt{c} to the file \texttt{c.txt}, one entry per line (the same as the representations in \texttt{a} and \texttt{b}). \setpoints{3}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{4}
+\item The one norm of a vector $x$ of length $n$ is given by $||x||_1 = \ssum{i=1}{n}{|x_i|}$, i.e., the sum of the absolute values of the entries. \\
+
+Compute the one norm of the vector $a - b$.  With the \texttt{numpy.array} data type, you can use the normal subtraction operator \texttt{-} to compute $a - b$.  Do not manually compute the norm.  Look up the NumPy norm function and use that. \setpoints{3}.
+\end{enumerate}
+
+\item \textbf{Python libraries (bonus)} \\
+One reason to love Python is the vast amount of libraries that are available.  For this problem, find a Python library related to your major/graduate program/interests and briefly explain what it does.  If you choose NumPy/SciPy, choose a specific application area or function.  Create a sample snippet of code that uses the library.  Place the code in a file called \texttt{bonus.py}  \setbonuspoints {5} 
+
+
+\item \textbf{Submission} \\
+Upload the following files to your Drop Box on Coursework:
+\begin{enumerate}
+\item \texttt{ngram.py}
+\item \texttt{stocks.py}
+\item \texttt{myfirstnumpy.py}
+\item \texttt{c.txt}
+\item \texttt{bonus.py} (if applicable)
+\end{enumerate}
+
+For the questions that required non-code answers, either type up your solutions and put them in your Drop Box or bring a hard copy to the next lecture.
+
+\end{enumerate}
+%\printpoints.
+\end{document} 
