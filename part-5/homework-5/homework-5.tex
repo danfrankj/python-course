@@ -1,6 +1,6 @@
 %
 \documentclass{article}
-\newcommand{\assgnnum}{5}
+\newcommand{\assgnnum}{5 Extra Credit}
 \newcommand{\duedate}{February 7}
 
 \usepackage{amsmath}
@@ -70,77 +70,25 @@
 \pagestyle{fancy}
 %\vspace*{15pt}
 
-50  points total.  70+\% correctness (35+ points) is needed to pass. Remember: you must pass all assignments to pass the class.   This assignment is due in 2 weeks. Please upload your code and the figure to the course Dropbox.
-
+Each problem below is worth one failed assignment. 
 \begin{enumerate}
 
-\item \textbf{Debugging} \setpoints{10} \\
-In this question we are going to use python debugging capabilities to examine the state of a computation 
+\item \textbf{Non-Uniform Sampling with Replacement} \setbonuspoint 
+
+Given a finite set $A = \{a_1, a_2, \dots, a_n \} $ and a vector of probabilities of the same size \newline $ \boldsymbol{p} = (p_1, p_2, \dots , p_n),$ a non-uniform sample of size $m$ with respect to probabilities $\boldsymbol p$ is a set
+$S$ of size $m$ where for each $s$ in $S$, $\mathbb{P}[s=a_i] = p_i $. 
+
 \vspace{.1in}
 
-To profile each of the statements you will create, use the \texttt{timeit} module. There are many ways to use this module (see
-\url{ http://docs.python.org/2.7/library/timeit.html}) but you should only need to use the \texttt{timeit()} function. To time multi-line statements, create the statement using triple quotes. Remember to import the necessary modules and create any necessary objects in the setup phase.
-
-\begin{enumerate}
-\item append  to an initially empty list sequentially 
-\item create an list of zeros of size 1000 and assign elements sequentially
-\item use a list comprehension
-\item use the python map function
-\item use vectorization (NumPy)
-\end{enumerate}
+Write a function that accepts two arrays, corresponding to $A$ and $\boldsymbol p$ above and an integer $m$ and produces a non-uniform sample from set $A$ with respect to $\boldsymbol p$ of size $m$. Verify that your function by checking that for large $m$ the proportion of $S$ equaling $a_i$ is approximately $p_i$.
 
 
-\item \textbf{Data Scraping, NumPy, and SciPy} \setpoints{40}
 
-Recreate the below image of Anscombe's quartet. Scrape the data from
-\newline
- \url{http://en.wikipedia.org/wiki/Anscombe%27s_quartet}; do not
- hardcode the values. Turn in both the plot and the code you used to create it (insert your own name, of course). Use less than 100 lines of code.
+\item \textbf{Kernel Density Estimation in 2D} \setbonuspoint
 
-\includegraphics[width=\textwidth]{images/quartet.png}
+ Create a function that will compute a two dimensional KDE given two arrays, $x$ and $y$ and a bandwidth. Use a bivariate gaussian kernel. The bandwidth in this case will be the common diagonal variance of the gaussian kernel.
+
 
  
-
-\newpage
-\item \textbf{Kernel Density Estimate (KDE)} \setpoints{10}
-
-Given a sample $x_1, x_2, \dots, x_n$ from an unknown distribution $f$ the kernel density estimate of $f$ at point $x$ with kernel $K_b$ is defined as 
-$$\hat{f}(x;b) = \frac{1}{n}\sum_{i=1}^{n}K_b(x-x_i)$$
-where the kernel must satisfy $\int_{-\infty}^{\infty}K(u)du = 1$ and $K(-u) = K(u).$ The parameter $b$ is known as the bandwidth and controls the width of the kernel used. There are many possible choices for kernels, and we will use the triangular kernel
-
-$$K_{b}(z) = \frac{1}{b}(1 - |\frac{z}{b}|)\mathbb{*I}(|\frac{z}{b} \leq ?1|)$$ 
-
-Write a two line python function \texttt{kde(x, data, bw)} without list comprehension that takes the three parameters below and returns $\hat{f}(x)$, the KDE evaluated at $x$.
-\begin{enumerate}
-\item \texttt{x} the point to evaluate the KDE
-\item \texttt{data}  the sample of points from $f$  ; above denoted $x_1, x_2, \dots, x_n$ 
-\item \texttt{bw} the bandwidth of the kernel
-\end{enumerate}
-
-\item \textbf{SciPy Optimization} \setpoints{15}
-
-The \texttt{scipy.optimize} module contains functions that perform numerical optimization. Use \newline
-\texttt{scipy.optimize.minimize} to minimize the following function. 
-$$f(x) = \frac{1}{2}x^TAx - b^Tx$$
-When 
-A= \begin{pmatrix}
-1 & 1\\
-1 & 2
-\end{pmatrix}
-and b = \begin{pmatrix}
-1 \\
-1 \\
-\end{pmatrix}.
-Verify that your solution $x^*$ is a solution to the system of linear equations defined by $A$ and $b$. That is, make sure $Ax^*=b$.
-
-\item \textbf{matplotlib} \setpoints{0}
-
-It will be useful to have matplotlib installed for lecture 5. Please install \texttt{matplotlib} on your system and make sure the following lines produce a graph 
-\begin{verbatim}
->>> import matplotlib.pyplot as plt
->>> plt.plot(np.arange(10))
->>> plt.show()
-\end{verbatim}
-\end{enumerate}
-%\printpoints.
+ %pprittponnts.
 \end{document} 
