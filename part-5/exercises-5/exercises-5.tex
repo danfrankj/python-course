@@ -80,81 +80,19 @@ where the kernel must satisfy $\int_{-\infty}^{\infty}K(u)du = 1$ and $K(-u) = K
 
 
 
-\item \textbf{KDE Plot 2D}
+\item \textbf{Recreate the Images Below}
 
-\item \textbf{Simple Web Scrape}
+hint: \texttt{plt.scatter}
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{images/recreate_plot.png}
+\end{figure}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=.5\textwidth]{images/rainbow_plot.png}
+\end{figure}
 
-
-\item \textbf{Array Creation and Operations}
-\begin{enumerate}
-\item 
-Create the following array
-$\begin{bmatrix}
-1 & 1 & 1 & 1 & 1\\
-1 & 2 & 1 & 1 & 1\\
-1 & 1 & 3 & 1 & 1\\
-1 & 1 & 1 & 4 & 1
-\end{bmatrix}$
-\item  Compute the row sums of the above matrix 
-\item Compute the column sums of the above matrix
-\item
-Download and read into memory the matrix found below. Check that it is equal to the array you created above. 
-\begin{center}
-\url{http://stanford.edu/~arbenson/cme193/data/lec4_array.txt}
-\end{center}
-\end{enumerate}
-
-\item{\textbf{Array Slicing and Indexing}}
-
-Using the array above return the second and third rows and the columns containing an even number as a $2 \times  2$ array using... 
-\begin{enumerate}
-%\setcounter{enumii}{1}
-\item integer indexes
-\item slices
-\item boolean arrays
-\item boolean arrays computed from the array
-\end{enumerate}
-
-\item \textbf{Broadcasting}
-
-Using the above array assigned as \textit{arr}, describe the following operations
-
-\begin{enumerate}
-
-
-\item 
-\begin{verbatim}
-arr * 5.
-\end{verbatim}
-
-
-\item 
-\begin{verbatim}
-arr * np.arange(arr.shape[1])
-\end{verbatim}
-
-\item 
-\begin{verbatim}
-arr * np.arange(arr.shape[0])
-\end{verbatim}
-
-
-\item 
-\begin{verbatim}
-arr.T * np.arange(arr.shape[0])
-\end{verbatim}
-
-\item compute the dot product of the array with $\begin{bmatrix}
-0\\
-1\\
-2\\
-3\\
-4\\
-\end{bmatrix}$
-in two ways
-\end{enumerate}
-%\printpoints.
 
 \end{enumerate}
 \end{document} 
