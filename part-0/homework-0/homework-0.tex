@@ -1,0 +1,324 @@
+\documentclass{article}
+\newcommand{\assgnnum}{0}
+\newcommand{\duedate}{}
+
+\usepackage{amsmath}
+%\usepackage{fullpage}
+\usepackage{amssymb}
+%\usepackage{bbm}
+\usepackage{fancyhdr}
+%\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+
+\definecolor{thegreen}{rgb}{0,.5,0}
+\definecolor{comment-green}{rgb}{0,.3,0}
+\definecolor{theblue}{rgb}{0,0,.8}
+\definecolor{light-gray}{gray}{0.98}
+\definecolor{comment-color}{rgb}{0,0,.8}
+\definecolor{string-color}{rgb}{0,.75,0}
+\definecolor{border-blue}{rgb}{0,0,.6}
+
+\lstset{% use our version of highlighting                                            
+  language=python,      % using python                                               
+  keywordstyle={\color{teal}\bfseries},          % keywords                          
+  commentstyle=\color{comment-color},         % comments                             
+  stringstyle=\color{string-color},                   %strings                       
+}
+
+\lstset{
+  basicstyle={\ttfamily\normalsize},  % use font and smaller size                    
+  basewidth={0.5em,0.5em},
+  showstringspaces=false,                   % do not emphasize spaces in strings     
+  tabsize=2,                                % number of spaces of a TAB              
+  aboveskip={0\baselineskip},               % a bit of space above                   
+  columns=fixed,                            % nice spacing                           
+}
+
+
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -0.5in \headheight 0.25in \headsep 0.25in
+\textwidth 6.5in \textheight 9in
+\parskip 6pt \parindent 0in \footskip 20pt
+
+% set the header up
+\fancyhead{}
+\fancyhead[L]{CME193: Assignment \assgnnum}
+%\fancyhead[R]{Due: \duedate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\headrulewidth{0.4pt}
+\setlength\headheight{15pt}
+
+\newcommand{\p}{\ensuremath{\mathbf{P}}}
+\renewcommand{\Pr}[1]{\ensuremath{\p \left \{ #1 \right \}}}
+\newcommand{\nti}{\ensuremath{n \to \infty}}
+\newcommand{\I}{\ensuremath{\operatorname{I}}}
+\newcommand{\One}[1]{\ensuremath{\mathbbm{1}_{\left \{ #1 \right \}}}}
+\newcommand{\E}{\ensuremath{\mathbf{E}}}
+\newcommand{\Ex}[2][]{\ensuremath{\E_{#1} \left[ #2 \right]}}
+\newcommand{\var}{\ensuremath{\operatorname{Var}}}
+\newcommand{\cov}{\ensuremath{\operatorname{Cov}}}
+\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\NormRV}[2]{\ensuremath{\operatorname{N}\left(#1, #2\right)}}
+\newcommand{\BetaRV}[2]{\ensuremath{\operatorname{Beta}\left(#1, #2\right)}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\bb}{\mathbf{b}}
+
+\newcounter{points}
+\setcounter{points}{0}
+\newcounter{bonuspoints}
+\setcounter{bonuspoints}{0}
+
+\newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
+\newcommand\setpoint{\addtocounter{points}{1}(1 point)}
+\newcommand\setzeropoints{\addtocounter{points}{0}(0 points)}
+\newcommand\setbonuspoints[1]{\addtocounter{bonuspoints}{#1}(#1 bonus points)}
+\newcommand\setbonuspoint{\addtocounter{bonuspoints}{1}(1 bonus point)}
+\newcommand\setzerobonuspoints{\addtocounter{bonuspoints}{0}(0 bonus points)}
+
+\newcommand\printpoints{Total number of points: \value{\thepoints}}
+
+\newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
+
+\setlength{\parindent}{0in}
+
+\begin{document}
+
+\pagestyle{fancy}
+%\vspace*{15pt}
+
+%There are 30 total points.  70+\% correctness (21+ points) is needed to pass.  There is also the opportunity for 3 bonus points.  Remember that you must pass all assignments to pass the class.  The assignment is due at the beginning of class.
+
+This assignment is worth $0$ points.  You should be able to understand and complete these problems before starting the first assignment.  Items marked 0 bonus points give additional information beyond what is required for this course.
+
+This document is available at \url{http://stanford.edu/~arbenson/cme193/homeworks/homework-0.pdf}.
+
+\begin{enumerate}
+\item \textbf{Python Interpreter} \\
+You can run the Python interpreter at the command-line on your computer.  This allows you to type commands interactively.  To see what this looks like, an online interpreter is available at:
+\begin{center}
+\url{http://shell.appspot.com/}.
+\end{center}
+For this question, you have to get Python installed and running on your computer.  Instructions are on the course web site.  Please come to office hours if you have difficulty with this question.
+
+What are the outputs of the following command sequences in the interpreter?:
+
+\begin{enumerate}
+\item \setzeropoints \\
+\texttt{>>> import math} \\
+\texttt{>>> print math.e}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \setzeropoints \\
+\texttt{>>> x = 'py' * 4} \\
+\texttt{>>> x}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \setzeropoints \\
+\texttt{>>> print undeclaredvariable}
+\end{enumerate}
+For questions (2) and (3), using the Python interpreter is recommended but not required.
+
+For questions (4), (5), and (6), we have not covered all of the syntax for defining functions (that will be in the second lecture).  We have also not covered how to write and execute Python scripts.  If you are comfortable with this, please feel free to go ahead and implement the code.  Otherwise, just treat the code as pseudocode.
+
+\item \textbf{Arithmetic} \\
+State to what numeric value the following statements will evaluate in Python.  Assume that the variable \texttt{x} has a numeric value of \texttt{10.0}.  Remember, that \texttt{**} is the exponent function.  \texttt{3 ** 2} $= 3^2 = 9$.
+
+\begin{enumerate}
+\setcounter{enumii}{0}
+\item \setzeropoints \\
+\begin{lstlisting}
+11 * 2 - 4
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \setzeropoints \\ 
+\begin{lstlisting}
+x + 2 ** 3 - 17 / 2
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \setzeropoints \\
+\begin{lstlisting}
+x + 2 ** 3 - 17.0 / 2
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \setzerobonuspoints \\
+\begin{lstlisting}
+1 if x / 5 > 6 else 2
+\end{lstlisting}
+\emph{Note: this is called a ternary conditional operator.}
+\end{enumerate}
+
+\item \textbf{Logic} \\
+
+State whether the following statements are \texttt{True} or \texttt{False} as it would be evaluated in Python (i.e., how it was described in lecture).  Assume that the variable \texttt{x} has a boolean value of \texttt{True}.  No need for explanation, except for the bonus question.
+
+\begin{enumerate}
+\setcounter{enumii}{0}
+\item \setzeropoints \\
+\begin{lstlisting}
+2 == 2 and 1 > 0
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \setzeropoints \\
+\begin{lstlisting}
+('py' * 3 + 'thon' == 'pypypython') and (1 < 2 < 3)
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \setzeropoints \\
+\begin{lstlisting}
+0 is True or not x
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \setzeropoints \\
+\begin{lstlisting}
+1 > 2 or x
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{4}
+\item \setzerobonuspoints \\
+\begin{lstlisting}
+'hello' < 'jello'
+\end{lstlisting}
+Why is this true or false?
+\end{enumerate}
+
+
+\item \textbf{Functions and flow} \\
+For each of the following Python scripts, state what gets printed.
+
+\begin{enumerate}
+\item \setzeropoints \\
+\lstinputlisting{code/fnf_a.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \setzeropoints \\
+\lstinputlisting{code/fnf_b.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \setzeropoints \\
+\lstinputlisting{code/fnf_c.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \setzeropoints \\
+\lstinputlisting{code/fnf_d.py}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{4}
+\item \setzerobonuspoints \\
+\lstinputlisting{code/fnf_e.py}
+\end{enumerate}
+
+
+\item \textbf{Sequence products}
+
+The code below computes the product of every other number between the parameter \texttt{start} and $20$.  For example, \text{mult(15)} would return $15 * 17 * 19 = 4845$ and \text{mult(14)} would return $14 * 16 * 18 * 20 = 80640$.  You will implement the \texttt{errorcheck()} functions in part (a). \\
+
+\lstinputlisting{code/mult.py}
+
+\begin{enumerate}
+\item \setzeropoints \\
+Suppose we want the function to return an error if either (1) the value of \texttt{start} is less than or equal to zero or (2) the value of \texttt{start} is strictly greater than $20$.  What should \texttt{errorcheck()} return so that the function follows this behavior?
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \setzeropoints \\
+Describe an abstraction that can be made for this function.  For example, in lecture, we changed our $\sqrt{7}$ function to a $\sqrt{x}$ function.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \setzeropoints \\
+Suppose that your abstraction from part (b) is implemented.  What function call can you make so that the function returns the same value as it would have before the abstraction was implemented?  For example, in lecture, we could make the call \texttt{root(7)}.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \setzeropoints \\
+Does your \texttt{errorcheck()} implementation in part (a) still make sense?
+\end{enumerate}
+
+
+\item \textbf{Factorials} \\
+The factorial of a positive integer $n$ is the product $1 * 2 * \hdots * n$.  The factorial operator is denoted with '!', for example: $5! = 5 * 4 * 3 * 2 * 1 = 120$.
+
+\begin{enumerate}
+\item \setzeropoints \\
+Suppose we want to write a factorial function in Python.  First, the function declaration gives the name of the function and information about the arguments.  For example, in lecture 1, we had
+
+\begin{tabular}{c}
+\begin{lstlisting}
+def root(x, tol=0.1)
+\end{lstlisting}
+\end{tabular}
+
+as the function declaration of our root finder.  \texttt{x} and \texttt{tol} are the arguments, and \texttt{tol} has a default value of $0.1$. \\
+
+Write the function declaration for a factorial function with name \texttt{factorial} and a single argument, \texttt{n}.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item \setzeropoints \\
+Implement the factorial function.  Do not worry about using exact Python syntax--pseudocode is fine.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item \setzeropoints \\
+The number of ways to pick a subset of $k$ items from a set of $n$ items, where order of selection does not matter, is denoted ${n \choose k}$ (often pronounced ``n choose k").  There is a simple formula for the function:
+\[
+{n \choose k} = \frac{n!}{k!(n - k)!}
+\]
+
+Write the function declaration for a function that computes ${n \choose k}$ with function name \texttt{nchoosek} and function arguments \texttt{n} and \texttt{k}.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item \setzeropoints \\
+Implement the \texttt{nchoosek} function from part (c) by calling your factorial function from part (b).  Again, do not worry about using exact Python syntax--pseudocode is fine.
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document} 

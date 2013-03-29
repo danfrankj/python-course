@@ -92,294 +92,60 @@
 \pagestyle{fancy}
 %\vspace*{15pt}
 
-There are 30 total points.  70+\% correctness (21+ points) is needed to pass.  There is also the opportunity for 3 bonus points.  Remember that you must pass all assignments to pass the class.  The assignment is due at the beginning of class.
+There are 30 total points.  70+\% correctness (21+ points) is needed to pass.  Remember that you must pass all assignments to pass the class.  The assignment is due at the beginning of class.
 
-This document is available at \url{http://stanford.edu/~arbenson/cme193/homeworks/homework-1.pdf}.
+This document is available at \url{http://stanford.edu/~arbenson/cme193/homeworks/homework-1.pdf}, as well as on coursework.
 
-\begin{enumerate}
-\item \textbf{Python Interpreter} \\
-You can run the Python interpreter at the command-line on your computer.  This allows you to type commands interactively.  To see what this looks like, an online interpreter is available at:
+\vspace{0.3in}
+
+\textbf{Overview and grading}
+
+In this assignment, you are provided with three python files, and you are asked to implement functions in these files.  The functions are designed to give you practice with control flow and basic arithmetic in Python.  You will have to edit the Python files using a text editor.  You are welcome to use an integrated development environment (IDE), for example, IPython or Eclipse with the PyDev add-on.
+
+To grade this assignment, tests will be conducted by calling the functions you implement.  Each test is worth 1 point and there is no partial credit.  There are 30 total tests.
+
+All of the tests used for grading are distributed with the assignment.  Gaming the autograder by hard-coding the answers of the provided test functions is considered cheating and a violation of the Stanford honor code.
+
+To run the autograder, place the file \texttt{grader.py} in the same directory as \texttt{arith.py}, \texttt{str.py}, and \texttt{simple\_math.py}.  You can run the autograder with the following command:
 \begin{center}
-\url{http://shell.appspot.com/}.
+\texttt{python grader.py}
 \end{center}
-For this question, you have to get Python installed and running on your computer.  Instructions are on the course web site.  Please come to office hours if you have difficulty with this question.
 
-What are the outputs of the following command sequences in the interpreter?:
+You will need to install Python on your computer in order to run the autograder.  There are instructions on the course web site.  On Linux and OS X, Python should already be installed.  You can also use the Stanford corn machines at \texttt{corn.stanford.edu}.
 
-\begin{enumerate}
-\item \setpoint \\
-\texttt{>>> import math} \\
-\texttt{>>> print math.e}
-\end{enumerate}
+\vspace{0.2in}
 
 \begin{enumerate}
-\setcounter{enumii}{1}
-\item \setpoint \\
-\texttt{>>> x = 'py' * 4} \\
-\texttt{>>> x}
-\end{enumerate}
 
-\begin{enumerate}
-\setcounter{enumii}{2}
-\item \setpoint \\
-\texttt{>>> print undeclaredvariable}
-\end{enumerate}
-For questions (2) and (3), using the Python interpreter is recommended but not required.
+\item \textbf{Preliminaries} \\
+ Make sure that you understand the concepts from Homework 0. \setpoints{0}.
 
-For questions (4), (5), and (6), we have not covered all of the syntax for defining functions (that will be in the second lecture).  We have also not covered how to write and execute Python scripts.  If you are comfortable with this, please feel free to go ahead and implement the code.  Otherwise, just treat the code as pseudocode.
+%\end{enumerate}
+
+%\begin{enumerate}
+%\setcounter{enumii}{1}
+%\item In the following questions, you will have to implement some Python functions.  Python uses white space as indentation to group statements.  You will have to understand this to implement functions.  The following resources may be helpful:
+
+%\begin{enumerate}
+%\item \url{http://docs.python.org/2/reference/lexical_analysis.html}, Sections 2.1.1-2.1.3, 2.1.5-2.1.9, 2.3.1.  This section of the Python docs contains vocabulary from Programming Language theory, so do not worry if you do not understand everything.  However, the examples on indentation and logical lines are useful.
+%\item \url{}
+%\end{enumerate}
+
+%\end{enumerate}
+
+
 
 \item \textbf{Arithmetic} \\
-It will be very useful to use the Python interpreter for this question.  Here are some useful resources:
-\begin{itemize}
-\item Binary arithmetic operators: 
+Implement the functions \texttt{arith2()}, \texttt{arith3()}, and \texttt{arith4()} in the file \texttt{arith.py}.  As an example, the function \texttt{arith1()} has already been implemented for you.  \setpoints{14}.
 
-\url{http://docs.python.org/2/reference/expressions.html#binary-arithmetic-operations}
+\item \textbf{Strings} \\
+Implement the functions \texttt{str2()}, \texttt{str3()}, and \texttt{str4()} in the file \texttt{strings.py}.  As an example, the function \texttt{str1()} has already been implemented for you. \setpoints{8}.
 
-\item Python expressions: 
+\item \textbf{Simple math functions} \\
+Implement the functions \texttt{seq\_add()} and \texttt{fact()} in the file \texttt{simple\_math.py}.  You are not allowed to use the Python math library. \setpoints{8}.
 
-\url{http://docs.python.org/2/reference/expressions.html}
-
-\item Python floating point:
-
-\url{http://docs.python.org/2/tutorial/floatingpoint.html}
-
-\item Python operator precedence:
-
-\url{http://docs.python.org/2/reference/expressions.html#operator-precedence}
-\end{itemize}
-%In class, we saw the arithmetic operators \texttt{+}, \texttt{-}, \texttt{*}, and \texttt{/} and the boolean operators \texttt{and}, \texttt{or}, and \texttt{not}.  In this exercise, we explore more about arithmetic and boolean operators.  Use the Python interpreter to answer the following questions.
-
-\begin{enumerate}
-\item \setpoint \\
-What is the difference between the expressions \texttt{x = 7 / 2} and \texttt{x = 7.0 / 2}?  \emph{Hint: what is the result of} \texttt{type(x)} \emph{after each expressions?}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{1}
-\item \setpoint \\
-Describe a potential hazard of the difference in part (a).  \emph{Note: In Matlab, there is no difference between the first and second expressions.}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{2}
-\item \setpoint \\
-What does the \texttt{\%} operator do?  Does this operator work on strings?
-\end{enumerate}
-
-State to what numeric value the following statements will evaluate in Python.  Assume that the variable \texttt{x} has a numeric value of \texttt{10.0}.  Remember, that \texttt{**} is the exponent function.  \texttt{3 ** 2} $= 3^2 = 9$.
-
-\begin{enumerate}
-\setcounter{enumii}{3}
-\item \setpoint \\
-\begin{lstlisting}
-11 * 2 - 4
-\end{lstlisting}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{4}
-\item \setpoint \\ 
-\begin{lstlisting}
-x + 2 ** 3 - 17 / 2
-\end{lstlisting}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{5}
-\item \setpoint \\
-\begin{lstlisting}
-x + 2 ** 3 - 17.0 / 2
-\end{lstlisting}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{6}
-\item \setbonuspoint \\
-\begin{lstlisting}
-1 if x / 5 > 6 else 2
-\end{lstlisting}
-\emph{Note: this is called a ternary conditional operator.}
-\end{enumerate}
-
-\item \textbf{Logic} \\
-
-\begin{enumerate}
-\item \setpoint \\
-As seen in lecture, the operators \textcolor{teal}{and}, \textcolor{teal}{or}, and \textcolor{teal}{not}, correspond to the more conventional symbols \texttt{\&\&}, \texttt{||}, and \texttt{!} (in Matlab \texttt{\~} instead of \texttt{!}).  To what symbols do the Python operators \textcolor{teal}{is} and \textcolor{teal}{is not} correspond? Why is using English words instead of symbols useful?
-\end{enumerate}
-
-State whether the following statements are \texttt{True} or \texttt{False} as it would be evaluated in Python (i.e., how it was described in lecture).  Assume that the variable \texttt{x} has a boolean value of \texttt{True}.  No need for explanation, except for the bonus question.
-
-\begin{enumerate}
-\setcounter{enumii}{1}
-\item \setpoint \\
-\begin{lstlisting}
-2 == 2 and 1 > 0
-\end{lstlisting}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{2}
-\item \setpoint \\
-\begin{lstlisting}
-('py' * 3 + 'thon' == 'pypypython') and (1 < 2 < 3)
-\end{lstlisting}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{3}
-\item \setpoint \\
-\begin{lstlisting}
-0 is True or not x
-\end{lstlisting}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{4}
-\item \setpoint \\
-\begin{lstlisting}
-1 > 2 or x
-\end{lstlisting}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{5}
-\item \setbonuspoint \\
-\begin{lstlisting}
-'hello' < 'jello'
-\end{lstlisting}
-Why is this true or false?
-\end{enumerate}
-
-
-\item \textbf{Functions and flow} \\
-For each of the following Python scripts, state what gets printed.
-
-\begin{enumerate}
-\item \setpoint \\
-\lstinputlisting{code/fnf_a.py}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{1}
-\item \setpoint \\
-\lstinputlisting{code/fnf_b.py}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{2}
-\item \setpoint \\
-\lstinputlisting{code/fnf_c.py}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{3}
-\item \setpoint \\
-\lstinputlisting{code/fnf_d.py}
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{4}
-\item \setbonuspoint \\
-\lstinputlisting{code/fnf_e.py}
-\end{enumerate}
-
-
-\item \textbf{Sequence products}
-
-The code below computes the product of every other number between the parameter \texttt{start} and $20$.  For example, \text{mult(15)} would return $15 * 17 * 19 = 4845$ and \text{mult(14)} would return $14 * 16 * 18 * 20 = 80640$.  You will implement the \texttt{errorcheck()} functions in part (a). \\
-
-\lstinputlisting{code/mult.py}
-
-\begin{enumerate}
-\item \setpoint \\
-Suppose we want the function to return an error if either (1) the value of \texttt{start} is less than or equal to zero or (2) the value of \texttt{start} is strictly greater than $20$.  What should \texttt{errorcheck()} return so that the function follows this behavior?
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{1}
-\item \setpoint \\
-Describe an abstraction that can be made for this function.  For example, in lecture, we changed our $\sqrt{7}$ function to a $\sqrt{x}$ function.
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{2}
-\item \setpoint \\
-Suppose that your abstraction from part (b) is implemented.  What function call can you make so that the function returns the same value as it would have before the abstraction was implemented?  For example, in lecture, we could make the call \texttt{root(7)}.
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{3}
-\item \setpoint \\
-Does your \texttt{errorcheck()} implementation in part (a) still make sense?
-\end{enumerate}
-
-
-\item \textbf{Factorials} \\
-The factorial of a positive integer $n$ is the product $1 * 2 * \hdots * n$.  The factorial operator is denoted with '!', for example: $5! = 5 * 4 * 3 * 2 * 1 = 120$.
-
-\begin{enumerate}
-\item \setpoint \\
-Suppose we want to write a factorial function in Python.  First, the function declaration gives the name of the function and information about the arguments.  For example, in lecture 1, we had
-
-\begin{tabular}{c}
-\begin{lstlisting}
-def root(x, tol=0.1)
-\end{lstlisting}
-\end{tabular}
-
-as the function declaration of our root finder.  \texttt{x} and \texttt{tol} are the arguments, and \texttt{tol} has a default value of $0.1$. \\
-
-Write the function declaration for a factorial function with name \texttt{factorial} and a single argument, \texttt{n}.
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{1}
-\item \setpoint \\
-Implement the factorial function.  Do not worry about using exact Python syntax--pseudocode is fine.
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{2}
-\item \setpoint \\
-The number of ways to pick a subset of $k$ items from a set of $n$ items, where order of selection does not matter, is denoted ${n \choose k}$ (often pronounced ``n choose k").  There is a simple formula for the function:
-\[
-{n \choose k} = \frac{n!}{k!(n - k)!}
-\]
-
-Write the function declaration for a function that computes ${n \choose k}$ with function name \texttt{nchoosek} and function arguments \texttt{n} and \texttt{k}.
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{3}
-\item \setpoint \\
-Implement the \texttt{nchoosek} function from part (c) by calling your factorial function from part (b).  Again, do not worry about using exact Python syntax--pseudocode is fine.
-\end{enumerate}
-
-
-
-\item \textbf{Survey}
-
-Approximately how much time did you spend on this assignment? \setpoints{4}
-\begin{enumerate}
-\item less than one hour
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{1}
-\item between one and three hours
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{2}
-\item between three and five hours
-\end{enumerate}
-
-\begin{enumerate}
-\setcounter{enumii}{3}
-\item more than five hours
-\end{enumerate}
-
+\item \textbf{Submission} \\
+Upload the files \texttt{arith.py}, \texttt{strings.py}, and \texttt{simple\_math.py} to your Drop Box on coursework.
 \end{enumerate}
 
 \end{document} 

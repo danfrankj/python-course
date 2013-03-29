@@ -117,7 +117,11 @@ def run_tuples_test(i, name, input, output):
     return True
 
   if name is 'convert_points':
-    result = tuples_func_table[name](**input)
+    try:
+      result = tuples_func_table[name](**input)
+    except:
+      print '%s FAILED could not run tuples function %s' % (SPACING, name)
+      return False
     if not type(result) == type([]):
       print '%s FAILED expected list type, input was: %s' % (SPACING,
           str(input['points']))
@@ -140,7 +144,11 @@ def run_tuples_test(i, name, input, output):
 def run_dicts_test(i, name, input, output):
   print '\nrunning dicts test %d...' % i
 
-  result = dicts_func_table[name](input)
+  try:
+    result = tuples_func_table[name](**input)
+  except:
+    print '%s FAILED could not run dicts function %s' % (SPACING, name)
+    return False
 
   if name is 'detect_type':
     if output != result:
@@ -233,11 +241,8 @@ def init_dicts_tests():
   create_test(10, 'detect_type', dicts_testpt3_cart, 'cart', 'dicts')
   create_test(11, 'detect_type', dicts_testpt3_cyl, 'cyl', 'dicts')
   create_test(12, 'detect_type', dicts_testpt3_sphere, 'sphere', 'dicts')
-  create_test(13, 'detect_type',
-              coordinates_dicts.cart2sphere(dicts_testpt4_cart),
-              'sphere', 'dicts')
-  create_test(14, 'detect_type',
-              coordinates_dicts.cyl2sphere(dicts_testpt4_cyl),
+  create_test(13, 'detect_type', dicts_testpt2_cart, 'cart', 'dicts')
+  create_test(14, 'detect_type', dicts_testpt2_cyl, 'cyl', 'dicts')
               'sphere', 'dicts')
 
 
