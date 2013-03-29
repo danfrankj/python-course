@@ -99,16 +99,16 @@
 The starter codes for this assignment are available in the zip file \texttt{code-hw-2.zip}, available on Coursework and on the course web site.
 
 \begin{enumerate}
-\item \textbf{Executing Python scripts} \\
-In Assignment 1, you used the Python interpreter.  In this assignment, you will use a text editor to write Python code in a file, or ``Python script".  You will then execute the script.  This first question is designed to make sure that everyone knows how to edit a file and execute a Python script. \\
+%\item \textbf{Executing Python scripts} \\
+%In Assignment 1, you used the Python interpreter.  In this assignment, you will use a text editor to write Python code in a file, or ``Python script".  You will then execute the script.  This first question is designed to make sure that everyone knows how to edit a file and execute a Python script. \\
 
-Open and read the file \texttt{myfirstscript.py}.  Change the value of the variable \texttt{name} to your name.  Execute the python script by typing:
-\begin{center}
-\texttt{python myfirstscript.py}
-\end{center}
-into the command line (you must be in the same directory as the script).  Alternatively, you can run the script in an integrated development environment (IDE), for example, Eclipse with the PyDev add-on.  What gets printed?  It should be something about your name and the value of pi.  Add a comment to the script saying what gets printed.  \setpoints{2}
+%Open and read the file \texttt{myfirstscript.py}.  Change the value of the variable \texttt{name} to your name.  Execute the python script by typing:
+%\begin{center}
+%\texttt{python myfirstscript.py}
+%\end{center}
+%into the command line (you must be in the same directory as the script).  Alternatively, you can run the script in an integrated development environment (IDE), for example, Eclipse with the PyDev add-on.  What gets printed?  It should be something about your name and the value of pi.  Add a comment to the script saying what gets printed.  \setpoints{2}
 
-\newpage
+%\newpage
 
 \item \textbf{Coordinate systems in three-dimensions} \\
 In class, we saw how to use a dictionary to store cartesian and spherical coordinates.  In this homework assignment, we will write code that converts data types between different three-dimensional coordinates systems.  First, we will review three coordinate systems.
@@ -138,6 +138,7 @@ The third system is cylindrical coordinates, which represents a point by a nonne
 	 \caption{}\label{fig:coord_systems}
 \end{figure}
 
+\newpage
 We will use the following formulas to convert between coordinate systems in this assignment:
 
 \begin{itemize}
@@ -187,6 +188,29 @@ To run the autograder, place the file \texttt{grader.py} in the same directory a
 See the documentation in \texttt{grader.py} to learn how to run individual tests.
 
 \newpage
+\item \textbf{NumPy and SciPy} \\
+In the next lecture, we will start with NumPy and SciPy, the two main Python libraries for scientific computing.  For this part of the assignment, you will install these libraries or figure out how to use them on another machine.  Here are three options for this:
+
+\begin{itemize}
+\item Download and install NumPy and SciPy on your computer.  Some instructions can be found at \url{http://docs.scipy.org/doc/numpy/user/install.html} and \url{http://www.scipy.org/Installing_SciPy}.
+\item Login to the Stanford corn machines (\texttt{corn.stanford.edu}).  They have NumPy and SciPy installed.
+\item Download a virtual machine with NumPy and SciPy.  You can use VirtualBox with  
+\end{itemize}
+
+\begin{enumerate}
+\item Run the \texttt{dot()} example from \url{http://www.scipy.org/Numpy_Example_List_With_Doc}.
+
+\setpoints{0}.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Run the \texttt{integrate.quad()} example from \url{http://www.scipy.org/scipy_Example_List}.
+
+\setpoints{0}.
+\end{enumerate}
+
+
 \item \textbf{Generator power (bonus)} \\
 In this bonus question, we explore generator functions.  Consider the following function, which takes as input a set of x coordinates, y coordinates, and z coordinates and returns all possible (x, y, z) points from the sets:
 
@@ -230,9 +254,14 @@ Write a function \texttt{keyvals\_gen}, which is the generator function analog o
 
 \vspace{0.3in}
 \item \textbf{Submission} \\
-Upload the files \texttt{myfirstscript.py}, \texttt{coordinates\_tuples.py}, and \texttt{coordinates\_dicts.py} to your Drop Box on Coursework.  Do not change the names of the files. \\
+Upload the files \texttt{coordinates\_tuples.py} and \texttt{coordinates\_dicts.py} to your Drop Box on Coursework.  Do not change the names of the files. \\
 
-You can submit you answer to the bonus question either by uploading it electronically to your Drop Box or by bringing a hard-copy to class.
+You can submit you answer to the bonus question by uploading the following to your Drop Box on Coursework:
+
+\begin{itemize}
+\item{ A file \texttt{bonus\_hw2.pdf} with your answers to parts  (a) and (b) }
+\item{ A script \texttt{bonus\_hw2.py} with your code from parts (c) and (d) }
+\end{itemize}
 
 \end{enumerate}
 %\printpoints.
