@@ -81,10 +81,51 @@ To profile each of the statements you will create, use the \texttt{timeit} modul
 
 \begin{enumerate}
 \item append  to an initially empty list sequentially 
+
+\begin{verbatim}
+timeit.timeit(stmt="""
+a = []
+for i in xrange(1000):
+        a.append(2 ** i)""", number=100000)       
+\end{verbatim}
+  366 seconds, very slow
+
 \item create an list of zeros of size 1000 and assign elements sequentially
+
+\begin{verbatim}
+timeit.timeit(stmt="""
+for i in xrange(len(a)):
+        a[i] = 2. ** i""", 
+              setup = """a = [0] * 1000""", number=100000)       
+\end{verbatim}
+356 seconds, pre-allocating the array doesn't help much
+
+
 \item use a list comprehension
+
+\begin{verbatim}
+timeit.timeit(stmt="""[2, ** i for i in xrange(1000)]""", number=100000)
+\end{verbatim}
+
+355 seconds, list comprehension also does not help much
+
 \item use the python map function
+\begin{verbatim}
+timeit.timeit(stmt="""map(f, a)""", 
+              setup="""a=range(1000)
+f = lambda i: 2. ** i
+""", number=100000)
+\end{verbatim}
+378 seconds, Python's built in vectorization does not help. 
+
+
 \item use vectorization (NumPy)
+
+\begin{verbatim}
+timeit.timeit(stmt="""2. ** np.arange(1000)""", 
+              setup="""import numpy as np""", number=100000)
+\end{verbatim}
+17 seconds, order of magnitude speedup.
 \end{enumerate}
 
 \item \textbf{Copies and Views} \setpoints{10}
@@ -103,7 +144,7 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 >>> B = f(A)
 >>> A is B
 \end{verbatim}
-
+True, NumPy arrays are objects and python passes objects by reference. When we call f(A) a reference to A is passed and returned where we then assign B to that same reference. Hence A is B and the first element of both A and B is 42.
 \item  
 
 \begin{verbatim}
@@ -112,6 +153,8 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 >>> B[0,0] = 42.
 >>> A[0, 1] == 1.
 \end{verbatim}
+False, using slicing operations returns a view, so B is a view onto the same underlying data as A. When we change the data of B we are changing the data of A. So A[0,1] is now 42. NumPy does this to avoid copying data when possible, but the user needs to be careful of these cases.
+
 
 \item  
 
@@ -121,7 +164,7 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 >>> B[0, 0] = 42
 >>> A[0, 1] == 1
 \end{verbatim}
-
+True, only slicing returns views. B is not a view onto A so changing the data of B does not change the data of A.
 
 \item  
 
@@ -131,7 +174,7 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 >>> B[0, 0] = 42
 >>> A[0, 1] == 1
 \end{verbatim}
-
+True, only slicing returns views.
 \item  
 
 \begin{verbatim}
@@ -140,6 +183,7 @@ NumPy arrays are objects and follow the same assignment and copy rules as ordina
 >>> A += 1
 >>> np.all(B == 2)
 \end{verbatim}
+True, B is a view onto A and $+=$ edits A in place. If we had instead called A = A + 1, then we would be creating a new set of data, and B would remain 1's so that the final statement would be false.
 \end{enumerate}
 
 
@@ -150,7 +194,7 @@ Given a sample $x_1, x_2, \dots, x_n$ from an unknown distribution $f$ the kerne
 $$\hat{f}(x;b) = \frac{1}{n}\sum_{i=1}^{n}K_b(x-x_i)$$
 where the kernel must satisfy $\int_{-\infty}^{\infty}K(u)du = 1$ and $K(-u) = K(u).$ The parameter $b$ is known as the bandwidth and controls the width of the kernel used. There are many possible choices for kernels, and we will use the triangular kernel
 
-$$K_{b}(z) = \frac{1}{b}(1 - |\frac{z}{b}|)\mathbb{*I}(|\frac{z}{b} |\leq 1)$$ 
+$$K_{b}(z) = \frac{1}{b}(1 - |\frac{z}{b}|)\mathbb{*I}(|\frac{z}{b}| \leq 1)$$ 
 
 Write a two line python function \texttt{kde(x, data, bw)} without list comprehension that takes the three parameters below and returns $\hat{f}(x)$, the KDE evaluated at $x$.
 \begin{enumerate}
@@ -159,10 +203,17 @@ Write a two line python function \texttt{kde(x, data, bw)} without list comprehe
 \item \texttt{bw} the bandwidth of the kernel
 \end{enumerate}
 
+\texttt{kde = lambda x, data, bw: np.mean(1./bw * np.maximum(1.- np.abs(x-data) / bw, 0)) }
+
+Or without using max
+
+\texttt{kde = lambda x, data, bw: np.mean(1./bw * (1.- np.abs(x-data)/bw) * (np.abs(x-data)/bw<=1))}
+
+
 \item \textbf{SciPy Optimization} \setpoints{15}
 
 The \texttt{scipy.optimize} module contains functions that perform numerical optimization. Use \newline
-\texttt{scipy.optimize.fmin} to minimize the following function. 
+\texttt{scipy.optimize.minimize} to minimize the following function. 
 $$f(x) = \frac{1}{2}x^TAx - b^Tx$$
 When 
 $A= \begin{pmatrix}
@@ -174,6 +225,20 @@ and $b = \begin{pmatrix}
 1 \\
 \end{pmatrix}$.
 Verify that your solution $x^*$ is a solution to the system of linear equations defined by $A$ and $b$. That is, make sure $Ax^*=b$.
+
+\begin{verbatim}
+import scipy.optimize
+A = np.array([[1., 1.], [1., 2.]])
+b = np.ones(2)
+x_star = scipy.optimize.fmin(func=lambda x: .5 * np.dot(x.T, np.dot(A, x))- np.dot(b, x),
+                             x0=np.zeros(2))
+
+np.dot(A, x_star)                                 
+\end{verbatim}
+$x^* =  \begin{pmatrix}
+1 \\
+0 \\
+\end{pmatrix}$
 
 \item \textbf{matplotlib} \setpoints{0}
 
