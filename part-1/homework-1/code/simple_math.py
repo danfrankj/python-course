@@ -21,10 +21,3 @@ def fact(n):
       You are not allowed to use Python's math library.  """
 
   return 0
-      
-      
-      
-      
-    
-    
-  

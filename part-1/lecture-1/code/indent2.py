@@ -1,7 +1,7 @@
 def func_incorrect1(x, y, z):
-    if x < y:    # wrong indentation --> error!
-      return z
-    return 0
+if x < y:    # wrong indentation --> error!
+  return z
+return 0
 
 def func_incorrect2(x, y, z):
   if x < y:

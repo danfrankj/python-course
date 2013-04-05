@@ -1,4 +1,4 @@
-def root(x, tol):
+def root(x, tol=0.1):
     lower = 0.0
     upper = x
     guess = (upper + lower) / 2

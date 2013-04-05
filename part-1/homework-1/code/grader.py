@@ -1,7 +1,9 @@
+from __future__ import print_function
 import sys
 import simple_math
 import arith
 import strings
+
 
 """
 TEST DRIVER.  DO NOT MODIFY
@@ -66,21 +68,21 @@ def init_math_tests():
   create_test(8, 'fact', {'n': -1}, 0, 'math')
 
 def run_test(i, name, input, output, type):
-  print '\n running %s test %d...' % (type, i)  
+  print('\n running %s test %d...' % (type, i))
   
   try:
     result = func_table[name](**input)
   except:
-    print '\tFAILED (could not execute function %s) ' % name
+    print('\tFAILED (could not execute function %s) ' % name)
     return False
 
   if result != output:
-    print '\tFAILED\n\t\tInput was: %s' % str(input)
-    print '\t\tExpected result: %s' % str(output)
-    print '\t\tActual result: %s' % str(result)
+    print('\tFAILED\n\t\tInput was: %s' % str(input))
+    print('\t\tExpected result: %s' % str(output))
+    print('\t\tActual result: %s' % str(result))
     return False
 
-  print '\tSUCCESS'
+  print('\tSUCCESS')
   return True
 
 if __name__ == "__main__":
@@ -95,6 +97,6 @@ if __name__ == "__main__":
       successes += 1
     total_tests += 1
 
-  print '\n%d / %d correct (%f)' % (successes, total_tests,
-                                    float(successes) / total_tests)
+  print('\n%d / %d correct (%f)' % (successes, total_tests,
+                                    float(successes) / total_tests))
 

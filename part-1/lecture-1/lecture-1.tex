@@ -15,13 +15,13 @@
 }
 
 \title{CME 193: Introduction to Scientific Python \\
-Lecture 1: Introduction to computing}
+Lecture 1: Introduction to Computing with Python}
 \author{Austin Benson \\
 \vspace{0.1in}
 Dan Frank \\
 \vspace{0.1in}
 Institute for Computational and Mathematical Engineering (ICME)}
-\date{January 10, 2013}
+\date{April 3, 2013}
 \begin{document}
 \maketitle
 
@@ -124,6 +124,7 @@ All course materials are on coursework and \url{http://www.stanford.edu/~arbenso
 \item{Austin: Monday and Wednesday, 1-2pm, by appointment}
 \item{Dan: TBA}
 \item{Location: Huang basement near ICME}
+\item{Please also use Piazza to ask questions.}
 \end{itemize}
 
 \end{frame}
@@ -148,6 +149,17 @@ To pass, you need to complete \textbf{all} homework assignments and earn at leas
 \setlength{\itemsep}{0.2in}
 \item{No textbook!}
 \item{We will post online materials on the course web site}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Online material}
+
+\begin{itemize}
+\setlength{\itemsep}{0.2in}
+\item{Short (1-3 minute) videos of topics covered in class.}
+\item{Experimental: feedback is greatly appreciated!}
 \end{itemize}
 
 \end{frame}
@@ -181,6 +193,7 @@ One reason why we are excited to teach this class:
 \frametitle{Homework 0}
 
 \begin{itemize}
+\setlength{\itemsep}{0.2in}
 \item{Homework 0 is posted (it is not due)}
 \item{You should be comfortable with the material before starting Homework 1}
 \end{itemize}
@@ -194,13 +207,25 @@ One reason why we are excited to teach this class:
 \begin{enumerate}
 \setlength{\itemsep}{0.2in}
 
-\item{Introduction to Computing}
+\item{Introduction to Computing with Python}
 \item{Data Structures}
 \item{File I/O, Object-oriented Python, and Introduction to NumPy}
 \item{NumPy and SciPy}
 \item{Data Visualization and Web Scraping}
 
 \end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Python 2.x vs Python 3}
+
+\begin{itemize}
+\setlength{\itemsep}{0.2in}
+\item{Python is currently transitioning from version 2 to 3}
+\item{Examples will be in 2.7}
+\item{Homeworks have been made compatible with both.}
+\end{itemize}
 
 \end{frame}
 
@@ -326,8 +351,15 @@ The \texttt{while} loop repeatedly executes a task while a condition is true
 
 \codeblock{code/while1.py}
 
+\end{frame}
+
+\begin{frame}
+\frametitle{while}
+
+\codeblock{code/while2.py}
 
 What is this code doing?
+
 
 \end{frame}
 
@@ -374,6 +406,9 @@ for ($i = 0$; $i < n$; $i = i + 1$)
 
 \codeblock{code/for1.py}
 
+\vspace{0.5in}
+
+more next lecture...
 
 \end{frame}
 
@@ -392,9 +427,9 @@ In other words, functions are used to generalize or ``abstract" components of a 
 \begin{frame}
 \frametitle{Root finding}
 
-What is a problem with this code?
+What is a limitation of this code?
 
-\codeblock{code/while1.py}
+\codeblock{code/while2.py}
 
 
 \end{frame}
@@ -414,7 +449,7 @@ We still have the same capabilities (just let $x = 7$), but now our ``abstracted
 
 With this function, we can call \texttt{root(7)}
 
-\codeblock{code/while2.py}
+\codeblock{code/while3.py}
 
 
 \end{frame}
@@ -423,7 +458,7 @@ With this function, we can call \texttt{root(7)}
 \frametitle{Root finding}
 More general, we can call \texttt{root(7, 0.1)}:
 
-\codeblock{code/while3.py}
+\codeblock{code/while4.py}
 
 
 \end{frame}
@@ -433,7 +468,7 @@ More general, we can call \texttt{root(7, 0.1)}:
 \frametitle{Root finding}
 Python makes it easy to provide default argument values:
 
-\codeblock{code/while4.py}
+\codeblock{code/while5.py}
 
 
 Can call \texttt{root(3)}, \texttt{root(113, 0.01)}
@@ -485,7 +520,7 @@ What about this code?
 
 
 \begin{frame}
-\frametitle{White space}
+\frametitle{Indentation / white space}
 
 Python uses indentation (``white space") to group statements
 
@@ -499,9 +534,9 @@ Python will complain if your indentation is incorrect
 \end{frame}
 
 \begin{frame}
-\frametitle{White space}
+\frametitle{Indentation}
 
-\codeblock{code/white1.py}
+\codeblock{code/indent1.py}
 
 2-space or 4-space indentation is standard.
 
@@ -509,9 +544,9 @@ Python will complain if your indentation is incorrect
 
 
 \begin{frame}
-\frametitle{White space}
+\frametitle{Identation}
 
-\codeblock{code/white2.py}
+\codeblock{code/indent2.py}
 
 \end{frame}
 
@@ -539,9 +574,10 @@ Next time:
 \begin{enumerate}
 \setlength{\itemsep}{0.05in}
 \item{More on Python functions}
-\item{Manipulating arrays and strings}
-\item{Lists and tuples}
+\item{Strings}
+\item{Lists}
 \item{Dictionaries}
+\item{Tuples}
 \end{enumerate}
 
 \end{frame}
