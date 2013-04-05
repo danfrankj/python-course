@@ -1,14 +1,9 @@
-# access
-magnitude = point['r']
-x = point['rho'] # error!
+import math
 
-# overwrite
-point['r'] = 5.13
+p = (1.2, -40.0, 2*math.pi)
 
-# print all keys
-for key in point:
-    print key
-
-# check if a key is there
-if 'theta' not in point:
-    print 'missing theta!'
+# Create dictionary with keys
+point = {'x': p[0], 'y': p[1], 'z': p[2],
+         'r': math.sqrt(sum([v ** 2 for v in p]))}
+point['theta'] = math.acos(point['z'] / point['r'])
+point['phi'] = math.atan(point['y'] / point['x'])
