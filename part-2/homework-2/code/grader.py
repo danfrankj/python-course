@@ -1,3 +1,4 @@
+from __future__ import print_function
 import sys
 import math
 import coordinates_tuples
@@ -106,13 +107,13 @@ dicts_testpt4_sphere = {'r': tuples_testpt4_sphere[0],
 
 
 def run_tuples_test(i, name, input, output):
-  print '\nrunning tuples test %d...' % i
+  print('\nrunning tuples test %d...' % i)
 
   def compare_result(actual, expected):
     for exp, elmt in zip(expected, actual):
       if abs(elmt - exp) / abs(exp) > TOL:
-        print '%s FAILED (expected: %s, actual: %s)' % (SPACING, str(expected),
-                                                      str(actual))
+        print('%s FAILED (expected: %s, actual: %s)' % (SPACING, str(expected),
+                                                      str(actual)))
         return False
     return True
 
@@ -120,14 +121,14 @@ def run_tuples_test(i, name, input, output):
     try:
       result = tuples_func_table[name](**input)
     except:
-      print '%s FAILED could not run tuples function %s' % (SPACING, name)
+      print('%s FAILED could not run tuples function %s' % (SPACING, name))
       return False
     if not type(result) == type([]):
-      print '%s FAILED expected list type, input was: %s' % (SPACING,
-          str(input['points']))
+      print('%s FAILED expected list type, input was: %s' % (SPACING,
+          str(input['points'])))
     if len(result) != len(input['points']):
-      print '%s FAILED: expected %d elements in list, but there were %d' % (
-          SPACING, len(input['points']), len(result))
+      print('%s FAILED: expected %d elements in list, but there were %d' % (
+          SPACING, len(input['points']), len(result)))
       return False
     for res, out in zip(result, output):
       if not compare_result(res, out):
@@ -137,39 +138,39 @@ def run_tuples_test(i, name, input, output):
     if not compare_result(result, output):
       return False
   
-  print '%s SUCCESS' % SPACING
+  print('%s SUCCESS' % SPACING)
   return True
 
 
 def run_dicts_test(i, name, input, output):
-  print '\nrunning dicts test %d...' % i
+  print('\nrunning dicts test %d...' % i)
 
   try:
     result = tuples_func_table[name](**input)
   except:
-    print '%s FAILED could not run dicts function %s' % (SPACING, name)
+    print('%s FAILED could not run dicts function %s' % (SPACING, name))
     return False
 
   if name is 'detect_type':
     if output != result:
-      print '%s FAILED (expected %s, actual: %s)' % (SPACING, output,
-                                                     str(result))
+      print('%s FAILED (expected %s, actual: %s)' % (SPACING, output,
+                                                     str(result)))
       return False
   else:
     for key in output:
       if key not in result:
-        print '%s FAILED (missing key: %s)' % (SPACING, key)
+        print('%s FAILED (missing key: %s)' % (SPACING, key))
         return False
       
       if abs(result[key] - output[key]) / abs(output[key]) > TOL:
-        print '%s FAILED on %s (expected: %s, actual: %s)' % (SPACING,
+        print('%s FAILED on %s (expected: %s, actual: %s)' % (SPACING,
                                                               str(key),
                                                               str(output[key]),
-                                                              str(result[key]))
-        print '%s input was: %s' % (SPACING, str(input))
+                                                              str(result[key])))
+        print('%s input was: %s' % (SPACING, str(input)))
         return False
 
-  print '%s SUCCESS' % SPACING
+  print('%s SUCCESS' % SPACING)
   return True
 
 
@@ -243,7 +244,6 @@ def init_dicts_tests():
   create_test(12, 'detect_type', dicts_testpt3_sphere, 'sphere', 'dicts')
   create_test(13, 'detect_type', dicts_testpt2_cart, 'cart', 'dicts')
   create_test(14, 'detect_type', dicts_testpt2_cyl, 'cyl', 'dicts')
-              'sphere', 'dicts')
 
 
 def main():
@@ -254,14 +254,14 @@ def main():
   if len(sys.argv) > 1:
     test_type = sys.argv[1]
     if test_type not in ['tuples', 'dicts']:
-      print "UNKNOWN testing type: %s.  Use 'tuples' or 'dicts'." % test_type
+      print("UNKNOWN testing type: %s.  Use 'tuples' or 'dicts'." % test_type)
       return
 
   test_number = None
   if len(sys.argv) > 2:
     test_number = int(sys.argv[2])
     if not 0 < test_number <= len(TESTS[test_type]):
-      print 'invalid test number: ' + sys.argv[2]
+      print('invalid test number: ' + sys.argv[2])
       return
 
   test_funcs = {'tuples': run_tuples_test, 'dicts': run_dicts_test}
@@ -287,8 +287,8 @@ def main():
         successes += 1
       total_tests += 1
 
-  print '\n%d / %d correct (%f)' % (successes, total_tests,
-                                    float(successes) / total_tests)
+  print('\n%d / %d correct (%f)' % (successes, total_tests,
+                                    float(successes) / total_tests))
 
 
 if __name__ == "__main__":
