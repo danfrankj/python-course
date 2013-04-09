@@ -146,7 +146,7 @@ def run_dicts_test(i, name, input, output):
   print('\nrunning dicts test %d...' % i)
 
   try:
-    result = tuples_func_table[name](**input)
+    result = dicts_func_table[name](input)
   except:
     print('%s FAILED could not run dicts function %s' % (SPACING, name))
     return False
@@ -197,24 +197,26 @@ def init_tuples_tests():
               tuples_testpt2_sphere, tuples_testpt2_cart, 'tuples')
   create_test(9, 'cyl2cart',
               tuples_testpt2_cyl, tuples_testpt2_cart, 'tuples')
+  create_test(10, 'sphere2cyl',
+              tuples_testpt2_sphere, tuples_testpt2_cyl, 'tuples')
 
-  create_test(10, 'convert_points',
+  create_test(11, 'convert_points',
               {'points': [tuples_testpt1_cart, tuples_testpt2_cart],
                'type': 'cart', 'new_type': 'sphere'},
               [tuples_testpt1_sphere, tuples_testpt2_sphere], 'tuples')
-  create_test(11, 'convert_points',
+  create_test(12, 'convert_points',
               {'points': [tuples_testpt1_cart, tuples_testpt2_cart],
                'type': 'cart', 'new_type': 'cyl'},
               [tuples_testpt1_cyl, tuples_testpt2_cyl], 'tuples')
-  create_test(12, 'convert_points',
+  create_test(13, 'convert_points',
               {'points': [tuples_testpt1_cyl, tuples_testpt2_cyl],
                'type': 'cyl', 'new_type': 'cart'},
               [tuples_testpt1_cart, tuples_testpt2_cart], 'tuples')
-  create_test(13, 'convert_points',
+  create_test(14, 'convert_points',
               {'points': [tuples_testpt3_sphere] * 4 + [tuples_testpt4_sphere] * 6,
                'type': 'sphere', 'new_type': 'cart'},
               [tuples_testpt3_cart] * 4 + [tuples_testpt4_cart] * 6, 'tuples')
-  create_test(14, 'convert_points',
+  create_test(15, 'convert_points',
               {'points': [], 'type': 'cyl', 'new_type': 'sphere'},
               [], 'tuples')
 
@@ -238,12 +240,14 @@ def init_dicts_tests():
               dicts_testpt2_sphere, dicts_testpt2_cart, 'dicts')
   create_test(9, 'cyl2cart',
               dicts_testpt2_cyl, dicts_testpt2_cart, 'dicts')
+  create_test(10, 'cyl2sphere',
+              dicts_testpt2_cyl, dicts_testpt2_sphere, 'dicts')
 
-  create_test(10, 'detect_type', dicts_testpt3_cart, 'cart', 'dicts')
-  create_test(11, 'detect_type', dicts_testpt3_cyl, 'cyl', 'dicts')
-  create_test(12, 'detect_type', dicts_testpt3_sphere, 'sphere', 'dicts')
-  create_test(13, 'detect_type', dicts_testpt2_cart, 'cart', 'dicts')
-  create_test(14, 'detect_type', dicts_testpt2_cyl, 'cyl', 'dicts')
+  create_test(11, 'detect_type', dicts_testpt3_cart, 'cart', 'dicts')
+  create_test(12, 'detect_type', dicts_testpt3_cyl, 'cyl', 'dicts')
+  create_test(13, 'detect_type', dicts_testpt3_sphere, 'sphere', 'dicts')
+  create_test(14, 'detect_type', dicts_testpt2_cart, 'cart', 'dicts')
+  create_test(15, 'detect_type', dicts_testpt2_cyl, 'cyl', 'dicts')
 
 
 def main():
