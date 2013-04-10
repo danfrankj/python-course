@@ -118,12 +118,52 @@ The above data is available at:
 \end{enumerate}
 
 \newpage
-\item \textbf{Applications: Gene sequencing} \\
-Suppose we are trying to find length-4 patterns in length-10 gene sequences.  We have some Python data structures with information, and we have some methods for managing our data.  However, there is not much organization to these pieces. \\
+\item \textbf{Exploring NumPy}
 
-Create a class called \texttt{GenePatterns} that has similar functionality to the code provided below. \\
+\begin{enumerate}
+%\setcounter{enumii}{0}
+\item What does the function \texttt{numpy.arange()} do? How is it different from \texttt{range()}?
+\end{enumerate}
 
-\lstinputlisting{code/genes.py}
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Create an identity matrix with \texttt{I = np.eye(3)}.  What is the difference between the following two sequence of commands:
+\begin{verbatim}
+>>> x = I[0, [0, 1]]
+>>> x[0] = 3.0
+>>> x[1] = 2.0
+\end{verbatim}
+
+\vspace{0.1in}
+
+\begin{verbatim}
+>>> x = I[0, 0:2]
+>>> x[0] = 3.0
+>>> x[1] = 2.0
+\end{verbatim}
+
+In the latter sequence, $x$ is called a \emph{view}.  Why?
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Using what you learned in part (b), write a function that takes as input a 2-D ndarray and scales the last row and column by $2.5$ (the last entry should be scaled by $2.5^2$).
+\end{enumerate}
+
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item Explain what the following command does: \texttt{A = np.random.rand(6, 3) * np.arange(3)}.
+\end{enumerate}
+
+
+%\newpage
+%\item \textbf{Applications: Gene sequencing} \\
+%Suppose we are trying to find length-4 patterns in length-10 gene sequences.  We have some Python data structures with information, and we have some methods for managing our data.  However, there is not much organization to these pieces. \\
+
+%Create a class called \texttt{GenePatterns} that has similar functionality to the code provided below. \\
+
+%\lstinputlisting{code/genes.py}
 
 \end{enumerate}
 %\printpoints.
