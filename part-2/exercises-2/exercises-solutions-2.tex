@@ -1,6 +1,6 @@
 \documentclass{article}
 \newcommand{\assgnnum}{2}
-\newcommand{\assigndate}{January 15}
+\newcommand{\assigndate}{April 9}
 
 \usepackage{amsmath}
 \usepackage{fullpage}
@@ -117,9 +117,9 @@ The following pieces of code are kludgy.  Rewrite each of them using list compre
 \begin{enumerate}
 \setcounter{enumii}{1}
 \item \lstinputlisting{code/kludge2.py}
-\texttt{approximations = [round(math.pi, i) for i in range(1, 21)]}.  \\
+\texttt{approximations = [round(math.pi, i) for i in range(1, 15)]}.  \\
 
-Note that, due to finite-precision floating point numbers, we can only get 16 digits of precision.
+%Note that, due to finite-precision floating point numbers, we can only get 16 digits of precision.
 \end{enumerate}
 
 \begin{enumerate}
@@ -207,10 +207,8 @@ The first print statement just prints 3, the length of \texttt{my\_arr}.  When t
 \begin{tabular}{c}
 \lstinputlisting{code/copy4.py}
 \end{tabular} \\ \\
-Strings are immutable, so we can't change them.  In line 2, we just make a copy of ``hello" that gets stored in the variable y.  Thus, the print statement prints ``hi".  The same holds for ints and tuples, which are also immutable.
+Strings are immutable, so we can't change them.  In line 2, we just make a copy of ``hello" that gets stored in the variable y.  In line 3, we store ``hi" in the variable y.  Thus, the print statement prints ``hi".  The same holds for ints and tuples, which are also immutable.
 \end{enumerate}
-
-
 
 
 \end{enumerate}

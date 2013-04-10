@@ -6,5 +6,5 @@ x = point['rho'] # error!
 point['r'] = 5.13
 point['r'] = 6.23
 
-# remove key
+# remove key-value pair
 del point['theta']
