@@ -69,11 +69,11 @@
 \pagestyle{fancy}
 %\vspace*{15pt}
 
-50  points total.  70+\% correctness (35+ points) is needed to pass. Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class.
+50  points total.  70+\% correctness (35+ points) is needed to pass. Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class. Do not use the function np.vectorize anywhere in this assignment.
 
 \begin{enumerate}
 \item \textbf{Profiling and Vectorization} \setpoints{15} \\
-In this question we are going to use Python profiling tools to determine the efficiency of using NumPy's vectorization capabilities. To do so we will compute the first 1000 powers (inclusive and starting from 0) of 2 in the following ways. Report the amount of time it takes to run each of these methods 100,000 times.
+In this question we are going to use Python profiling tools to determine the efficiency of using NumPy's vectorization capabilities. To do so we will compute the first 100 powers (inclusive and starting from 0) of 2 in the following ways. Report the amount of time it takes to run each of these methods 100,000 times.
 \vspace{.1in}
 
 To profile each of the statements you will create, use the \texttt{timeit} module. There are many ways to use this module (see
@@ -81,7 +81,7 @@ To profile each of the statements you will create, use the \texttt{timeit} modul
 
 \begin{enumerate}
 \item append  to an initially empty list sequentially 
-\item create an list of zeros of size 1000 and assign elements sequentially
+\item create an list of zeros of size 100 and assign elements sequentially
 \item use a list comprehension
 \item use the python map function
 \item use vectorization (NumPy)
