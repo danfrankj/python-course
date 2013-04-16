@@ -1,6 +1,6 @@
 import numpy as np
 
-A = np.ones(4)
+A = np.ones((4, 4))
 A[0, 0] += 2
 A12 = A[1, 2]
 

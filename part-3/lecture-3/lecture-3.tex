@@ -37,26 +37,33 @@ Institute for Computational and Mathematical Engineering (ICME)}
 \end{frame}
 
 \begin{frame}
-\frametitle{Homework 1: is and is not}
-\texttt{==} determines if the objects have the same value.  \texttt{is} checks if the objects are the same.
-\codeblock{code/is_comp.py}
+\frametitle{importing SciPy}
+
+\codeblock{code/scipy_int.py}
+
 \end{frame}
 
-\begin{frame}
-\frametitle{Homework 1: \% operator on strings}
-There is no analogous modulo operator on strings.  However, \texttt{\%} is used for string formatting:
-\codeblock{code/string_formatting.py}
-\end{frame}
+%\begin{frame}
+%\frametitle{Homework 1: is and is not}
+%\texttt{==} determines if the objects have the same value.  \texttt{is} checks if the objects are the same.
+%\codeblock{code/is_comp.py}
+%\end{frame}
 
-\begin{frame}
-\frametitle{Homework 1: style}
-\codeblock{code/return_style1.py}
-\end{frame}
+%\begin{frame}
+%\frametitle{Homework 1: \% operator on strings}
+%There is no analogous modulo operator on strings.  However, \texttt{\%} is used for string formatting:
+%\codeblock{code/string_formatting.py}
+%\end{frame}
 
-\begin{frame}
-\frametitle{Homework 1: style}
-\codeblock{code/return_style2.py}
-\end{frame}
+%\begin{frame}
+%\frametitle{Homework 1: style}
+%\codeblock{code/return_style1.py}
+%\end{frame}
+
+%\begin{frame}
+%\frametitle{Homework 1: style}
+%\codeblock{code/return_style2.py}
+%\end{frame}
 
 \section{File I/O}
 \begin{frame}
@@ -189,7 +196,7 @@ Post #2
 \end{verbatim}
 \end{frame}
 
-\section{Python Classes}
+\section{Object-oriented Python}
 
 \begin{frame}
 \frametitle{Classes}
@@ -253,13 +260,13 @@ The self parameter is a little weird.
 
 \vspace{0.2in}
 
-The self variable is a pointer to the class that you are modifying.  For example:
+The self variable is a reference to the class object that you are modifying.  For example:
 
 \begin{center}
 \texttt{self.symbol = symbol}.
 \end{center}
 
-says to modify the variable instance variable \texttt{symbol} in this class instantiation.  On the right-hand-side, symbol is the name of a local variable (from the parameters).
+says to modify the instance variable \texttt{symbol} in this class instantiation.  On the right-hand-side, symbol is the name of a local variable (from the parameters).
 
 \end{frame}
 
@@ -357,11 +364,11 @@ Linear classifier:
 \end{frame}
 
 
-\begin{frame}
-QR factorizations:
-\frametitle{NumPy}
-\codeblock{code/numpy3.py}
-\end{frame}
+%\begin{frame}
+%QR factorizations:
+%\frametitle{NumPy}
+%\codeblock{code/numpy3.py}
+%\end{frame}
 
 
 \begin{frame}

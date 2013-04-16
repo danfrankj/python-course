@@ -3,10 +3,9 @@ class Portfolio():
     self.stocks = {}
 
   """
-   Add the number of shares to the stock in this portfolio.
-   At this moment, price_per_share is the price of the stock,
-   so update the price per share of the stock in your Portfolio
-   if you already own the stock
+   Add the number of shares of stock of the company (given by symbol) to
+   this portfolio.  If this portfolio already has stock in the company,
+   also update the price to price_per_share.
   """
   def add_stock(self, symbol, price_per_share, shares):
     # IMPLEMENT

@@ -1,6 +1,6 @@
 \documentclass{article}
 \newcommand{\assgnnum}{3}
-\newcommand{\assigndate}{January 22}
+\newcommand{\assigndate}{April 11}
 
 \usepackage{amsmath}
 %\usepackage{fullpage}
@@ -19,7 +19,7 @@
 
 % set the header up
 \fancyhead{}
-\fancyhead[L]{CME193: In-class exercises \assgnnum}
+\fancyhead[L]{CME193: In-class exercises \assgnnum \text{ }solutions}
 \fancyhead[R]{\assigndate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand\headrulewidth{0.4pt}
@@ -140,22 +140,59 @@ The above prints:
 \end{verbatim}
 
 \newpage
-\item \textbf{Applications: Gene sequencing} \\
-Suppose we are trying to find length-4 patterns in length-10 gene sequences.  We have some Python data structures with information, and we have some methods for managing our data.  However, there is not much organization to these pieces. \\
+\item \textbf{Exploring NumPy}
 
-Create a class called \texttt{GenePatterns} that has similar functionality to the code provided below. \\
+\begin{enumerate}
+%\setcounter{enumii}{0}
+\item What does the function \texttt{numpy.arange()} do? How is it different from \texttt{range()}? \\ \vspace{0.1in}
+\texttt{numpy.arange(n)} returns a numpy array that looks like a vector with entries $0, 1, \hdots, n-1$.  This is similar to \texttt{range()}, but \texttt{range()} returns a list.
+\end{enumerate}
 
-\lstinputlisting{code/genes.py}
-
-\newpage
-\lstinputlisting{code/genes_soln.py}
-
-The above prints:
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Create an identity matrix with \texttt{I = np.eye(3)}.  What is the difference between the following two sequence of commands:
 \begin{verbatim}
-True
-False
-['GACT', 'AAAA']
+>>> x = I[0, [0, 1]]
+>>> x[0] = 3.0
+>>> x[1] = 2.0
 \end{verbatim}
+
+\vspace{0.1in}
+
+\begin{verbatim}
+>>> x = I[0, 0:2]
+>>> x[0] = 3.0
+>>> x[1] = 2.0
+\end{verbatim}
+
+In the latter sequence, \texttt{x} is called a \emph{view}.  Why? \\ \vspace{0.1in}
+
+The difference is that the first sequence of code creates a copy of the elements of \texttt{I} while in the second code, \texttt{x} is a reference to entries in \texttt{I}.  After executing the second sequence of code, \texttt{I} will be modified.  In the latter case, we say that \texttt{x} is a view because it is still referencing (looking at) \texttt{I}.
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Using what you learned in part (b), write a function that takes as input a 2-D ndarray and scales the last row and column by $2.5$ (the last entry should be scaled by $2.5^2$). \\ \vspace{0.1in}
+
+An example: \\
+\begin{lstlisting}
+def scale(A):
+  A[-1, :] *= 2.5
+  A[:, -1] *= 2.5
+  
+# make a call to scale()
+M = np.array([[1, 2], [3, 4]])
+scale(M)
+\end{lstlisting}
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{3}
+\item Explain what the following command does: \texttt{A = np.random.rand(6, 3) * np.arange(3)}. \\ \vspace{0.1in}
+
+\texttt{np.random.rand(6, 3)} creates a $6 \times 3$ matrix with random entries.  \texttt{np.arange(3)} creates a vector of length $3$ (see part (a)).  The multiplication operator here does matrix vector multiplication, so $A$ is a vector of length $6$.
+\end{enumerate}
+
 
 
 
