@@ -73,7 +73,7 @@
 
 \begin{enumerate}
 \item \textbf{Profiling and Vectorization} \setpoints{15} \\
-In this question we are going to use Python profiling tools to determine the efficiency of using NumPy's vectorization capabilities. To do so we will compute the first 1000 powers (inclusive and starting from 0) of 2 in the following ways. Report the amount of time it takes to run each of these methods 100,000 times.
+In this question we are going to use Python profiling tools to determine the efficiency of using NumPy's vectorization capabilities. To do so we will compute the first 100 powers (inclusive and starting from 0) of 2 in the following ways. Report the amount of time it takes to run each of these methods 100,000 times.
 \vspace{.1in}
 
 To profile each of the statements you will create, use the \texttt{timeit} module. There are many ways to use this module (see
@@ -85,18 +85,18 @@ To profile each of the statements you will create, use the \texttt{timeit} modul
 \begin{verbatim}
 timeit.timeit(stmt="""
 a = []
-for i in xrange(1000):
+for i in xrange(100):
         a.append(2 ** i)""", number=100000)       
 \end{verbatim}
   366 seconds, very slow
 
-\item create an list of zeros of size 1000 and assign elements sequentially
+\item create an list of zeros of size 100 and assign elements sequentially
 
 \begin{verbatim}
 timeit.timeit(stmt="""
 for i in xrange(len(a)):
         a[i] = 2. ** i""", 
-              setup = """a = [0] * 1000""", number=100000)       
+              setup = """a = [0] * 100""", number=100000)       
 \end{verbatim}
 356 seconds, pre-allocating the array doesn't help much
 
@@ -112,7 +112,7 @@ timeit.timeit(stmt="""[2, ** i for i in xrange(1000)]""", number=100000)
 \item use the python map function
 \begin{verbatim}
 timeit.timeit(stmt="""map(f, a)""", 
-              setup="""a=range(1000)
+              setup="""a=range(100)
 f = lambda i: 2. ** i
 """, number=100000)
 \end{verbatim}
@@ -122,7 +122,7 @@ f = lambda i: 2. ** i
 \item use vectorization (NumPy)
 
 \begin{verbatim}
-timeit.timeit(stmt="""2. ** np.arange(1000)""", 
+timeit.timeit(stmt="""2. ** np.arange(100)""", 
               setup="""import numpy as np""", number=100000)
 \end{verbatim}
 17 seconds, order of magnitude speedup.
