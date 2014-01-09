@@ -16,80 +16,56 @@
 
 \title{CME 193: Introduction to Scientific Python \\
 Lecture 1: Introduction to Computing with Python}
-\author{Austin Benson \\
+\author{Dan Frank \\
 \vspace{0.1in}
-Dan Frank \\
+ Austin Benson (PAST) \\
 \vspace{0.1in}
 Institute for Computational and Mathematical Engineering (ICME)}
-\date{April 3, 2013}
+\date{\today}
 \begin{document}
 \maketitle
 
 \section{Administrivia}
-\begin{frame}
-\frametitle{About the instructors}
-
-\begin{figure}
-        \centering
-	\begin{subfigure}[b]{0.45\textwidth}
-	\centering
-	\includegraphics[height=1in]{"images/austin"}
-	\caption{Austin}
-	\label{fig:hw2_15a}
-	\end{subfigure}
-        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
-          %(or a blank line to force the subfigure onto a new line)
-	\begin{subfigure}[b]{0.45\textwidth}
-	\centering
-	\includegraphics[height=1in]{"images/dan"}
-	\caption{Dan}
-	\label{fig:hw2_15b}
-	\end{subfigure}
-	% \caption{}\label{fig:hw2_34}
-\end{figure}
-
-% office hours??
-ICME PhD students
-
-Offices: ICME (Huang basement)
-\end{frame}
-
 %\begin{frame}
-%\frametitle{Why listen to us?}
+%\frametitle{About the instructors}
 
-%\begin{itemize}
-%\setlength{\itemsep}{0.2in}
-%\item{Austin:
-%\begin{itemize}
-%\setlength{\itemsep}{0.05in}
-%\item{Python for research}
-%\item{Python at Google}
-%\item{Many interviews}
-%\end{itemize}
-%}
-%\item{Dan:
-%\begin{itemize}
-%\setlength{\itemsep}{0.05in}
-%\item{Python for research}
-%\item{Python at Twitter}
-%\end{itemize}
-%}
-%\end{itemize}
+%\begin{figure}
+%        \centering
+%	\begin{subfigure}[b]{0.45\textwidth}
+%	\centering
+%	\includegraphics[height=1in]{"images/austin"}
+%	\caption{Austin}
+%	\label{fig:hw2_15a}
+%	\end{subfigure}
+%        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc. 
+%          %(or a blank line to force the subfigure onto a new line)
+%	\begin{subfigure}[b]{0.45\textwidth}
+%	\centering
+%	\includegraphics[height=1in]{"images/dan"}
+%	\caption{Dan}
+%	\label{fig:hw2_15b}
+%	\end{subfigure}
+%	% \caption{}\label{fig:hw2_34}
+%\end{figure}
+%
+%% office hours??
+%ICME PhD students
+%
+%Offices: ICME (Huang basement)
 %\end{frame}
-
 
 \begin{frame}
 \frametitle{Course structure}
 
 \begin{itemize}
-\setlength{\itemsep}{0.2in}
+\setlength{\itemsep}{0.1in}
 \item{
-Five 2-hour lectures, all in first three weeks
+Eight 2-hour lectures, all in first four weeks
 }
 
 \item{
 % this may change, leaving here as a filler
-Homework corresponding to each lecture (5 total)
+Homework corresponding to each lecture except the last (7 total)
 %\begin{itemize}
 %\setlength{\itemsep}{0.05in}
 %\item{All electronic submissions}
@@ -110,20 +86,34 @@ Please bring a laptop to class!
 }
 \end{itemize}
 
-\vspace{0.2in}
+\vspace{0.1in}
 
-All course materials are on coursework and \url{http://www.stanford.edu/~arbenson/cme193.html}
+All course materials are on \url{http://www.stanford.edu/~danfrank/cme193.html} and
+announcements/discussion will be through Piazza 
+\url{https://piazza.com/class\#winter2014/cme193} 
 
 \end{frame}
+
+
+\begin{frame}
+\frametitle{Why listen to me?}
+
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{$3^{rd}$ year PhD in ICME}
+\item{Python for research \& industry 8 years and counting}
+\item{Python at Twitter and Facebook}
+\item{Languages: R, MATLAB, Java, LISP/Clojure, HIVE \& Pig, etc.} 
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Office hours}
 
 \begin{itemize}
 \setlength{\itemsep}{0.2in}
-\item{Austin: Monday and Wednesday, 1-2pm, by appointment}
-\item{Dan: TBA}
-\item{Location: Huang basement near ICME}
+\item{Immediately after class and by appointment. More arranged if there is demand.}
 \item{Please also use Piazza to ask questions.}
 \end{itemize}
 
@@ -137,7 +127,7 @@ The grading scheme is Satisfactory/Not Satisfactory.
 
 \vspace{0.2in}
 
-To pass, you need to complete \textbf{all} homework assignments and earn at least \textbf{70\%} of the points on \textbf{each} assignment.
+To pass, you need to complete \textbf{all} homework assignments and earn at least \textbf{70\%} of the points on \textbf{each} assignment. Grading is automated and you will know your score and a PASS/FAIL as you submit. You may submit as many times as you like before the deadline. Submission instructions are on the course website. 
 
 \end{frame}
 
@@ -154,16 +144,46 @@ To pass, you need to complete \textbf{all} homework assignments and earn at leas
 \end{frame}
 
 \begin{frame}
-\frametitle{Online material}
+\frametitle{Homework 0}
 
 \begin{itemize}
 \setlength{\itemsep}{0.2in}
-\item{Short (1-3 minute) videos of topics covered in class.}
-\item{Experimental: feedback is greatly appreciated!}
+\item{Homework 0 is posted (it is not due)}
+\item{You should be comfortable with the material before starting Homework 1}
 \end{itemize}
 
 \end{frame}
 
+
+\begin{frame}
+\frametitle{Motivation I}
+Why you should be excited to take this class...
+
+\begin{figure}
+    \centering
+	\begin{subfigure}[b]{\textwidth}
+	\centering
+	\includegraphics[height=2.5in]{"images/python"}
+	\label{fig:xkcd}
+	\end{subfigure}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Motivation II}
+Why you should be excited to take this class...
+
+\begin{figure}
+    \centering
+	\begin{subfigure}[b]{\textwidth}
+	\centering
+	\includegraphics[height=2.0in]{"images/python_screenshot"}
+	\label{fig:xkcd}
+	\end{subfigure}
+\end{figure}
+
+\end{frame}
 
 \begin{frame}
 \frametitle{Variety}
@@ -172,9 +192,12 @@ One reason why we are excited to teach this class:
 \begin{itemize}
 \item{Students in: Civil Engr., Mech. Engr., Chemical Engr., EE, ERE, ICME, MSE, Econ, Math, Stats, CS, Business, Biology, Medical School, Political Science, Aero/Astro, Business, Earth Systems, Undeclared}
 \item{Undergraduate: year 2, 3, 4; Graduate: year 1, 2, 3, 4+}
+\item{Problems: simulations, biology, stats/ML, web data}
 \end{itemize}
 
 \end{frame}
+
+
 
 %\begin{frame}
 %\frametitle{Survey}
@@ -190,18 +213,6 @@ One reason why we are excited to teach this class:
 
 
 \begin{frame}
-\frametitle{Homework 0}
-
-\begin{itemize}
-\setlength{\itemsep}{0.2in}
-\item{Homework 0 is posted (it is not due)}
-\item{You should be comfortable with the material before starting Homework 1}
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
 \frametitle{Course outline}
 
 \begin{enumerate}
@@ -212,10 +223,11 @@ One reason why we are excited to teach this class:
 \item{File I/O, Object-oriented Python, and Introduction to NumPy}
 \item{NumPy and SciPy}
 \item{Data Visualization and Web Scraping}
+\item{TBD}
 
 \end{enumerate}
-
 \end{frame}
+
 
 \begin{frame}
 \frametitle{Python 2.x vs Python 3}
@@ -228,7 +240,6 @@ One reason why we are excited to teach this class:
 \end{itemize}
 
 \end{frame}
-
 
 
 \section{What is a variable?}
@@ -378,16 +389,16 @@ for ($i = 0$; $i < n$; $i = i + 1$)
 
 \end{frame}
 
-\begin{frame}
-\frametitle{for}
+%\begin{frame}
+%\frametitle{for}
 
 %\begin{figure}[h!]
-\centering
-\includegraphics[height=1.5in]{"images/for"}
+%\centering
+%\includegraphics[height=1.5in]{"images/for"}
 %\caption{}
 %\label{}
 %\end{figure}
-\end{frame}
+%\end{frame}
 
 \begin{frame}
 \frametitle{Python for}
@@ -566,7 +577,7 @@ Some people like this indentation structure and some people do not.
 \frametitle{End}
 \begin{itemize}
 \setlength{\itemsep}{0.05in}
-\item{Assignment 1 is posted on the course web site (due Tuesday 4/9)}
+\item{Assignment 1 is posted on the course web site (due Tuesday 1/14)}
 \item{In-class exercises, python codes from slides, and readings also posted}
 \end{itemize}
 
