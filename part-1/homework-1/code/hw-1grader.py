@@ -1,3 +1,22 @@
+#!/usr/bin/env python
+import sys
+import os
+import importlib
+
+
+def grade(path):
+    sys.path.append(path)
+    hw0 = importlib.import_module('hw-0')
+    if hw0.answer != True:
+        print 'you got it wrong'
+    if hw0.answer == True:
+        print 'you got it right'
+
+    score = 89
+    PF = 'PASS'
+    return score, PF
+
+
 from __future__ import print_function
 import sys
 import simple_math
