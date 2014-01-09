@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Personal web site of Austin R. Benson." />
+    <meta name="keywords" content="icme,arbenson,matrix" />
+    <meta name="author" content="Austin Benson" />
+    <link rel="stylesheet" type="text/css" href="basic-profile.css" title="Basic Profile" media="all" />
+    <title>Introduction to Scientific Python</title>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div id="sidebar">
+	<a href="cme193.html"><img src="images/scipyshiny_small.png" width="250" height="250" alt="scipy" /></a>
+	<ul>
+	  <li><a href="#Info">Information</a></li>
+	  <li><a href="#DevEnv">Development Environment</a></li>
+	  <li><a href="#Policy">Policy</a></li>
+	  <li><a href="#Schedule">Schedule</a></li>
+	  <li><a href="#Assignments">Assignments</a></li>
+	  <li><a href="#Resources">Resources</a></li>
+	</ul>
+      </div>
+
+      <div id="content">
+        <h1>CME 193: Introduction to Scientific Python</h1>
+	Course description: <i>This short course runs for the first three weeks of the quarter and is 
+	  offered each quarter during the academic year.
+	  It is recommended for students who want to use Python in math,
+	  science, or engineering courses and for students who want to learn the basics of Python programming.
+	  The goal of the short course is to familiarize students with Python’s tools for scientific computing.
+	  Lectures will be interactive with a focus on learning by example, and assignments will be application-driven.
+	  No prior programming experience is needed.
+	  Topics covered include control flow, basic data structures, File I/O, and an introduction to NumPy/SciPy.</i>
+
+	<h3><a name="Info">Course Information</a></h3>
+        CME 193 <br />    
+	Location: 200-305 <br />
+	Times: Tu / Th 3:15PM - 5:05PM; January 9 - February 4<br /><br />
+
+	Instructors:
+	<ul>
+	  <li> Dan Frank (danfrank AT stanford DOT edu)</li>
+	</ul>
+	Office hours: by appointment and directly after class<br /><br />
+
+        We will be using Piazza for course communication.  The course page is <a href="https://piazza.com/class#winter2014/cme193">here</a>.
+
+	<h3><a name="Policy">Course Policy</a></h3>
+        There will be seven short homework assignments.  You pass the class if you pass each homework assignment which will roughly corresponds 
+        to earning at least 70% of the points on each.
+        Homework is assigned for each lecture, and each homework is due by the beginning of the following lecture.
+        <br /><br />
+
+        Homework will have starter code / templates (see <a href="#Assignments">Assignments</a>) and will be automatically graded at the time of submission.  
+        The autograder is there so you can tell if your work is correct and if you have passed the assignment.  
+        You can submit any number of times before the due date and you are allowed up to 5 late days. 
+        Your final submission will be the one used for a grade.
+         
+        <br /><br />
+        Gaming the autograder by hard-coding the answers is a violation of the Stanford Honor Code
+        as is using packages which have already implemented what is asked for in a question. 
+        You are encouraged to collaborate with others on the homework assignments.  However, you must write up your own solutions.  You may not
+        copy each others' code.
+        
+        <br /><br />
+        <b><a href="#Assignments">Assignment</a> Submission:</b> 
+        <ol>
+	      <li> <code>scp</code> homework file(s) to corn </li>
+	      <li> log into corn and run the following script <code>/afs/ir.stanford.edu/users/d/a/danfrank/cme193/submit.py </code> (easiest if you're in the directory containing the homework files) </li>
+	      <li> follow the prompts </li>
+	      <li> resubmit if you did not pass or want to try for a better score </li>
+	   </ol>
+
+		
+	<h3><a name="DevEnv">Development Environment</a></h3>
+	We will be using <a href="http://www.numpy.org/">NumPy</a>, <a href="http://www.scipy.org/">SciPy</a>, <a href="http://matplotlib.org/">matplotlib</a>, and <a href="http://ipython.org/">IPython</a>.
+ in this course. These are all available on corn but often it will be more
+	convenient for you to have them set up on your personal machine. There are numerous tutorials online to get these installed on your system (also see reading for Lecture 1).   
+	
+	<br /><br />
+	In case you are unable to get setup we have created a virtual machine (VM) to work with <a href="https://www.virtualbox.org/">VirtualBox</a> 
+	that has all of the tools needed for the class. 
+        The VM uses Linux Debian 6.0.7, the username is cme193 and the password is 193cme.  The root password is toor.  To get started: <br /><br />
+	<ol>
+	  <li> Download and unzip the VM appliance: <a href="./cme193/cme193-debian-6.0.7.ova.zip">cme193-debian-6.0.7.ovf.zip</a> (1.9 GB). </li>
+	  <li> Download <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>. </li>
+	  <li> Start VirtualBox and select File --> Import Appliance </li>
+	  <li> Select cme193-debian-6.0.7.ovf for the appliance. </li>
+	</ol>
+        
+    <h3><a name="Schedule">Schedule</a></h3>
+    Disclaimer: schedule is subject to change
+    <ul>
+      <li> <b>January 9: Lecture 1 | </b> Introduction to Computing with Python
+           [<a href="./cme193/lectures/lecture-1.pdf">slides</a>]
+           [<a href="./cme193/exercises/exercises-1.pdf">exercises</a>]
+      </li>
+	  References:
+	  <ul id="list2">
+	    <li><a href="http://www.talyarkoni.org/blog/2013/11/18/the-homogenization-of-scientific-computing-or-why-python-is-steadily-eating-other-languages-lunch/" >Motivation</a></li>
+            <li> How to start the Python Interpreter:
+              [<a href="http://docs.python.org/2/faq/windows.html">Windows</a>]
+              [<a href="http://www.python.org/getit/mac/">Mac</a>]
+              [<a href="http://infohost.nmt.edu/tcc/help/pubs/python/web/starting-linux.html">Linux</a>]
+              [<a href="http://shell.appspot.com/">Directly online</a>].
+            </li>
+	    <li>
+              Python <a href="http://www.tutorialspoint.com/python/arithmetic_operators_example.htm">arithmetic</a>, 
+              <a href="http://www.tutorialspoint.com/python/comparison_operators_example.htm">comparison operators</a>,
+              <a href="http://www.tutorialspoint.com/python/assignment_operators_example.htm">assignment operators</a>,
+              <a href="http://www.tutorialspoint.com/python/logical_operators_example.htm">logical operators</a>,
+              <a href="http://www.tutorialspoint.com/python/operators_precedence_example.htm">operator precedence</a>,
+              <a href="http://www.tutorialspoint.com/python/python_if_statement.htm">if statements</a>,
+              <a href="http://www.tutorialspoint.com/python/python_if_else.htm">if/else statements</a>,
+              and <a href="http://www.tutorialspoint.com/python/python_while_loop.htm">while loops</a>.
+            </li>
+	    <li> <a href="http://docs.python.org/2/reference/lexical_analysis.html">Lexical analysis</a>: 2.1.1-2.1.3, 2.1.5-2.1.9, 2.3.1.
+              This section of the Python docs contains vocabulary from Programming Language theory, so do not worry if you do not understand
+              everything.  However, the examples on indentation and logical lines are useful. </li>
+            <li> <a href="http://www.secnetix.de/olli/Python/block_indentation.hawk">Myths about Indentation</a> </li>
+            <li> Running a python script:
+              <a href="http://www.youtube.com/watch?v=o0X-VHX6ls0">Here</a> is a video with instructions for using Notepad on Windows to execute Python programs.
+              If you like Eclipse, you can use <a href="http://pydev.org/">PyDev</a>.  <a href="http://stackoverflow.com/questions/81584/what-ide-to-use-for-python">Here</a>
+              is a Stack Overflow discussion on Python IDEs.
+            </li>
+	  </ul>
+
+	  <br />
+          <li> <b>January 14: Lecture 2 | </b> Data Structures 
+               [<a href="./cme193/lectures/lecture-2.pdf">slides</a>]
+               [<a href="./cme193/exercises/exercises-2.pdf">exercises</a>]
+          </li>
+	  Videos:
+	  <ul>
+	    <li> <a href="http://www.youtube.com/playlist?list=PLn62CdVLnT-dgAJL2Bcqq2PEaaHHXFpL9&feature=em-share_playlist_user">Lists</a> </li>
+	    <li> <a href="http://www.youtube.com/playlist?list=PLn62CdVLnT-fz_mtAzipS7Rx3atWOFxPc&feature=em-share_playlist_user">Tuples</a> </li>
+	    <li> <a href="http://www.youtube.com/playlist?list=PLn62CdVLnT-dkB3rI2APWixqS-ChiXMTc&feature=em-share_playlist_user">Dictionaries</a> </li>
+	  </ul>
+	  References:
+	  <ul id="list2">
+	    <li> <a href="http://docs.python.org/2/tutorial/datastructures.html">Data structures</a>: 5.1, 5.3, 5.5, 5.6, 5.7, 5.8 </li>
+	    <li> <a href="http://docs.python.org/2/tutorial/controlflow.html#defining-functions">Control flow with functions</a>: 4.6, 4.7 </li>
+	  </ul>
+
+	  <br />
+          <li> <b>January 16: Lecture 3 | </b>File I/O, Object-oriented Python, and Introduction to NumPy
+               [<a href="./cme193/lectures/lecture-3.pdf">slides</a>]
+               [<a href="./cme193/exercises/exercises-3.pdf">exercises</a>]
+          </li>
+	  References:
+	  <ul id="list2">
+            <li><a href="http://docs.python.org/2/tutorial/inputoutput.html">Input and Output</a>: 7.1, 7.1.1, 7.2, 7.2.2</li>
+            <li><a href="http://loris.som.jhmi.edu/python_course/io_files.html">References and writing files</a></li>
+            <li><a href="http://docs.python.org/2/tutorial/classes.html">Classes</a>: Intro, 9.3.1-9.3.4, 9.4, 9.5, 9.6, 9.7, 9.9</li>
+            <li><a href="http://docs.scipy.org/doc/numpy/user/install.html">Building and installing NumPy</a></li>
+            <li><a href="http://mathesaurus.sourceforge.net/matlab-numpy.html">NumPy for MATLAB users</a></li>
+	  </ul>
+
+	  <br />
+          <li> <b> January 21: Lecture 4 | </b> NumPy and SciPy
+               [<a href="./cme193/lectures/lecture-4.pdf">slides</a>]
+               [<a href="./cme193/exercises/exercises-4.pdf">exercises</a>]
+          </li>
+	  References:
+	  <ul id="list2">
+            <li><a href="http://scipy-lectures.github.io/index.html">Python Scientific Lecture Notes</a></li>
+            <li><a href="http://mathesaurus.sourceforge.net/matlab-numpy.html">NumPy for MATLAB users</a></li>
+            <li><a href="http://www.scipy.org/Tentative_NumPy_Tutorial">NumPy Tutorial</a></li>
+            <li><a href="http://www.cacr.caltech.edu/projects/danse/talks/kickoff/15-Oliphant/DANSE_meeting.pdf">Introduction to NumPy</a></li>
+	  </ul>
+
+	  <br />
+          <li> <b>Jan 23: Lecture 5 | </b> Data Visualization
+               [<a href="./cme193/lectures/lecture-5.pdf">slides</a>]
+               [<a href="./cme193/exercises/exercises-5.pdf">exercises</a>]
+          </li>
+	  References:
+	  <ul id="list2">
+	    	<li><a href="http://www.cs.cmu.edu/~srini/15-441/F11/lectures/r04-python.pdf">Learning the Pythonic Way</a></li>
+            <li><a href="http://scipy-lectures.github.io/index.html">Python Scientific Lecture Notes</a></li>
+            <li><a href="http://matplotlib.org/users/pyplot_tutorial.html">Pyplot tutorial</a></li>
+            <li><a href="http://www.loria.fr/~rougier/teaching/matplotlib/#simple-plot">Simple plot</a></li>
+            <li><a href="http://www.scipy.org/Plotting_Tutorial">Scipy plotting tutorial</a></li>
+	  </ul>
+	  
+	  <br />
+          <li> <b>Jan 28: Lecture 6 | </b>TBD
+               [<a href="./cme193/lectures/lecture-6.pdf">slides</a>]
+               [<a href="./cme193/exercises/exercises-6.pdf">exercises</a>]
+          </li>
+	  References:
+	  
+	  <br />
+          <li> <b>Jan 30: Lecture 7 |</b> TBD
+               [<a href="./cme193/lectures/lecture-7.pdf">slides</a>]
+               [<a href="./cme193/exercises/exercises-7.pdf">exercises</a>]
+          </li>
+	  References:
+	  
+	  <br />
+          <li> <b>Feb 4: Lecture 8 |</b> TBD
+               [<a href="./cme193/lectures/lecture-8.pdf">slides</a>]
+               [<a href="./cme193/exercises/exercises-8.pdf">exercises</a>]
+          </li>
+	  References:
+	  <ul id="list2">
+	    	
+	  </ul>
+	  
+
+    </ul>
+
+    <h3><a name="Assignments">Assignments</a></h3>
+    <ul>
+      <li>Homework 0: [<a href="./cme193/homeworks/hw-0.pdf">pdf</a>].  Not Due. </li>
+      <li>Homework 1: [<a href="./cme193/homeworks/hw-1.pdf">pdf</a>] [<a href="./cme193/homeworks/hw-1.py">code</a>].  Due January 14.</li>
+      <li>Homework 2: [<a href="./cme193/homeworks/hw-2.pdf">pdf</a>] [<a href="./cme193/homeworks/hw-2.py">code</a>].  Due January 16.</li>
+      <li>Homework 3: [<a href="./cme193/homeworks/hw-3.pdf">pdf</a>] [<a href="./cme193/homeworks/hw-3.py">code</a>].  Due January 21.</li>
+      <li>Homework 4: [<a href="./cme193/homeworks/hw-4.pdf">pdf</a>] [<a href="./cme193/homeworks/hw-4.py">code</a>].  Due January 23</li>
+      <li>Homework 5: [<a href="./cme193/homeworks/hw-5.pdf">pdf</a>] [<a href="./cme193/homeworks/hw-5.py">code</a>].  Due January 28</li>
+    </ul>
+
+	<h3><a name="Resources">Additional Resources</a></h3>
+	<ul>
+	  <li><a href="http://www.tutorialspoint.com/python/index.htm">tutorialspoint Python tutorial</a></li>
+	  <li><a href="http://docs.python.org/2/tutorial/introduction.html">An Informal Introduction to Python</a> </li>
+	  <li><a href="http://docs.python.org/2/tutorial/">The Python Tutorial</a> </li>
+	  <li><a href="http://www-inst.eecs.berkeley.edu/~selfpace/cs9honline/">CS 9H</a>, UC-Berkeley self-paced Python course</li>
+        </ul>
+	<p class="credits">&copy; 2014 Dan Frank & Austin Benson<br />
+	  Template design by <a href="http://andreasviklund.com/">Andreas Viklund</a></p>
+      </div>
+    </div>
+  </body>
+</html>
