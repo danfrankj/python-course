@@ -21,12 +21,11 @@ def grade(path):
                   'str4': hw1.str4,
                   'seq_add': hw1.seq_add,
                   'fact': hw1.fact}
-    total_tests = 0
+    total_tests = len(TESTS)
     successes = 0
     for test in TESTS:
         if run_test(func_table, **test):
             successes += 1
-            total_tests += 1
 
     print('\n%d / %d correct (%f)' % (successes, total_tests,
                                       float(successes) / total_tests))
