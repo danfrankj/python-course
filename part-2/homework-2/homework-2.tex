@@ -1,6 +1,7 @@
+%
 \documentclass{article}
 \newcommand{\assgnnum}{2}
-\newcommand{\duedate}{April 11}
+\newcommand{\duedate}{January 16}
 
 \usepackage{amsmath}
 %\usepackage{fullpage}
@@ -88,6 +89,7 @@
 \newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
 
 \setlength{\parindent}{0in}
+\graphicspath{ {./figures/} }
 
 \begin{document}
 
@@ -96,7 +98,7 @@
 
 30 points total.  70+\% correctness (21+ points) is needed to pass.  There is also the opportunity for 4 bonus points.  Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class. \\
 
-The starter codes for this assignment are available in the zip file \texttt{code-hw-2.zip}, available on Coursework and on the course web site.
+The starter code for this assignment is available in the zip file \texttt{hw2.zip}, available on on the course web site.
 
 \begin{enumerate}
 %\item \textbf{Executing Python scripts} \\
@@ -117,25 +119,25 @@ The first system is the familiar cartesian coordinate system.  Three points, cal
 
 The second system is spherical coordinates, which represents a point by a nonnegative radial distance $r$, an an inclination angle $\theta$, and an azimuthal angle $\phi$.  ($r$, $\theta$, $\phi$) represent a point on a sphere centered at the origin.  The two-dimensional analog to spherical coordinates is polar coordinates, and hence spherical coordinates are sometimes referred to as polar coordinates.  See Fig.~\ref{fig:spherical_coords} for the relationship between spherical and cartesian coordinates.
 
-The third system is cylindrical coordinates, which represents a point by a nonnegative radial distance $\rho$, an angle $\phi$, and a height $z$.  $(\rho, \phi, z)$ represents a point on a cylinder centered at the origin.  See Fig.~\ref{fig:cylindrical_coords} for the relationship between cylindrical and cartesian coordinates.
+The third system is cylindrical coordinates, which represents a point by a nonnegative radial distance $\rho$, an angle $\phi$, and a height $z$.  $(\rho, \phi, z)$ represents a point on a cylinder centered at the origin.  See Fig. ~\ref{fig:cylindrical_coords} for the relationship between cylindrical and cartesian coordinates.
 
 \begin{figure}[h!!!]
         \centering
-	\begin{subfigure}[b]{0.48\textwidth}
-	\centering
-	\includegraphics[height=2.9in]{"./figures/spherical"}
-	\caption{Spherical coordinates}
-	\label{fig:spherical_coords}
-	\end{subfigure}
+        \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[height=2.9in, natwidth=610,natheight=642]{spherical}
+        \caption{Spherical coordinates}
+        \label{fig:spherical_coords}
+        \end{subfigure}
         \quad%add desired spacing between images, e. g. ~, \quad, \qquad etc. 
           %(or a blank line to force the subfigure onto a new line)
-	\begin{subfigure}[b]{0.48\textwidth}
-	\centering
-	\includegraphics[height=2.9in]{"./figures/cylindrical"}
-	\caption{Cylindrical coordinates}
-	\label{fig:cylindrical_coords}
-	\end{subfigure}
-	 \caption{}\label{fig:coord_systems}
+        \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[height=2.9in, natwidth=610,natheight=642]{cylindrical}
+        \caption{Cylindrical coordinates}
+        \label{fig:cylindrical_coords}
+        \end{subfigure}
+         \caption{}\label{fig:coord_systems}
 \end{figure}
 
 \newpage
@@ -179,23 +181,9 @@ To grade this question, tests will be conducted by calling the functions you imp
 
 All of the tests used for grading are distributed with the assignment.  Gaming the autograder by hard-coding the answers of the provided test functions is considered cheating and a violation of the Stanford honor code.  I will be testing your code with additional (unreleased) tests to ensure that there is no cheating.
 
-To run the autograder, place the file \texttt{grader.py} in the same directory as \texttt{coordinates\_tuples.py} and \texttt{coordinates\_dicts.py}.  You can run the autograder with:
-
-\begin{center}
-\texttt{python grader.py}
-\end{center}
-
-See the documentation in \texttt{grader.py} to learn how to run individual tests.
-
 \newpage
 \item \textbf{NumPy and SciPy} \\
-In the next lecture, we will start with NumPy and SciPy, the two main Python libraries for scientific computing.  For this part of the assignment, you will get introduced to these libraries.  Here are three options for accessing NumPy and SciPy:
-
-\begin{itemize}
-\item Download the Debian virtual machine on the class web site (\url{http://stanford.edu/~arbenson/cme193/cme193-debian-6.0.7.ova.zip}), which you can run with VirtualBox (\url{https://www.virtualbox.org/}).
-\item Download and install NumPy and SciPy on your computer.  Some instructions can be found at \url{http://docs.scipy.org/doc/numpy/user/install.html} and \url{http://www.scipy.org/Installing_SciPy}.
-\item Log in to the Stanford corn machines (\texttt{corn.stanford.edu}).  They have NumPy and SciPy installed.
-\end{itemize}
+In the next lecture, we will start with NumPy and SciPy, the two main Python libraries for scientific computing.  For this part of the assignment, you will get introduced to these libraries.  See course website for instructions on how to install/access these libraries.
 
 \begin{enumerate}
 \item Run the \texttt{dot()} example from \url{http://www.scipy.org/Numpy_Example_List_With_Doc}.
@@ -211,7 +199,7 @@ In the next lecture, we will start with NumPy and SciPy, the two main Python lib
 \end{enumerate}
 
 
-\item \textbf{Generator power (bonus)} \\
+\item \textbf{Generator power (bonus: instructional only - not graded)} \\
 In this bonus question, we explore generator functions.  Consider the following function, which takes as input a set of x coordinates, y coordinates, and z coordinates and returns all possible (x, y, z) points from the sets:
 
 \begin{tabular}{c}
@@ -220,7 +208,7 @@ In this bonus question, we explore generator functions.  Consider the following 
 
 \begin{enumerate}
 \item
-Describe a potential memory hazard with this function.   \setbonuspoint \\
+Describe a potential memory hazard with this function.  \\
 \end{enumerate}
 
 In Python, we can alternatively choose to ``yield" a value.  This allows us to iterate over objects without constructing the entire object.  These types of functions are called generating functions.  For example, the following function is the generator analog to \texttt{triples()}:
@@ -233,7 +221,7 @@ In Python, we can alternatively choose to ``yield" a value.  This allows us to i
 \begin{enumerate}
 \setcounter{enumii}{1}
 \item
-What gets printed with the following code?  Explain.  \setbonuspoint
+What gets printed with the following code?  Explain. 
 
 \begin{tabular}{c}
 \lstinputlisting{code/triples_test.py}
@@ -243,25 +231,14 @@ What gets printed with the following code?  Explain.  \setbonuspoint
 \begin{enumerate}
 \setcounter{enumii}{2}
 \item
-Write a function \texttt{keyvals}, which takes as input a dictionary and returns a list of (key, value) tuples of all key-value pairs in the dictionary.   \setbonuspoint
+Write a function \texttt{keyvals}, which takes as input a dictionary and returns a list of (key, value) tuples of all key-value pairs in the dictionary.
 \end{enumerate}
 
 \begin{enumerate}
 \setcounter{enumii}{3}
 \item
-Write a function \texttt{keyvals\_gen}, which is the generator function analog of \texttt{keyvals} from part (c). \setbonuspoint
+Write a function \texttt{keyvals\_gen}, which is the generator function analog of \texttt{keyvals} from part (c).
 \end{enumerate}
-
-\vspace{0.3in}
-\item \textbf{Submission} \\
-Upload the files \texttt{coordinates\_tuples.py} and \texttt{coordinates\_dicts.py} to your Drop Box on Coursework.  Do not change the names of the files. \\
-
-You can submit your answer to the bonus question by uploading the following to your Drop Box on Coursework:
-
-\begin{itemize}
-\item{ A file \texttt{bonus\_hw2.pdf} with your answers to parts  (a) and (b) }
-\item{ A file \texttt{bonus\_hw2.py} with your code from parts (c) and (d) }
-\end{itemize}
 
 \end{enumerate}
 %\printpoints.
