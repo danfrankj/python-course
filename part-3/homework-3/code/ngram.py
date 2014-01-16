@@ -20,9 +20,7 @@ def ngram(n, k, document):
 
 
 """
-Test functions. DO NOT MODIFY.
-
-You have to record the output of test1() and test2() for the homework.
+Test functions. Try out your code.
 """
 def test1():
   print ngram(2, 3, 'course_description.txt')
@@ -30,15 +28,7 @@ def test1():
   print ngram(5, 1, 'course_description.txt')
   print ngram(1, 15, 'course_description.txt')
 
-def test2():
-  print ngram(2, 10, 'bill_of_rights.txt')
-  print ngram(5, 3, 'bill_of_rights.txt')
-  print ngram(4, 8, 'bill_of_rights.txt')
-  print ngram(1000000, 2, 'bill_of_rights.txt')
-
 
 if __name__ == '__main__':
   print 'running test 1...'
   test1()
-  print 'running test 2...'
-  test2()

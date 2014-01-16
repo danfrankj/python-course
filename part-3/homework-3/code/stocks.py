@@ -31,7 +31,12 @@ class Portfolio():
 
 techs = Portfolio()
 
+
+"""
+Test functions. Try out your code.
+"""
 def test1():
+  techs = Portfolio()
   techs.add_stock('APPL', 600.41, 0.3)
   techs.add_stock('GOOG', 630.29, 1.2)
   techs.add_stock('FB', 19.56, 30)
@@ -41,6 +46,7 @@ def test1():
   print techs.most_money()
 
 def test2():
+  techs = Portfolio()
   if 'P' not in techs:
     print 'Maybe I should buy Pandora stock'
     techs.add_stock('P', 18.73, 70)
