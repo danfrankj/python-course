@@ -24,6 +24,9 @@
 *.nav
 *.snm
 *.vrb
+*.DS_Store
+*.fdb_latexmk
+*.fls
 
 *.pptx
 *.pyc
