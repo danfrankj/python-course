@@ -1,6 +1,7 @@
 import scipy.optimize
 
 
+
 def test_opt():
     # use scipy.optimize to minimize the function 
     # .5 * x^T * A * x - b^T * x 
