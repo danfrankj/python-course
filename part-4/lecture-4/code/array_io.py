@@ -1,5 +1,3 @@
-import numpy as np
-
 #  create an array, write to file, read from file
 arr = np.array([[1, 2, 3], [4, 5, 6]])
 

@@ -1,5 +1,3 @@
-import numpy as np
-
 arr1 = np.arange(10).reshape((2, 5))
 arr2 = np.random.random((2, 5))
 
@@ -7,7 +5,7 @@ arr2 = np.random.random((2, 5))
 #   +, -, *, /, **, np.log, <, >=, ==
 #   arrays are upcast, resulting in float or boolean arrays
 arr1 + arr2  # elementwise sum
-arr1 * arr2  # elementwise multiplication
+arr1 == arr2  # elementwise equality
 
 # operations in place
 arr1 += arr2

@@ -1,5 +1,3 @@
-import numpy as np
-
 arr = np.arange(10).reshape((2, 5))
 
 arr.ndim   #  2 number of dimensions

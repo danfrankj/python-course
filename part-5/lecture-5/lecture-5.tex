@@ -19,15 +19,100 @@
 
 \title{CME 193: Introduction to Scientific Python \\
 Lecture 5: Data Visualization \& Web Scraping}
-\author{Austin Benson \\
-\vspace{0.1in}
+\author{
 Dan Frank \\
 \vspace{0.1in}
 Institute for Computational and Mathematical Engineering (ICME)}
-\date{January 24, 2013}
+\date{January 23, 2014}
 \begin{document}
 
 \maketitle
+
+\begin{frame}
+\frametitle{Administrivia}
+\begin{itemize} 
+\setlength{\itemsep}{0.1in}
+\item{HW 4 due next class }
+\item{No HW 5}
+\item{Austin Benson will teach guest lecture}
+\end{itemize}
+\end{frame}
+
+
+
+
+\section{IDEs, Debugging, Version Control, etc.} 
+
+\begin{frame}
+\frametitle{Debugging: General Principles}
+How do I make my code bug free?
+\begin{enumerate}
+\item First, don't write bugs! (e.g. informative variable/function names, encapsulation, etc.)
+\item Isolate the problem: module $\Rightarrow$ function $\Rightarrow$ variable
+\item Be able to consistently reproduce the problem
+\item Read the error messagees
+\item print statements  
+\item Explore the code interactively with a debugger
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Debugging}
+I've written a function or script and it's giving me a weird error... now what?
+\codeblock{code/debug.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Debugging: ipdb}
+What can I do within the debugger?
+\begin{enumerate}
+\item n (next)
+\item ENTER (repeat previous)
+\item q (quit)
+\item p \texttt{variable} (print value)
+\item c (continue)
+\item l (list where you are)
+\item s (step into subroutine)
+\item r (continue till the end of the subroutine)
+\item plus anything you can normally do at a python terminal
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Debugging: ipdb}
+\begin{figure}[h]
+\centering
+\includegraphics[width=.9\textwidth]{images/debug.png}
+\end{figure}
+\end{frame}
+
+
+
+% we should probably have talked about this before
+\begin{frame}
+\frametitle{IDEs}
+Not all software engineers use them but Integrated Development Environments can be very helpful in developing code. Functionality may include
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{source code editor with syntax highlighting}
+\item{autocompletion and goto definitions}
+\item{debugging}
+\item{integration with terminal}
+\end{itemize}
+No standard IDE for Python, but eclipse, emacs, vim, etc. can be configured. Each coder has their own setup. iPython provides many of these functions within a terminal.
+\end{frame}
+
+\begin{frame}
+\frametitle{Version Control}
+Version control enables different people working on the same code base to coordinate their efforts.
+\begin{itemize}
+\setlength{\itemsep}{0.1in}
+\item{maintain history of code development}
+\item{tracking differences between current versions and older versions}
+\item{create branches of code so different features can be worked on simultaneously and merged together later}
+\end{itemize}
+There are many tools for version control but the standards are \textbf{subversion} and more recently \textbf{git}. This course is currently coordinated through \url{github.com}
+\end{frame}
 
 \section{Matplotlib}
 
@@ -152,66 +237,6 @@ Adding multiple lines and a legend
 \frametitle{Wire Plot}
 matplotlib toolkits extend funtionality for other kinds of visualization
 \codeblock{code/wire.py}
-\end{frame}
-
-
-\section{IDEs, Debugging, Version Control, etc.} 
-
-% we should probably have talked about this before
-\begin{frame}
-\frametitle{IDEs}
-Not all software engineers use them but Integrated Development Environments can be very helpful in developing code. Functionality may include
-\begin{itemize}
-\setlength{\itemsep}{0.1in}
-\item{source code editor with syntax highlighting}
-\item{autocompletion and goto definitions}
-\item{debugging}
-\item{integration with terminal}
-\end{itemize}
-No standard IDE for Python, but eclipse, emacs, vim, etc. can be configured. Each coder has their own setup. iPython provides many of these functions within a terminal.
-\end{frame}
-
-\begin{frame}
-\frametitle{Version Control}
-Version control enables different people working on the same code base to coordinate their efforts.
-\begin{itemize}
-\setlength{\itemsep}{0.1in}
-\item{maintain history of code development}
-\item{tracking differences between current versions and older versions}
-\item{create branches of code so different features can be worked on simultaneously and merged together later}
-\end{itemize}
-There are many tools for version control but the standards are \textbf{subversion} and more recently \textbf{git}. This course is currently coordinated through \url{github.com}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Debugging}
-I've written a function or script and it's giving me a weird error... now what?
-\codeblock{code/debug.py}
-\end{frame}
-
-\begin{frame}
-\frametitle{Debugging: ipdb}
-What can I do within the debugger?
-\begin{enumerate}
-\item n (next)
-\item ENTER (repeat previous)
-\item q (quit)
-\item p \texttt{variable} (print value)
-\item c (continue)
-\item l (list where you are)
-\item s (step into subroutine)
-\item r (continue till the end of the subroutine)
-\item plus anything you can normally do at a python terminal
-\end{enumerate}
-\end{frame}
-
-\begin{frame}
-\frametitle{Debugging: ipdb}
-\begin{figure}[h]
-\centering
-\includegraphics[width=.9\textwidth]{images/debug.png}
-\end{figure}
 \end{frame}
 
 \section{Web Scraping}

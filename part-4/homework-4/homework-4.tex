@@ -1,7 +1,7 @@
 %
 \documentclass{article}
 \newcommand{\assgnnum}{4}
-\newcommand{\duedate}{January 24}
+\newcommand{\duedate}{January 28}
 
 \usepackage{amsmath}
 \usepackage{fullpage}
@@ -58,111 +58,40 @@
 \newcommand\setbonuspoints[1]{\addtocounter{bonuspoints}{#1}(#1 bonus points)}
 \newcommand\setbonuspoint{\addtocounter{bonuspoints}{1}(1 bonus point)}
 
-\newcommand\printpoints{Total number of points: \value{\thepoints}}
 
 \newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
 
 \setlength{\parindent}{0in}
+\graphicspath{ {./figures/} }
 
 \begin{document}
 
 \pagestyle{fancy}
 %\vspace*{15pt}
 
-50  points total.  70+\% correctness (35+ points) is needed to pass. Remember: you must pass all assignments to pass the class.  The assignment is due at the beginning of the next class. Do not use the function np.vectorize anywhere in this assignment.
+The auto-grader will run tests against your code, all of which must pass for you to pass the assignment. Remember: you must pass all assignments to pass the class. Do not use the function np.vectorize anywhere in this assignment.
 
 \begin{enumerate}
 \item \textbf{Profiling and Vectorization} \setpoints{15} \\
-In this question we are going to use Python profiling tools to determine the efficiency of using NumPy's vectorization capabilities. To do so we will compute the first 100 powers (inclusive and starting from 0) of 2 in the following ways. Report the amount of time it takes to run each of these methods 100,000 times.
+In this question we are going to use Python profiling tools to determine the efficiency of using NumPy's vectorization capabilities. To do so we will compute the first 100 powers (exclusive and starting from 0) of 2 in the following ways. Use the \texttt{main()} method in \texttt{prof.py} to investigate the amount of time it takes to run each of these methods 100,000 times.
 \vspace{.1in}
 
 To profile each of the statements you will create, use the \texttt{timeit} module. There are many ways to use this module (see
-\url{ http://docs.python.org/2.7/library/timeit.html}) but you should only need to use the \texttt{timeit()} function. To time multi-line statements, create the statement using triple quotes. Remember to import the necessary modules and create any necessary objects in the setup phase.
+\url{ http://docs.python.org/2.7/library/timeit.html}) but you should only need to use the \texttt{timeit.timeit()} function which is implemented in the \texttt{main()} method. 
 
 \begin{enumerate}
-\item append  to an initially empty list sequentially 
-\item create an list of zeros of size 100 and assign elements sequentially
-\item use a list comprehension
-\item use the python map function
-\item use vectorization (NumPy)
-\end{enumerate}
-
-\item \textbf{Copies and Views} \setpoints{10}
-
-NumPy arrays are objects and follow the same assignment and copy rules as ordinary python objects. However, when we slice an array python returns a \textit{view} on that same data, meaning that a new object is created but shares the same underlying data. Integer indexing and boolean indexing do not create views. Determine the value of the following statements and \textit{very }briefly explain why. 
-\begin{enumerate}
-
-
-\item  
-
-\begin{verbatim}
->>> def f(arr):
-...     arr[0, 0] = 42
-...     return arr
->>> A = np.ones((2, 5))
->>> B = f(A)
->>> A is B
-\end{verbatim}
-
-\item  
-
-\begin{verbatim}
->>> A = np.ones((2, 5))
->>> B = A[:, 1:3]
->>> B[0,0] = 42.
->>> A[0, 1] == 1.
-\end{verbatim}
-
-\item  
-
-\begin{verbatim}
->>> A = np.ones((2, 5))
->>> B = A[:, np.array([False, True, True, False, False])]
->>> B[0, 0] = 42
->>> A[0, 1] == 1
-\end{verbatim}
-
-
-\item  
-
-\begin{verbatim}
->>> A = np.ones((2, 5))
->>> B = A[:, np.array([1, 3])]
->>> B[0, 0] = 42
->>> A[0, 1] == 1
-\end{verbatim}
-
-\item  
-
-\begin{verbatim}
->>> A = np.ones((2, 5))
->>> B = A[:, 1:3]
->>> A += 1
->>> np.all(B == 2)
-\end{verbatim}
-\end{enumerate}
-
-
-\newpage
-\item \textbf{Kernel Density Estimate (KDE)} \setpoints{10}
-
-Given a sample $x_1, x_2, \dots, x_n$ from an unknown distribution $f$ the kernel density estimate of $f$ at point $x$ with kernel $K_b$ is defined as 
-$$\hat{f}(x;b) = \frac{1}{n}\sum_{i=1}^{n}K_b(x-x_i)$$
-where the kernel must satisfy $\int_{-\infty}^{\infty}K(u)du = 1$ and $K(-u) = K(u).$ The parameter $b$ is known as the bandwidth and controls the width of the kernel used. There are many possible choices for kernels, and we will use the triangular kernel
-
-$$K_{b}(z) = \frac{1}{b}(1 - |\frac{z}{b}|)\mathbb{*I}(|\frac{z}{b} |\leq 1)$$ 
-
-Write a two line python function \texttt{kde(x, data, bw)} without list comprehension that takes the three parameters below and returns $\hat{f}(x)$, the KDE evaluated at $x$.
-\begin{enumerate}
-\item \texttt{x} the point to evaluate the KDE
-\item \texttt{data}  the sample of points from $f$  ; above denoted $x_1, x_2, \dots, x_n$ 
-\item \texttt{bw} the bandwidth of the kernel
+\item append  to an initially empty list sequentially in \texttt{empty\_list()}
+\item create an list of zeros of size 100 and assign elements sequentially in \texttt{preallocated\_list()}
+\item use a list comprehension in \texttt{lst\_comp()}
+\item use the python map function in \texttt{map\_twos()}
+\item use vectorization (NumPy) in  \texttt{twos\_numpy()}
 \end{enumerate}
 
 \item \textbf{SciPy Optimization} \setpoints{15}
 
 The \texttt{scipy.optimize} module contains functions that perform numerical optimization. Use \newline
-\texttt{scipy.optimize.fmin} to minimize the following function. 
+\texttt{scipy.optimize.fmin} to minimize the following function with starter code in \texttt{scipy\_opt.py} using the function \texttt{test\_opt()}. If your version of scipy does not have
+\texttt{scipy.optimize.fmin}, use \texttt{scipy.optimize.fmin\_bfgs}.
 $$f(x) = \frac{1}{2}x^TAx - b^Tx$$
 When 
 $A= \begin{pmatrix}
@@ -173,7 +102,43 @@ and $b = \begin{pmatrix}
 1 \\
 1 \\
 \end{pmatrix}$.
-Verify that your solution $x^*$ is a solution to the system of linear equations defined by $A$ and $b$. That is, make sure $Ax^*=b$.
+Verify that your solution $x^*$ is a solution to the system of linear equations defined by $A$ and $b$ by passing your solution $x^*$, $A$ and $b$ to \texttt{verify\_opt()}. That is, make sure $Ax^*=b$.
+
+\newpage
+\item \textbf{Kernel Density Estimate (KDE)} \setpoints{20}
+
+Given a sample $x_1, x_2, \dots, x_n$ from an unknown distribution $f$ the kernel density estimate of $f$ at point $x$ with kernel $K_b$ is defined as 
+$$\hat{f}(x;b) = \frac{1}{n}\sum_{i=1}^{n}K_b(x-x_i)$$
+where the kernel must satisfy $\int_{-\infty}^{\infty}K(u)du = 1$ and $K(-u) = K(u).$ The parameter $b$ is known as the bandwidth and controls the width of the kernel used. There are many possible choices for kernels, and we will use the triangular kernel
+
+$$K_{b}(z) = \frac{1}{b}(1 - |\frac{z}{b}|)\mathbb{*I}(|\frac{z}{b} |\leq 1)$$ 
+
+\begin{figure}[h!!!]
+        \centering
+        \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[height=1.9in, natwidth=410,natheight=442]{kde}
+        \caption{Gaussian Kernel Density Estimate}
+        \label{fig:gkde}
+        \end{subfigure}
+        \quad
+        \centering
+        \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[height=1.9in, natwidth=410,natheight=442]{bw}
+        \caption{Bandwiths and Kernels}
+        \label{fig:bw}
+        \end{subfigure}
+\end{figure}
+
+Write a ONE line python function without list comprehension or the keyword \texttt{for} that takes the three parameters below and returns $\hat{f}(x)$, the KDE evaluated at $x$.  Implement this in \texttt{kde.py}. 
+\begin{enumerate}
+\item \texttt{x} the point to evaluate the KDE
+\item \texttt{data}  the sample of points from $f$  ; above denoted $x_1, x_2, \dots, x_n$ 
+\item \texttt{bw} the bandwidth of the kernel
+\end{enumerate}
+
+
 
 \item \textbf{matplotlib} \setpoints{0}
 

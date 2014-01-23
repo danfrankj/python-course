@@ -15,7 +15,7 @@ for row in tbl.findAll('tr'):
             np.float(elements[0].string)
         except:
             continue
-        arr_list.append(np.array([np.float(elem.string) for elem in elements]))
+        arr_list.append(np.array([np.float(e.string) for e in elements]))
 data = np.vstack(arr_list)
 
 grid = np.linspace(2, 20, 100)

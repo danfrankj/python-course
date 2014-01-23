@@ -3,7 +3,9 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{../../arbenson-math}
+\usepackage{graphics}
 
+\graphicspath{{./figures/}}
 \usetheme{boxes}
 \usecolortheme{seahorse}
 
@@ -17,12 +19,11 @@
 
 \title{CME 193: Introduction to Scientific Python \\
 Lecture 4: NumPy and SciPy}
-\author{Austin Benson \\
-\vspace{0.1in}
+\author{
 Dan Frank \\
 \vspace{0.1in}
 Institute for Computational and Mathematical Engineering (ICME)}
-\date{January 22, 2013}
+\date{January 21, 2014}
 \begin{document}
 
 \maketitle
@@ -55,7 +56,7 @@ Several ways to create arrays...
 \lstset{basicstyle=\small}
 \codeblock{code/array_io.py}
 Other options control data types, delimiters, comments, headers, etc.
-See documentation, especially "See Also".
+See documentation, especially "See Also". And for matlab \texttt{scipy.io.matlab}
 \end{frame}
 
 \begin{frame}
@@ -65,6 +66,30 @@ Arrays are objects and so have attributes and methods.
 And many others. Explore in documentation or with TAB complete in ipython.
 \end{frame}
 
+
+\begin{frame}
+\frametitle{Array Slicing and Indexing}
+Similar to lists but a few new ways to select
+\lstset{basicstyle=\scriptsize}
+\codeblock{code/array_slice.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Array Slicing and Indexing}
+Different indexing can be very powerful, used for extraction and setting of data.
+\lstset{basicstyle=\scriptsize}
+\codeblock{code/array_bool.py}
+\end{frame}
+
+\begin{frame}
+\frametitle{Array Axes}
+Arrays are organized by their axes, the first being row, then column, ...
+\lstset{basicstyle=\scriptsize}
+\codeblock{code/array_axes.py}
+Many functions in NumPy and SciPy are created to operate along axes
+\end{frame}
+
+
 \begin{frame}
 \frametitle{Array Operations \& ufuncs}
 Default behavior is elementwise 
@@ -73,18 +98,33 @@ Default behavior is elementwise
 \end{frame}
 
 \begin{frame}
-\frametitle{Array Slicing and Indexing}
-Similar to lists but a few new ways to select
-\lstset{basicstyle=\scriptsize}
-\codeblock{code/array_slice.py}
-Boolean indexing can be very powerful as we will see in the exercises.
+\frametitle{Array Broadcasting \& Vectorization}
+Broadcasting allows us to operate on arrays of different shapes by reusing smaller arrays when possible. This allows us to write more efficient and readable code (with fewer for loops).
+\codeblock{code/array_broadcasting.py}
 \end{frame}
 
 \begin{frame}
-\frametitle{Array Broadcasting \& Vectorization}
-Broadcasting allows us to operate on arrays of different shapes by 'copying' smaller arrays when possible. This allows us to write more efficient and readable code (with fewer for loops).
-\codeblock{code/array_broadcasting.py}
+\frametitle{Array Broadcasting Rules}
+When operating on two arrays, NumPy compares their shapes element-wise. It starts with the trailing dimensions, and works its way forward. Two dimensions are compatible when
+\begin{enumerate}
+\item they are equal, or
+\item one of them is 1
+\end{enumerate}
+If these conditions are not met, a ValueError: frames are not aligned exception is thrown, indicating that the arrays have incompatible shapes. The size of the resulting array is the maximum size along each dimension of the input arrays.
 \end{frame}
+
+\begin{frame}
+\frametitle{Array Broadcasting Example}
+\begin{figure}
+    \centering
+	\begin{subfigure}[b]{\textwidth}
+	\centering
+	\includegraphics[height=2.5in]{broadcasting}
+	\label{fig:xkcd}
+	\end{subfigure}
+\end{figure}
+\end{frame}
+
 
 
 \section{SciPy}
@@ -117,9 +157,9 @@ Question: do two data samples come from the same distribution?
 \codeblock{code/bootstrap_mean.py}
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Example: k-means clustering}
-%\codeblock{code/k_means.py}
-%\end{frame}
+\begin{frame}
+\frametitle{Example: k-Nearest Neighbor clustering}
+\codeblock{code/knn.py}
+\end{frame}
 
 \end{document}

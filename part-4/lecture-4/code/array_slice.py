@@ -1,5 +1,3 @@
-import numpy as np
-
 arr = np.arange(20).reshape((4, 5))
 
 # slicing (like lists for each dimension)
@@ -11,7 +9,9 @@ arr[slice(None), slice(3, None)]  # equivalent - can use slice()
 # integer indices
 arr[[1, 2], :]  # rows one and two, all columns
 arr[np.array([1, 2]), :]  # equivalent
+arr[[1, 2], [1, 2, 3]] # ERROR
 
 # boolean indices
-arr[[False, True, True, False], :]  # equivalent
 arr[np.array([False, True, True, False]), :]  # equivalent
+arr[[False, True, True, False], :]  
+# NOT equivalent - boolean treated as 1, 0
