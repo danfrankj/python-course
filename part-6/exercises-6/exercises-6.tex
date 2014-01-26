@@ -1,0 +1,169 @@
+\documentclass{article}
+\newcommand{\assgnnum}{2}
+\newcommand{\assigndate}{April 9}
+
+\usepackage{amsmath}
+\usepackage{fullpage}
+\usepackage{amssymb}
+%\usepackage{bbm}
+\usepackage{fancyhdr}
+%\usepackage{paralist}
+\usepackage{graphicx}
+\usepackage[pdftex,colorlinks=true, urlcolor = blue]{hyperref}
+\usepackage{../../arbenson-math}
+
+\oddsidemargin 0in \evensidemargin 0in
+\topmargin -0.5in \headheight 0.25in \headsep 0.25in
+\textwidth 6.5in \textheight 9in
+\parskip 6pt \parindent 0in \footskip 20pt
+
+% set the header up
+\fancyhead{}
+\fancyhead[L]{CME193: In-class exercises \assgnnum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand\headrulewidth{0.4pt}
+\setlength\headheight{15pt}
+
+
+\newcommand{\p}{\ensuremath{\mathbf{P}}}
+\renewcommand{\Pr}[1]{\ensuremath{\p \left \{ #1 \right \}}}
+\newcommand{\nti}{\ensuremath{n \to \infty}}
+\newcommand{\I}{\ensuremath{\operatorname{I}}}
+\newcommand{\One}[1]{\ensuremath{\mathbbm{1}_{\left \{ #1 \right \}}}}
+\newcommand{\E}{\ensuremath{\mathbf{E}}}
+\newcommand{\Ex}[2][]{\ensuremath{\E_{#1} \left[ #2 \right]}}
+\newcommand{\var}{\ensuremath{\operatorname{Var}}}
+\newcommand{\cov}{\ensuremath{\operatorname{Cov}}}
+\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\NormRV}[2]{\ensuremath{\operatorname{N}\left(#1, #2\right)}}
+\newcommand{\BetaRV}[2]{\ensuremath{\operatorname{Beta}\left(#1, #2\right)}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\bb}{\mathbf{b}}
+
+
+\newcounter{points}
+\setcounter{points}{0}
+
+\newcommand\setpoints[1]{\addtocounter{points}{#1}(#1 points)}
+\newcommand\printpoints{Total number of points: \thepoints}
+
+\newcommand{\eqD}{\ensuremath{\overset{\mathcal{D}}{=}}}
+
+\setlength{\parindent}{0in}
+
+\begin{document}
+
+\pagestyle{fancy}
+%\vspace*{15pt}
+\begin{enumerate}
+
+\item \textbf{QR factorization}
+\begin{enumerate}
+\item Create a function \texttt{qr2} that takes as input two matrices $A$ and $B$ and outputs the $QR$ factorization of the matrix 
+
+\[
+\begin{pmatrix} A \\ B\end{pmatrix}
+\]
+
+by using the \texttt{hstack} function.  What is the output of the following code snippet?
+
+\vspace{0.5cm}
+\lstinputlisting{code/qr1.py}
+
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Write a function \texttt{qr3} that takes as input two matrices $A$ and $B$ and does the following:
+
+\begin{enumerate}
+\item Computes the QR factorization of $A$: $A = Q_AR_A$.
+\item Computes the QR factorization of $B$: $A = Q_BR_B$.
+\item Computes the QR factorization of $C = \begin{pmatrix}R_A \\ R_B \end{pmatrix}$: $C = Q_CR_C$.
+\item Outputs the tuple $(Q_A, Q_B, Q_C, R_C)$
+\end{enumerate}
+
+\vspace{0.5cm}
+
+What is the output of the following code snippet?
+
+\vspace{0.5cm}
+\lstinputlisting{code/qr2.py}
+
+How does this compare to the output in part (a)?
+
+\end{enumerate}
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Using the outputs from part (b), compute the matrix
+
+\[
+Q_D = \begin{pmatrix} Q_A & 0_{m_1 \times n} \\ 0_{m_2 \times n} & Q_B \end{pmatrix}Q_C
+\]
+
+$0_{m_1 \times n}$ means a matrix of all zeros consisting of $m_1$ rows and $n$ columns, where $m_1$ is the number of rows of $Q_A$ and $n$ is the number of columns of $Q_B$. \\
+
+How does $Q_D$ compare to the output $Q$ from part (a)?
+
+\end{enumerate}
+
+\newpage
+\item \textbf{Low-rank approximations with the SVD} \\
+
+\begin{enumerate}
+\item Write a function \texttt{laplace} that takes as input a vector $v$ of length $n$ and outputs a matrix $K$ of size $n \times n$ such that
+\[
+K_{ij} = \left\{
+     \begin{array}{lr}
+       \frac{1}{|v_i - v_j|}, \quad i \neq j \\
+       0, \quad i = j
+     \end{array}
+   \right.
+\]
+\end{enumerate}
+
+When the elements of $v$ are points in three-dimensional space, $1 / \| v_i - v_j \|_2$ is called the Laplace kernel.
+
+\begin{enumerate}
+\setcounter{enumii}{1}
+\item Define $v$ by \texttt{v = np.arange(0.1, 10, 0.5)}.  $v$ should have length $20$.  Define $K$ by \texttt{K = laplace(v)} and let
+\[
+K_1 = K[0:10, 10:20],
+\]
+i.e., $K_1$ is the $10 \times 10$ upper-right block of $K$.  Plot the singular values of $K_1$.  What do you notice?
+\end{enumerate}
+
+
+\begin{enumerate}
+\setcounter{enumii}{2}
+\item Consider the matrix $K_1$ from part (b) and its singular value decomposition
+\[
+K_1 = U\Sigma V^T.
+\]
+Compute the matrix $K_2$, defined by
+\[
+K_2 = U[:, 0:2]\Sigma[0:2, 0:2] V^T[0:2, :].
+\]
+In other words, $K_2$ is the product of the first three columns of $U$, the upper-left $3 \times 3$ block of $\Sigma$, and the first three rows of $V^T$. $K_2$ is called a \emph{low-rank approximation} of $K_1$. \\
+
+Define the vector $x$ by \texttt{x = np.ones(10)}.  Compute the vector
+\[
+K_1x - K_2x
+\]
+
+Explain the output.
+
+\end{enumerate}
+
+
+
+
+\end{enumerate}
+%\printpoints.
+\end{document} 
