@@ -196,6 +196,53 @@ Need to convert to matrices
 
 \end{frame}
 
+\begin{frame}
+\frametitle{Other subtleties}
+
+\codeblock{code/subtle1.py}
+
+\pause
+
+\begin{center}
+[6 6] [6 6]
+
+[4 8] [4 8]
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Other subtleties}
+
+\codeblock{code/subtle2.py}
+
+\pause
+
+\begin{center}
+[[0 0]
+
+ [0 0]]
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Other subtleties}
+
+\codeblock{code/subtle3.py}
+
+\pause
+
+\begin{center}
+[[ 0.5  0.5]
+
+ [ 0.5  0.5]]
+\end{center}
+
+\end{frame}
+
 
 \section{QR}
 
@@ -236,13 +283,17 @@ Need to convert to matrices
 \frametitle{Least squares}
 
 \begin{itemize}
-\item Have several input vectors $x_1$, $x_2$, $\ldots$, $x_m$, each of length $n$.
+\item Have several input vectors $x_1$, $x_2$, $\ldots$, $x_n$, each of length $m$.
 \item Have a one output vector $y$ of length $m$
-\item Want to minimize:
+\item Want find vector $\beta$ to minimize
 \[
  \ssum{i=1}{m} \ssum{j=1}{n}(x_{ij}\beta_j - y_j)^2
  \]
 \end{itemize}
+
+\begin{figure}
+\includegraphics[scale=0.3]{figs/lstsq.pdf}
+\end{figure}
 
 \end{frame}
 
@@ -286,22 +337,37 @@ Moral of the story: QR has a purpose
 \end{frame}
 
 \begin{frame}
-\frametitle{Numpy QR}
+\frametitle{NumPy least squares}
 
-\begin{itemize}
+\begin{enumerate}
 \item $X = QR$
 \item $z = Q^Ty$
 \item $R\hat{\beta} = z$
-\end{itemize}
+\end{enumerate}
 
 \codeblock{code/qr1.py}
 
 \end{frame}
 
+
 \begin{frame}
-\frametitle{Numpy least squares}
+\frametitle{NumPy + SciPy QR}
+
+\begin{enumerate}
+\item $X = QR$
+\item $z = Q^Ty$
+\item $R\hat{\beta} = z$
+\end{enumerate}
 
 \codeblock{code/qr2.py}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{NumPy least squares}
+
+\codeblock{code/qr3.py}
 
 \end{frame}
 
@@ -315,7 +381,7 @@ The singular value decomposition (SVD) of a matrix $A$:
 \item $A$ is $n \times n$
 \item $A = U\Sigma V^T$, all $n \times n$
 \item $U^TU = V^TV = I$
-\item $\Sigma$ is diagonal with $\Sigma_{ii} \ge \Sigma_{jj}$ for $i < j$.
+\item $\Sigma$ is diagonal with $\Sigma_{ii} \ge \Sigma_{jj} \ge 0$ for $i < j$.
 \end{itemize}
 
 \begin{figure}
@@ -348,6 +414,18 @@ SVD appears all over the place, for example:
 \begin{figure}
 \includegraphics[scale=0.25]{figs/svd_plot.png}
 \end{figure}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{SVD example}
+
+\codeblock{code/svd2.py}
+
+\begin{figure}
+\includegraphics[scale=0.2]{figs/svd_lowrank.png}
+\end{figure}
+
 
 \end{frame}
 

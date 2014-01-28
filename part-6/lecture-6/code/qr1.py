@@ -1,8 +1,8 @@
 import numpy as np
 
-A = np.array([[1, 2], [3, 4], [7, 8]])
+X = np.array([[1, 2], [3, 4], [7, 8]])
 y = [9, 12, 11]
-Q, R = np.linalg.qr(A)
-z = np.dot(Q.T, y)
-betahat = np.linalg.solve(R, z)
+Q, R = np.linalg.qr(X) # 1
+z = np.dot(Q.T, y) # 2
+betahat = np.linalg.solve(R, z) # 3
 print betahat

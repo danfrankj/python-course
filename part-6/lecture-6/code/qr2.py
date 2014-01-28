@@ -1,13 +1,9 @@
 import numpy as np
+import scipy.linalg
 
-A = np.array([[1, 2], [3, 4], [7, 8]])
+X = np.array([[1, 2], [3, 4], [7, 8]])
 y = [9, 12, 11]
-
-'''
-Q, R = np.linalg.qr(A)
-z = np.dot(Q.T, y)
-betahat = np.linalg.solve(R, z)
-'''
-
-betahat = np.linalg.lstsq(A, y)[0]
+Q, R = np.linalg.qr(X) # 1
+z = np.dot(Q.T, y) # 2
+betahat = scipy.linalg.solve_triangular(R, z) # 3
 print betahat
