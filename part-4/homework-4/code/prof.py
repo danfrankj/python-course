@@ -11,7 +11,7 @@ def empty_list():
     return []
 
 def preallocated_list():
-    # create an list of zeros of size 100 and assign elements sequentially 
+    # create an list of zeros of size 50 and assign elements sequentially 
     return [] 
 
 def lst_comp():

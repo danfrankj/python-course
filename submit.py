@@ -36,22 +36,21 @@
 
 import sys
 import shutil
-import pwd
 import os
 import time
 import math
 import string
 import importlib
+import pwd
+import glob
 from subprocess import call
-import webbrowser
-import random
+import argparse
 
 
 # Global Constants
 COURSE_NAME = "cme193"
-#HOME_DIR = "/afs/ir.stanford.edu/class/cme193/"
 HOME_DIR = "/afs/ir.stanford.edu/users/d/a/danfrank/cme193/"
-#HOME_DIR = "/home/danfrank/cme193/"
+
 SUBMIT_CONFIG_DIR = HOME_DIR + "/config/"  # system:anyuser rl
 SUBMIT_DIR = HOME_DIR + "/submissions/"  # system:anyuser iw
 GRADER_DIR = HOME_DIR + "/graders/"
@@ -185,28 +184,9 @@ def getSourceDirectory(filesToSubmit):
 # conversion found later (search for submitTimeString) before using
 # it.
 
-def main():
+def submit_assignment():
+
     SUBMIT_TIME = time.time()
-
-    # Greeting message
-    print "\n------------- Welcome to the " + COURSE_NAME + " Submit Script -------------\n"
-    print "If you are using this script on a machine other than corn,"
-    #print "epic, myth, fable, saga, or tree, please hit CTRL-C to cancel"
-    print "please hit CTRL-C to cancel"
-    print "this script, log into one of those machines and try again.\n"
-
-    #------------------------------------
-    # Get some relevant shell variables: student name, Leland ID, etc.
-    USERID = os.environ['USER']
-    STUDENT_NAME = pwd.getpwnam(USERID)[4]
-    #HOST = os.environ['HOSTNAME']
-	
-    # Identity check
-    print "\nYou are submitting for " + STUDENT_NAME  # + " from " + HOST
-    print "If you're not " + STUDENT_NAME + ", then log out and try again"
-    print "after logging into your own account.\n"
-
-
     #------------------------------------
     # determine assignment for submission
     assignment = GetAssignmentInfo()
@@ -273,15 +253,16 @@ def main():
     while i < MAX_SUBMISSIONS:
         i = i + 1
         destDir = HWdir + "/" + USERID + "-" + str(i)
-        if (not os.path.exists(destDir) and not os.path.exists(destDir + '-late')):
+        if (not os.path.exists(destDir) and
+                    not os.path.exists(destDir + '-late')):
             if lateDays > MAX_LATE_DAYS:
                 os.mkdir(destDir + '-late')
             else:
                 os.mkdir(destDir)
             break
     if i == MAX_SUBMISSIONS:
-	print "You have reached the maximum submissions for this assignment. Please contact course staff"
-	sys.exit()
+	   print "You have reached the maximum submissions for this assignment. Please contact course staff"
+	   sys.exit()
 
     if lateDays > MAX_LATE_DAYS:
         destDir = destDir + '-late'
@@ -361,5 +342,49 @@ def main():
 
     print "\n\nAll done!  Thanks a lot!"
 
+
+def get_grades():
+    assignment_dirs = os.listdir(SUBMIT_DIR)
+    print 'Listing grades ... your final submission will be used'
+    for d in assignment_dirs:
+        submissions = glob.glob(os.path.join(SUBMIT_DIR, d, USERID + '*'))
+        print 'Assignment ' + d + ': '  + str(len(submissions)) + ' submissions found '
+        if len(submissions) > 0:
+            with open(os.path.join(submissions[-1], "GRADING"), 'r') as f:
+                lines = f.read().splitlines()
+                print '    ' + lines[8] + ' ' + lines[9] + ' ' + lines[6]
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+
+    # Greeting message
+    print "\n------------- Welcome to the " + COURSE_NAME + \
+        " Submit Script -------------"
+    print "If you are using this script on a machine other than corn,"
+    #print "epic, myth, fable, saga, or tree, please hit CTRL-C to cancel"
+    print "please hit CTRL-C to cancel"
+    print "this script, log into one of those machines and try again.\n"
+
+    #------------------------------------
+    # Get some relevant shell variables: student name, Leland ID, etc.
+    USERID = os.environ['USER']
+    STUDENT_NAME = pwd.getpwnam(USERID)[4]
+    SUBMIT_TIME = time.time()
+
+    #HOST = os.environ['HOSTNAME']
+
+    # Identity check
+    print "\nYou are logged in as " + STUDENT_NAME  # + " from " + HOST
+    print "If you're not " + STUDENT_NAME + \
+        ", then please log out and try again"
+    print "after logging into your own account.\n"
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--grades', dest='grades', action='store_const',
+                        const=True, default=False,
+                        help='get grades for all submitted hws')
+    args = parser.parse_args()
+    if args.grades:
+        sys.exit(get_grades())
+    else:
+        sys.exit(submit_assignment())
