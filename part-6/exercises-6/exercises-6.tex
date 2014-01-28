@@ -64,13 +64,13 @@
 
 \item \textbf{QR factorization}
 \begin{enumerate}
-\item Create a function \texttt{qr2} that takes as input two matrices $A$ and $B$ and outputs the $QR$ factorization of the matrix 
+\item Create a function \texttt{qr2} that takes as input two matrices $A$ and $B$ and outputs the (thin) $QR$ factorization of the matrix 
 
 \[
-\begin{pmatrix} A \\ B\end{pmatrix}
+\begin{pmatrix} A \\ B\end{pmatrix}.
 \]
 
-by using the \texttt{hstack} function.  What is the output of the following code snippet?
+Use the \texttt{hstack} function.  What is the output of the following code snippet?
 
 \vspace{0.5cm}
 \lstinputlisting{code/qr1.py}
@@ -121,8 +121,8 @@ How does $Q_D$ compare to the output $Q$ from part (a)?
 \[
 K_{ij} = \left\{
      \begin{array}{lr}
-       \frac{1}{|v_i - v_j|}, \quad i \neq j \\
-       0, \quad i = j
+       \frac{1}{|v_i - v_j|}  & i \neq j \\
+       0 & \quad i = j
      \end{array}
    \right.
 \]
@@ -148,13 +148,15 @@ K_1 = U\Sigma V^T.
 \]
 Compute the matrix $K_2$, defined by
 \[
-K_2 = U[:, 0:2]\Sigma[0:2, 0:2] V^T[0:2, :].
+K_2 = U[:, 0:3]\Sigma[0:3, 0:3] V^T[0:3, :].
 \]
-In other words, $K_2$ is the product of the first three columns of $U$, the upper-left $3 \times 3$ block of $\Sigma$, and the first three rows of $V^T$. $K_2$ is called a \emph{low-rank approximation} of $K_1$. \\
+In other words, $K_2$ is the product of the first three columns of $U$, the upper-left $3 \times 3$ block of $\Sigma$, and the first three rows of $V^T$.
+(Remember that we defined $\Sigma$ as a matrix, but \texttt{np.linalg.svd} returns just a vector of values since $\Sigma$ is diagonal).
+$K_2$ is called a \emph{low-rank approximation} of $K_1$. \\
 
 Define the vector $x$ by \texttt{x = np.ones(10)}.  Compute the vector
 \[
-K_1x - K_2x
+K_1x - K_2x.
 \]
 
 Explain the output.
