@@ -36,6 +36,8 @@ Examples
 >>> weighted_sample(np.array(['A', 'B'], probs, N=4))
 array(['B', 'B', 'A', 'B'])
 """
-def weighted_sample(items, probs, N=1):
-    return items[np.zeros(N)] # IMPLEMENT ME
 
+
+# IMPLEMENT ME IN ONE LINE (the def line does not count, unlike last time)
+def weighted_sample(items, probs, N=1):
+    return items[np.zeros(N)]

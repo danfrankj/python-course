@@ -26,8 +26,11 @@ out : np.array
 """
 
 
+# IMPLEMENT ME IN ONE LINE (the def line does not count, unlike last time)
+#   you should be able to modify your previous version of kde() slightly
+#   to complete this question
 def better_kde(xvals, data, bw):
-    return np.zeros(xvals.size()) # IMPLEMENT ME
+    return np.zeros(xvals.size())
 
 
 def plot_kde():
