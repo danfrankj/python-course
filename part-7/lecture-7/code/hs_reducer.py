@@ -3,7 +3,6 @@ import sys
 from itertools import groupby, imap
 from operator import itemgetter
 
-
 def reducer(key, values):
     # key: word; values: list of 1's
     yield key, sum([int(v) for v in values])

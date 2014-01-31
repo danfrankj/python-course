@@ -127,7 +127,7 @@ class TestHw4(unittest.TestCase):
         lines = self.get_lines(prof.twos_numpy)
 
         self.assertTrue(len(lines) == 1,
-                        "please create and return the map function one line")
+                        "please create and return the numpy function one line")
 
         pat = "return +(np|numpy)\.power\(.*\)"
         self.assertTrue(
@@ -141,7 +141,7 @@ class TestHw4(unittest.TestCase):
     def test_test_opt(self):
         import scipy_opt
         xstar = np.array([1., 0.])
-        self.assertTrue(np.linalg.norm(xstar - scipy_opt.test_opt()) < 1e-4,
+        self.assertTrue(np.linalg.norm(xstar - scipy_opt.test_opt().flatten()) < 1e-4,
                         "answer does not satisfy Ax=b")
 
     def test_kde(self):

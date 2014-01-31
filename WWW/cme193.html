@@ -25,7 +25,7 @@
 
       <div id="content">
         <h1>CME 193: Introduction to Scientific Python</h1>
-	Course description: <i>This short course runs for the first three weeks of the quarter and is 
+	Course description: <i>This short course runs for the first three weeks of the quarter and is
 	  offered each quarter during the academic year.
 	  It is recommended for students who want to use Python in math,
 	  science, or engineering courses and for students who want to learn the basics of Python programming.
@@ -35,7 +35,7 @@
 	  Topics covered include control flow, basic data structures, File I/O, and an introduction to NumPy/SciPy.</i>
 
 	<h3><a name="Info">Course Information</a></h3>
-        CME 193 <br />    
+        CME 193 <br />
 	Location: 200-034 <br />
 	Times: Tu / Th 3:15PM - 5:05PM; January 9 - February 4<br /><br />
 
@@ -48,24 +48,24 @@
         We will be using Piazza for course communication.  The course page is <a href="https://piazza.com/class#winter2014/cme193">here</a>.
 
 	<h3><a name="Policy">Course Policy</a></h3>
-        There will be seven short homework assignments.  You pass the class if you pass each homework assignment which will roughly corresponds 
+        There will be seven short homework assignments.  You pass the class if you pass each homework assignment which will roughly corresponds
         to earning at least 70% of the points on each.
         Homework is assigned for each lecture, and each homework is due by the beginning of the following lecture.
         <br /><br />
 
-        Homework will have starter code / templates (see <a href="#Assignments">Assignments</a>) and will be automatically graded at the time of submission.  
-        The autograder is there so you can tell if your work is correct and if you have passed the assignment.  
-        You can submit any number of times before the due date and you are allowed up to 5 late days. 
+        Homework will have starter code / templates (see <a href="#Assignments">Assignments</a>) and will be automatically graded at the time of submission.
+        The autograder is there so you can tell if your work is correct and if you have passed the assignment.
+        You can submit any number of times before the due date and you are allowed up to 5 late days.
         Your final submission will be the one used for a grade.
-         
+
         <br /><br />
         Gaming the autograder by hard-coding the answers is a violation of the Stanford Honor Code
-        as is using packages which have already implemented what is asked for in a question. 
+        as is using packages which have already implemented what is asked for in a question.
         You are encouraged to collaborate with others on the homework assignments.  However, you must write up your own solutions.  You may not
         copy each others' code.
-        
+
         <br /><br />
-        <b><a href="#Assignments">Assignment</a> Submission:</b> 
+        <b><a href="#Assignments">Assignment</a> Submission:</b>
         <ol>
 	      <li> <code>scp</code> homework file(s) to corn </li>
 	      <li> log into corn and run the following script <code>/afs/ir.stanford.edu/users/d/a/danfrank/cme193/submit.py </code> (easiest if you're in the directory containing the homework files) </li>
@@ -74,15 +74,15 @@
 	</ol>
 	To see grades for already submitted assignments please add the --grades flag <code>/afs/ir.stanford.edu/users/d/a/danfrank/cme193/submit.py --grades </code>
 
-		
+
 	<h3><a name="DevEnv">Development Environment</a></h3>
 	We will be using <a href="http://www.numpy.org/">NumPy</a>, <a href="http://www.scipy.org/">SciPy</a>, <a href="http://matplotlib.org/">matplotlib</a>, and <a href="http://ipython.org/">IPython</a>.
  in this course. These are all available on corn but often it will be more
-	convenient for you to have them set up on your personal machine. There are numerous tutorials online to get these installed on your system (also see reading for Lecture 1).   
-	
+	convenient for you to have them set up on your personal machine. There are numerous tutorials online to get these installed on your system (also see reading for Lecture 1).
+
 	<br /><br />
-	In case you are unable to get setup we have created a virtual machine (VM) to work with <a href="https://www.virtualbox.org/">VirtualBox</a> 
-	that has all of the tools needed for the class. 
+	In case you are unable to get setup we have created a virtual machine (VM) to work with <a href="https://www.virtualbox.org/">VirtualBox</a>
+	that has all of the tools needed for the class.
         The VM uses Linux Debian 6.0.7, the username is cme193 and the password is 193cme.  The root password is toor.  To get started: <br /><br />
 	<ol>
 	  <li> Download and unzip the VM appliance: <a href="./cme193/cme193-debian-6.0.7.ova.zip">cme193-debian-6.0.7.ovf.zip</a> (1.9 GB). </li>
@@ -90,7 +90,7 @@
 	  <li> Start VirtualBox and select File --> Import Appliance </li>
 	  <li> Select cme193-debian-6.0.7.ovf for the appliance. </li>
 	</ol>
-        
+
     <h3><a name="Schedule">Schedule</a></h3>
     Disclaimer: schedule is subject to change
     <ul>
@@ -108,7 +108,7 @@
               [<a href="http://shell.appspot.com/">Directly online</a>].
             </li>
 	    <li>
-              Python <a href="http://www.tutorialspoint.com/python/arithmetic_operators_example.htm">arithmetic</a>, 
+              Python <a href="http://www.tutorialspoint.com/python/arithmetic_operators_example.htm">arithmetic</a>,
               <a href="http://www.tutorialspoint.com/python/comparison_operators_example.htm">comparison operators</a>,
               <a href="http://www.tutorialspoint.com/python/assignment_operators_example.htm">assignment operators</a>,
               <a href="http://www.tutorialspoint.com/python/logical_operators_example.htm">logical operators</a>,
@@ -130,7 +130,7 @@
 	  </ul>
 
 	  <br />
-          <li> <b>January 14: Lecture 2 | </b> Data Structures 
+          <li> <b>January 14: Lecture 2 | </b> Data Structures
                [<a href="./cme193/lectures/lecture-2.pdf">slides</a>]
                [<a href="./cme193/exercises/exercises-2.pdf">exercises</a>]
           </li>
@@ -186,32 +186,35 @@
             <li><a href="http://www.loria.fr/~rougier/teaching/matplotlib/#simple-plot">Simple plot</a></li>
             <li><a href="http://www.scipy.org/Plotting_Tutorial">Scipy plotting tutorial</a></li>
 	  </ul>
-	  
+
 	  <br />
-          <li> <b>Jan 28: Lecture 6 Guest Lecturer <a href=http://www.stanford.edu/~arbenson/> Austin Benson </a> | </b>TBD
-               [<a style="color: grey" href="./cme193/lectures/lecture-6.pdf">slides</a>]
-               [<a style="color: grey" href="./cme193/exercises/exercises-6.pdf">exercises</a>]
+          <li> <b>Jan 28: Lecture 6 Guest Lecturer <a href=http://www.stanford.edu/~arbenson/> Austin Benson </a> | </b>Matrix Operations
+               [<a href="./cme193/lectures/lecture-6.pdf">slides</a>]
+               [<a href="./cme193/exercises/exercises-6.pdf">exercises</a>]
           </li>
 	  References:
-	  
+		<ul id="list6">
+		</ul>
 	  <br />
-          <li> <b>Jan 30: Lecture 7 |</b> TBD
-               [<a style="color: grey" href="./cme193/lectures/lecture-7.pdf">slides</a>]
+
+          <li> <b>Jan 30: Lecture 7 |</b> MapReduce
+               [<a href="./cme193/lectures/lecture-7.pdf">slides</a>]
                [<a style="color: grey" href="./cme193/exercises/exercises-7.pdf">exercises</a>]
           </li>
 	  References:
-	  
+        <ul id="list7">
+        <li><a href="http://research.google.com/archive/mapreduce.html">    MapReduce (from the Inventors)</a></li>
+            <li><a href="http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/">Writing an Hadoop MapReduce Program in Python</a></li>
+            <li><a href="http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/">Running Hadoop on Ubuntu Linux</a></li>
+        </ul>
+
 	  <br />
-          <li> <b>Feb 4: Lecture 8 |</b> TBD
+          <li> <b>Feb 6: Lecture 8 |</b> TBD
                [<a style="color: grey" href="./cme193/lectures/lecture-8.pdf">slides</a>]
                [<a style="color: grey" href="./cme193/exercises/exercises-8.pdf">exercises</a>]
           </li>
 	  References:
 	  <ul id="list2">
-	    	
-	  </ul>
-	  
-
     </ul>
 
     <h3><a name="Assignments">Assignments</a></h3>
@@ -221,7 +224,7 @@
       <li>Homework 2: [<a href="./cme193/homeworks/hw-2.pdf">pdf</a>] [<a href="./cme193/homeworks/hw2.tar">code</a>].  Due January 16.</li>
       <li>Homework 3: [<a  href="./cme193/homeworks/hw-3.pdf">pdf</a>] [<a  href="./cme193/homeworks/hw3.tar">code</a>].  Due January 21.</li>
       <li>Homework 4: [<a href="./cme193/homeworks/hw-4.pdf">pdf</a>] [<a href="./cme193/homeworks/hw4.tar">code</a>].  Due January 28</li>
-      <li>Homework 5: [<a style="color: grey" href="./cme193/homeworks/hw-7.pdf">pdf</a>] [<a style="color: grey" href="./cme193/homeworks/hw-7.py">code</a>].  Due February 4</li>
+      <li>Homework 5: [<a style="color: grey" href="./cme193/homeworks/hw-7.pdf">pdf</a>] [<a href="./cme193/homeworks/hw7.tar">code</a>].  Due February 6</li>
     </ul>
 
 	<h3><a name="Resources">Additional Resources</a></h3>
